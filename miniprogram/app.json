@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/message/message",
+    "pages/shopping/shopping",
+    "pages/information/information",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "校园信息共享平台",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pagePath",
+        "text": "首页",
+        "iconPath": "iconPath",
+        "selectedIconPath": "selectedIconPath"
+      },
+      {
+        "pagePath": "pagePath",
+        "text": "消息",
+        "iconPath": "iconPath",
+        "selectedIconPath": "selectedIconPath"
+      },
+      {
+        "pagePath": "pagePath",
+        "text": "我的",
+        "iconPath": "iconPath",
+        "selectedIconPath": "selectedIconPath"
+      }
+    ]
+  }
+}
