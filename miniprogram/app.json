@@ -1,39 +1,51 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/message/message",
     "pages/shopping/shopping",
     "pages/information/information",
     "pages/mine/mine"
   ],
+  "requiredPrivateInfos": [
+    "chooseAddress",
+    "choosePoi",
+    "getLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于小程序天气功能显示"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "校园信息共享平台",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "tabBar": {
+  "tabBar": {  
+    "color": "#bfbfbf",
+    "selectedColor": "#2c2c2c",
+    "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pagePath",
+        "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "iconPath",
-        "selectedIconPath": "selectedIconPath"
+        "iconPath": "images/home_unSelect.png",
+        "selectedIconPath": "images/home_select.png"
       },
       {
-        "pagePath": "pagePath",
+        "pagePath": "pages/message/message",
         "text": "消息",
-        "iconPath": "iconPath",
-        "selectedIconPath": "selectedIconPath"
+        "iconPath": "images/message_unSelect.png",
+        "selectedIconPath": "images/message_select.png"
       },
       {
-        "pagePath": "pagePath",
+        "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "iconPath",
-        "selectedIconPath": "selectedIconPath"
+        "iconPath": "images/me_unSelect.png",
+        "selectedIconPath": "images/me_select.png"
       }
     ]
   }

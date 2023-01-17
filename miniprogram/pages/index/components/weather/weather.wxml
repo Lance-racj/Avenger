@@ -1,0 +1,6 @@
+<!--pages/index/components/weather/weather.wxml-->
+<view class="weather_card">
+  <view class="location">{{city}}</view>
+  <view class="templater">{{temp}}度</view>
+  <view class="weather_text">{{text}}</view>
+</view>
