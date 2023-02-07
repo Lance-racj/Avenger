@@ -1,0 +1,30 @@
+/* pages/index/components/weather/weather.wxss */
+.weather_card {
+  width: 710rpx;
+  height: 240rpx;
+  border-radius: 20rpx;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  .left {
+    margin-left: 20rpx;
+    width: 400rpx;
+    height: 240rpx;
+    display: flex;
+    flex-direction: column;
+    .location {
+      font-size: 35rpx;
+      height: 80rpx;
+      line-height: 80rpx;
+    }
+    .temperature {
+      flex: 1;
+      color: #fff;
+      font-size: 60rpx;
+      display: flex;
+      align-items: center;
+    }
+    .weather_text {
+      height: 80rpx;
+      line-height: 80rpx;
+    }
+  }
+}

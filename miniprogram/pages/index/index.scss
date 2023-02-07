@@ -1,15 +1,31 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
-}
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.container {
+  .functionArea {
+    width: 710rpx;
+    height: 240rpx;
+    border-radius: 20rpx;
+    background-color: gray;
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .idleTransaction {
+      width: 300rpx;
+      height: 220rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 20rpx;
+      background-color: green;
+    }
+    .lostAndFound {
+      width: 300rpx;
+      height: 220rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 20rpx;
+      background-color: honeydew;
+    }
+  }
 }

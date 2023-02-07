@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/message/message",
     "pages/shopping/shopping",
-    "pages/information/information",
+    "pages/lost/lost",
     "pages/mine/mine"
   ],
   "requiredPrivateInfos": [
@@ -22,7 +22,6 @@
     "navigationBarTitleText": "校园信息共享平台",
     "navigationBarTextStyle": "white"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar": {  
     "color": "#bfbfbf",
@@ -32,20 +31,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/home_unSelect.png",
-        "selectedIconPath": "images/home_select.png"
+        "iconPath": "assets/icons/home_unSelect.png",
+        "selectedIconPath": "assets/icons/home_select.png"
       },
       {
         "pagePath": "pages/message/message",
         "text": "消息",
-        "iconPath": "images/message_unSelect.png",
-        "selectedIconPath": "images/message_select.png"
+        "iconPath": "assets/icons/message_unSelect.png",
+        "selectedIconPath": "assets/icons/message_select.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "images/me_unSelect.png",
-        "selectedIconPath": "images/me_select.png"
+        "iconPath": "assets/icons/me_unSelect.png",
+        "selectedIconPath": "assets/icons/me_select.png"
       }
     ]
   }

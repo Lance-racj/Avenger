@@ -1,0 +1,10 @@
+<view class="swipeContainer">
+  <swiper bindchange="onSwipeChange" autoplay="{{true}}" interval="3500" circular>
+    <swiper-item wx:for="{{ swipeList }}" wx:key="index">
+      <image class="img" src="{{ item.imageUrl }}" mode="aspectFill"/>
+    </swiper-item>
+  </swiper>
+  <view class="dots">
+    <view class="dot {{ cur !== index || 'active' }}" wx:for="{{ swipeList }}" wx:key="index"></view>
+  </view>
+</view>

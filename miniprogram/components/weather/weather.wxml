@@ -1,0 +1,23 @@
+<!--pages/index/components/weather/weather.wxml-->
+<view class="weather_card">
+  <view class="left">
+    <view class="location">{{city}}</view>
+    <view class="temperature">{{temp}}度</view>
+    <view class="weather_text">
+      <view wx:if="Number(temp) <= 10">
+        温度较低，请多加衣保暖
+      </view>
+      <view wx:elif="Number(temp) >= 35">
+        天气炎热，注意避暑
+      </view>
+      <view wx:else>
+        温度适宜，适合出行
+      </view>
+    </view>
+  </view>
+  <view class="right">
+    <view class="weather_img">
+      
+    </view>
+  </view>
+</view>
