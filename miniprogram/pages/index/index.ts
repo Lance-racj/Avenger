@@ -1,6 +1,6 @@
 // index.ts
-// 获取应用实例
 const app = getApp<IAppOption>()
+import {testLocal} from '../../api/test';
 
 Page({
   data: {
@@ -22,16 +22,7 @@ Page({
       },
     ]
   },
-  onLoad: function() {
-    wx.request({
-      url: `http://localhost:3060/hello`,
-      success: (res)  => {
-        console.log(res);
-      },
-      fail: (err) => {
-        console.log(err);
-      }
-    })
+  onLoad: async function() {
   },
   // 事件处理函数
   goToShopping() {
