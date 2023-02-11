@@ -1,24 +1,50 @@
-const mysql = require('mysql');
+const mongoose = require('mongoose');
 
-// 创建链接对象
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'lzc18791473857',
-  port: 3306,
-  database: 'mysql'
-});
+mongoose.set('strictQuery', true);
 
-// 开始连接
-connection.connect();
-
-const sql = `select * from db`;
-connection.query(sql, (err, result) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log('result', result);
+// 连接mongodb数据库
+mongoose.connect("mongodb://localhost:27017/loseMg").then(() => {
+  console.log('success');
+}).catch((err) => {
+  console.log(err);
 })
 
-connection.end();
+// 创建表
+const LoseSchema = new mongoose.Schema({
+  type: {
+    type: Number
+  },
+  classify_1: {
+    type: String
+  },
+  classify_2: {
+    type: String
+  },
+  name: {
+    type: String
+  },
+  date: {
+    type: String
+  },
+  region: {
+    type: String
+  },
+  phone: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  imgList: {
+    type: Array
+  },
+  time: {
+    type: Number
+  }
+})
+
+const lose = mongoose.model("LoseSchema", LoseSchema);
+
+module.exports = {
+  lose
+}
