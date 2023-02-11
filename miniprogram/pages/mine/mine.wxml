@@ -1,2 +1,18 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="userContainer"> 
+  <view class="userinfo"> 
+    <block wx:if="{{canIUseOpenData}}"> 
+      <view class="userinfo-avatar" bindtap="bindViewTap"> 
+        <open-data type="userAvatarUrl"></open-data> 
+      </view> 
+      <open-data class="userNickName" type="userNickName"></open-data> 
+    </block> 
+  </view> 
+  <view class="content">
+    <van-cell-group>
+      <van-cell title="我的闲置" value="内容" icon="location-o" size="large" is-link />
+      <van-cell title="我的失物招领" value="内容" icon="shopping-cart-o" size="large"  is-link />
+      <van-cell title="退出登录" value="内容" icon="setting-o" size="large"  is-link />
+    </van-cell-group>
+  </view>
+</view> 

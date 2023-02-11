@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/message/message",
+    "pages/publish/publish",
+    "pages/publishLost/publishLost",
     "pages/shopping/shopping",
     "pages/lost/lost",
     "pages/mine/mine"
@@ -35,8 +36,8 @@
         "selectedIconPath": "assets/icons/home_select.png"
       },
       {
-        "pagePath": "pages/message/message",
-        "text": "消息",
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
         "iconPath": "assets/icons/message_unSelect.png",
         "selectedIconPath": "assets/icons/message_select.png"
       },

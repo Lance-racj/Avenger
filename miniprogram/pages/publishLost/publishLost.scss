@@ -1,0 +1,15 @@
+/* pages/publishLost/publishLost.wxss */
+.lostCt {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .publishButtonArea {
+    padding: 20rpx 15rpx;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: slategray 5rpx solid;
+  }
+  .content {
+    margin-top: 30rpx;
+  }
+}

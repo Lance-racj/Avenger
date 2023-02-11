@@ -1,1 +1,23 @@
-/* pages/mine/mine.wxss */
+.userContainer {
+  width: 100vw;
+  height: 100vh;
+  .userinfo {
+    width: 100%;
+    height: 400rpx;
+    padding: 70rpx 0;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    background-color: skyblue;
+    &-avatar {
+      width: 200rpx;
+      height: 200rpx;
+      clip-path: circle();
+    }
+    .userNickName {
+      color: #fff;
+      margin-top: 30rpx;
+    }
+  }
+}

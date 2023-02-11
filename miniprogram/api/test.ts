@@ -6,3 +6,9 @@ export const testLocal = () => {
     return res;
   })
 }
+
+export const publishLost = (publishLostConfig: any) => {
+  return httpRequest.post('http://localhost:3060/publish/lost', publishLostConfig).then((res) => {
+    return res;
+  })
+}
