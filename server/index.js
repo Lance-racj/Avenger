@@ -1,8 +1,19 @@
 const express = require('express');
 const axios = require('axios');
-const {lose} = require('./database');
+const { Lose, Admin } = require('./database');
 
 const app = express();
+
+// 使用中间件支持req.body
+app.use(express.urlencoded({extended: true}));
+app.use(express.json())
+
+// 解决跨域
+app.all('*', (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", '*');
+  res.setHeader("Access-Control-Allow-Headers", '*')
+  next();
+})
 
 // test
 app.get('/hello', (req, res) => {
@@ -25,7 +36,7 @@ app.post('publish/lost', async (req, res) => {
       imgList,
       time
     } = req.body;
-    await lose.create({type, classify_1, classify_2, name, date, region, phone, desc, imgList, time});
+    await Lose.create({type, classify_1, classify_2, name, date, region, phone, desc, imgList, time});
     res.send('success');
   } catch(error) {
     res.send('error', error);
@@ -35,6 +46,17 @@ app.post('publish/lost', async (req, res) => {
 // login
 app.get('login', async (req, res) => {
 
+})
+
+// 管理员登录接口
+app.post('/admin/login', async (req, res) => {
+  const { username, password } = req.body;
+  const result = await Admin.findOne({username});
+  if (result && result.password === password) {
+    res.send(result);
+  } else {
+    res.send('error');
+  }
 })
 
 app.listen('3060', () => {

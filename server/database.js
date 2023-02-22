@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 
 // 连接mongodb数据库
-mongoose.connect("mongodb://localhost:27017/loseMg").then(() => {
-  console.log('success');
+mongoose.connect("mongodb://root:123456@localhost:27017/?authMechanism=DEFAULT").then(() => {
+  console.log('success, 数据库连接成功');
 }).catch((err) => {
-  console.log(err);
+  console.log('xxxx', err);
 })
 
-// 创建表
+// 失物表
 const LoseSchema = new mongoose.Schema({
   type: {
     type: Number
@@ -43,8 +43,39 @@ const LoseSchema = new mongoose.Schema({
   }
 })
 
-const lose = mongoose.model("LoseSchema", LoseSchema);
+// 管理员账号表
+const AdminSchema = new mongoose.Schema({
+  username: {
+    type: String
+  },
+  password: {
+    type: String
+  },
+  createTime: {
+    type: Number
+  },
+  // 权限：超管/管理
+  role: {
+    type: Number
+  },
+  nickName: {
+    type: String
+  }
+})
+
+const Lose = mongoose.model("LoseSchema", LoseSchema);
+const Admin = mongoose.model("AdminSchema", AdminSchema);
+
+// 创建一个该表的超管
+// Admin.create({
+//   username: 'root',
+//   password: '123456',
+//   createTime: 1677039378080,
+//   role: 0,
+//   nickName: 'Wt'
+// })
 
 module.exports = {
-  lose
+  Lose,
+  Admin
 }
