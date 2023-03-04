@@ -92,7 +92,18 @@ app.post('/admin/login', async (req, res) => {
 
 // 用户管理接口
 app.post('admin/user', async (req, res) => {
-
+  const { page, size } = req.body;
+  try {
+    const result = await User.find()
+      .skip((page - 1) * size).limit(size);
+    const total = await User.find().countDocuments();
+    res.send({
+      result,
+      total
+    })
+  } catch(error) {
+    res.send(error)
+  }
 })
 
 app.listen('3060', () => {

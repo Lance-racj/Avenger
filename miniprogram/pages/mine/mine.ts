@@ -7,10 +7,7 @@ const app = getApp<IAppOption>()
 Page({ 
   data: { 
     userInfo: {}, 
-    canIUse: wx.canIUse('button.open-type.getUserInfo'), 
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false 
     openid: '',
-    login: false,
     show: false
   }, 
   toLogin() {
@@ -55,9 +52,16 @@ Page({
     });
   },
   onLoad() {
-    const login = wx.getStorageSync('login');
+    const login_account = wx.getStorageSync('login_account');
+    const account = wx.getStorageSync('account');
     this.setData({
-      login: login
+      login_account: login_account,
+      userInfo: account
     })
+    if (!login_account) {
+      wx.redirectTo({
+        url: '../login/login'
+      })
+    }
   }
 }) 

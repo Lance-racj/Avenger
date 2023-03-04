@@ -1,16 +1,8 @@
 <view class="userContainer">
-  <view wx:if="{{ !login }}" class="unlogin">
-    <image class="unlogin_img" src="../../assets/icons/me_select.png" />
-    <button class="unlogin_btn" open-type="getUserInfo" bindtap="toLogin">微信一键登录</button>
-  </view>
-  <view wx:else class="login">
+  <view wx:if="{{login_account}}" class="login">
     <view class="userinfo">
-      <block wx:if="{{canIUseOpenData}}">
-        <view class="userinfo-avatar" bindtap="bindViewTap">
-          <open-data type="userAvatarUrl"></open-data>
-        </view>
-        <open-data class="userNickName" type="userNickName"></open-data>
-      </block>
+      <image class="unlogin_img" src="../../assets/icons/me_select.png" />
+      <view class="userNickName">{{userInfo.username}}</view>
     </view>
     <view class="content">
       <van-cell-group>
