@@ -5,7 +5,10 @@
     "pages/publishLost/publishLost",
     "pages/shopping/shopping",
     "pages/lost/lost",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/myInfo/myInfo",
+    "pages/myCollection/myCollection",
+    "pages/myPublishLost/myPublishLost"
   ],
   "requiredPrivateInfos": [
     "chooseAddress",
@@ -24,7 +27,7 @@
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
-  "tabBar": {  
+  "tabBar": {
     "color": "#bfbfbf",
     "selectedColor": "#2c2c2c",
     "borderStyle": "white",

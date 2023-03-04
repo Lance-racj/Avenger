@@ -7,4 +7,5 @@
     <view class="lostAndFound" bindtap="goToLost">失物招领</view>
   </view>
   <!-- <van-button type="primary">按钮</van-button> -->
+  <viewCard></viewCard>
 </view>

@@ -1,18 +1,56 @@
-<!--pages/mine/mine.wxml-->
-<view class="userContainer"> 
-  <view class="userinfo"> 
-    <block wx:if="{{canIUseOpenData}}"> 
-      <view class="userinfo-avatar" bindtap="bindViewTap"> 
-        <open-data type="userAvatarUrl"></open-data> 
-      </view> 
-      <open-data class="userNickName" type="userNickName"></open-data> 
-    </block> 
-  </view> 
-  <view class="content">
-    <van-cell-group>
-      <van-cell title="我的闲置" value="内容" icon="location-o" size="large" is-link />
-      <van-cell title="我的失物招领" value="内容" icon="shopping-cart-o" size="large"  is-link />
-      <van-cell title="退出登录" value="内容" icon="setting-o" size="large"  is-link />
-    </van-cell-group>
+<view class="userContainer">
+  <view wx:if="{{ !login }}" class="unlogin">
+    <image class="unlogin_img" src="../../assets/icons/me_select.png" />
+    <button class="unlogin_btn" open-type="getUserInfo" bindtap="toLogin">微信一键登录</button>
   </view>
-</view> 
+  <view wx:else class="login">
+    <view class="userinfo">
+      <block wx:if="{{canIUseOpenData}}">
+        <view class="userinfo-avatar" bindtap="bindViewTap">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <open-data class="userNickName" type="userNickName"></open-data>
+      </block>
+    </view>
+    <view class="content">
+      <van-cell-group>
+        <van-cell 
+          title="我的失物发布" 
+          value="查看" 
+          icon="location-o" 
+          size="large" 
+          is-link 
+          link-type="navigateTo"   
+          url="/pages/myPublishLost/myPublishLost" 
+        />
+        <van-cell 
+          title="我的收藏" 
+          value="查看" 
+          icon="shopping-cart-o" 
+          size="large" 
+          is-link 
+          link-type="navigateTo"
+          url="/pages/myCollection/myCollection"
+        />
+        <van-cell 
+          title="我的信息" 
+          value="编辑"
+          icon="shopping-cart-o" 
+          size="large" 
+          is-link 
+          link-type="navigateTo"
+          url="/pages/myInfo/myInfo"
+        />
+        <van-cell 
+          title="退出登录" 
+          value="设置" 
+          icon="setting-o" 
+          size="large" 
+          is-link 
+          bind:click="showDialog"
+        />
+        <van-dialog id="van-dialog" />
+      </van-cell-group>
+    </view>
+  </view>
+</view>
