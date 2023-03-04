@@ -43,9 +43,12 @@ Page({
       title: '二次确认',
       message: '是否退出登录',
     }).then(() => {
-        wx.removeStorageSync('login');
+        wx.removeStorageSync('login_account');
         this.setData({
-          login: false
+          login_account: false
+        })
+        wx.redirectTo({
+          url: '../login/login'
         })
     }).catch(() => {
         // on cancel

@@ -1,7 +1,9 @@
 <view class="userContainer">
   <view wx:if="{{login_account}}" class="login">
     <view class="userinfo">
-      <image class="unlogin_img" src="../../assets/icons/me_select.png" />
+      <view class="userinfo-avatar" bindtap="bindViewTap"> 
+        <open-data type="userAvatarUrl"></open-data> 
+      </view> 
       <view class="userNickName">{{userInfo.username}}</view>
     </view>
     <view class="content">

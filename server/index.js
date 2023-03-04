@@ -48,7 +48,7 @@ app.post('publish/lost', async (req, res) => {
 app.post('/register', async (req, res) => {
   const {openid, username, password} = req.body;
   const result = await User.findOne({
-    username
+    openid  // 保证每个人只能注册一个账号
   })
   if (result) {
     res.send('fail')
