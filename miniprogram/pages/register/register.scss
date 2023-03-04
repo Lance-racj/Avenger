@@ -1,0 +1,26 @@
+/* pages/login/login.wxss */
+.registerContainer {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);;
+  .username,
+  .confirm,
+	.password {
+		width: 80vw;
+		margin-bottom: 30rpx;
+	}
+	.register_btn {
+		width: 60vw;
+		display: flex;
+    justify-content: space-around;
+    margin-top: 40rpx;
+  }
+  .tips {
+    margin-top: 10rpx;
+    color: steelblue;
+  }
+}

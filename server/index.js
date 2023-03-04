@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
-const { Lose, Admin } = require('./database');
+const { Lose, Admin, User } = require('./database');
+const e = require('express');
 
 const app = express();
 
@@ -43,9 +44,39 @@ app.post('publish/lost', async (req, res) => {
   }
 })
 
-// login
-app.get('login', async (req, res) => {
+// 用户注册
+app.post('/register', async (req, res) => {
+  const {openid, username, password} = req.body;
+  const result = await User.findOne({
+    username
+  })
+  if (result) {
+    res.send('fail')
+  } else {
+    await User.create({
+      openid,
+      username,
+      password
+    });
+    res.send('success')
+  }
+}) 
 
+// 用户登录
+app.post('/toLogin', async (req, res) => {
+  const { username, password } = req.body;
+  const result = await User.findOne({
+    username
+  });
+  if (result) {
+    if (result.password === password) {
+      res.send('登录成功');
+    } else {
+      res.send('用户名或密码错误');
+    }
+  } else {
+    res.send('不存在的账户');
+  }
 })
 
 // 管理员登录接口
@@ -57,6 +88,11 @@ app.post('/admin/login', async (req, res) => {
   } else {
     res.send('error');
   }
+})
+
+// 用户管理接口
+app.post('admin/user', async (req, res) => {
+
 })
 
 app.listen('3060', () => {

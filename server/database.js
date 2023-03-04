@@ -43,6 +43,19 @@ const LoseSchema = new mongoose.Schema({
   }
 })
 
+// 用户账号表
+const UserSchema = new mongoose.Schema({
+  openid: {
+    type: String
+  },
+  username: {
+    type: String
+  },
+  password: {
+    type: String
+  }
+})
+
 // 管理员账号表
 const AdminSchema = new mongoose.Schema({
   username: {
@@ -65,6 +78,7 @@ const AdminSchema = new mongoose.Schema({
 
 const Lose = mongoose.model("LoseSchema", LoseSchema);
 const Admin = mongoose.model("AdminSchema", AdminSchema);
+const User = mongoose.model("UserSchema", UserSchema);
 
 // 创建一个该表的超管
 // Admin.create({
@@ -77,5 +91,6 @@ const Admin = mongoose.model("AdminSchema", AdminSchema);
 
 module.exports = {
   Lose,
-  Admin
+  Admin,
+  User
 }

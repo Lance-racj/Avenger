@@ -1,6 +1,5 @@
 // index.ts
 const app = getApp<IAppOption>()
-import {testLocal} from '../../api/test';
 
 Page({
   data: {

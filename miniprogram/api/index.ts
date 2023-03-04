@@ -12,3 +12,15 @@ export const publishLost = (publishLostConfig: any) => {
     return res;
   })
 }
+
+export const registerAccount = (userData: any) => {
+  return httpRequest.post('http://localhost:3060/register', userData).then((res) => {
+    return res;
+  })
+}
+
+export const loginAccount = (userData: any) => {
+  return httpRequest.post('http://localhost:3060/toLogin', userData).then((res) => {
+    return res;
+  })
+}

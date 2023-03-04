@@ -1,0 +1,27 @@
+<!--pages/login/login.wxml-->
+<view class="loginContainer">
+	<van-field
+		class="username"
+		value="{{ username }}"
+		clearable
+		label="用户名"
+		icon="question-o"
+		placeholder="请输入用户名"
+		input-align="left"
+		bind:change="getUsername"
+	/>
+	<van-field
+		label-class="input-bg"
+		class="password"
+		value="{{ password }}"
+		type="password"
+		label="密码"
+		placeholder="请输入密码"
+    input-align="left"
+    bind:change="getPassword"
+  />
+  <text class="tips" bindtap="toRegister">还没有账户，去注册</text>
+	<view class="btns">
+		<van-button class="login_btn" type="primary" block bindtap="submit">登录</van-button>
+  </view>
+</view>

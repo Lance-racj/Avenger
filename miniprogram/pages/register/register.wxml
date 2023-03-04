@@ -1,0 +1,38 @@
+<!--pages/register/register.wxml-->
+<view class="registerContainer">
+	<van-field
+		class="username"
+		value="{{ username }}"
+		clearable
+		label="用户名"
+		icon="question-o"
+		placeholder="请输入用户名"
+		input-align="left"
+    bind:click-icon="onClickIcon"
+    bind:change="getUsername"
+	/>
+	<van-field
+		label-class="input-bg"
+		class="password"
+		value="{{ password }}"
+		type="password"
+		label="密码"
+		placeholder="请输入密码"
+    input-align="left"
+    bind:change="getPassword"
+  />
+  <van-field
+		label-class="input-bg"
+		class="confirm"
+		value="{{ confirm }}"
+		type="confirm"
+		label="确认密码"
+		placeholder="请再次输入密码"
+    input-align="left"
+    bind:change="getConfirm"
+  />
+  <text class="tips" bindtap="toLogin">已有账户，去登录</text>
+	<view class="btns">
+		<van-button class="register_btn" type="primary" block bindtap="submit">注册</van-button>
+  </view>
+</view>

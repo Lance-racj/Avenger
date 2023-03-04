@@ -43,9 +43,13 @@ Page({
   },
   showDialog() {
     Dialog.confirm({
-      title: '是否退出登录',
+      title: '二次确认',
+      message: '是否退出登录',
     }).then(() => {
-        // on confirm
+        wx.removeStorageSync('login');
+        this.setData({
+          login: false
+        })
     }).catch(() => {
         // on cancel
     });
