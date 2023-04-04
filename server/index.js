@@ -1,28 +1,24 @@
 const express = require('express');
-const axios = require('axios');
 const { Lose, Admin, User } = require('./database');
-const e = require('express');
+const cors = require('cors');
+
 
 const app = express();
+
+app.use(cors());
+app.options('*', cors());
 
 // 使用中间件支持req.body
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
-// 解决跨域
-app.all('*', (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", '*');
-  res.setHeader("Access-Control-Allow-Headers", '*')
-  next();
-})
-
 // test
-app.get('/hello', (req, res) => {
+app.post('/hello', (req, res) => {
   res.send('hello world');
 })
 
 // publish_lost
-app.post('publish/lost', async (req, res) => {
+app.post('/publish/lost', async (req, res) => {
   try {
     /* 将前端传过来的数据放入lose数据表中 */
     const {
@@ -90,8 +86,27 @@ app.post('/admin/login', async (req, res) => {
   }
 })
 
+// 寻主寻物接口
+app.post('/admin/getLose', async (req, res) => {
+  const { type, page, size } = req.body;
+  try {
+    const data = Lose.find({
+      type
+    }).skip((page-1)*size).limit(size);
+    const total = Lose.find({
+      type
+    }).countDocuments();
+    res.send({
+      data,
+      total
+    });
+  } catch(error) {
+    res.send('error', error);
+  }
+})
+
 // 用户管理接口
-app.post('admin/user', async (req, res) => {
+app.post('/admin/getUser', async (req, res) => {
   const { page, size } = req.body;
   try {
     const result = await User.find()
@@ -100,12 +115,40 @@ app.post('admin/user', async (req, res) => {
     res.send({
       result,
       total
-    })
+    });
   } catch(error) {
-    res.send(error)
+    res.send('error', error)
   }
 })
 
+// 删除用户信息接口
+app.post('/admin/deleteUser', async (req, res) => {
+  const { _id } = req.body;
+  try {
+    await User.findByIdAndRemove(_id);
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 管理员管理接口
+app.post('/admin/getAdmin', async (req, res) => {
+  const { page, size } = req.body;
+  try {
+    const result = await Admin.find()
+      .skip((page-1) * size).limit(size);
+    const total = await Admin.find().countDocuments();
+    res.send({
+      result,
+      total
+    });
+  } catch(error) {
+    res.send(`error${error}`)
+  }
+})
+
+// 在3060端口启动服务
 app.listen('3060', () => {
   console.log('server running...');
 })

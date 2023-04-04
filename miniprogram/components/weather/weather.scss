@@ -1,30 +1,63 @@
-/* pages/index/components/weather/weather.wxss */
 .weather_card {
+  box-sizing: border-box;
   width: 710rpx;
-  height: 240rpx;
-  border-radius: 20rpx;
-  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-  .left {
-    margin-left: 20rpx;
-    width: 400rpx;
-    height: 240rpx;
-    display: flex;
-    flex-direction: column;
-    .location {
-      font-size: 35rpx;
-      height: 80rpx;
-      line-height: 80rpx;
-    }
-    .temperature {
-      flex: 1;
-      color: #fff;
-      font-size: 60rpx;
-      display: flex;
-      align-items: center;
-    }
-    .weather_text {
-      height: 80rpx;
-      line-height: 80rpx;
-    }
-  }
+  height: 114px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, #d0d6e0, #2e7bd8);;
+  background-size: cover;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  transform: translateX(6px);
+  // transform: translateX(6px);
+}
+
+.location {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.temperature {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
+
+.weather_text::before {
+  content: '温度适宜，适合出行';
+}
+
+.temperature-cold + .weather_text::before {
+  content: '温度较低，请多加衣保暖';
+}
+
+.temperature-hot + .weather_text::before {
+  content: '天气炎热，注意避暑';
+}
+
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather_img {
+  width: 64px;
+  height: 64px;
+  background-image: url('../../assets//images/weather.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
 }

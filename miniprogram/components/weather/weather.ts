@@ -3,7 +3,7 @@ Component({
     city: "北京",
     location: "",
     temp: "0",
-    text: "注意天冷加衣"
+    tempClass: ''
   },
   lifetimes: {
     attached() {
@@ -29,11 +29,17 @@ Component({
           const data = res.data;
           this.setData({temp: data.now.temp});
           // 做一个判断，不同温度不同提醒文字
-          if(Number(this.data.temp) >= 15) {
-            this.setData({text: '温度正好，出门散心'});
+          let tempClass = '';
+          if (this.data.temp <= 10) {
+            tempClass = 'temperature-cold';
+          } else if (this.data.temp >= 35) {
+            tempClass = 'temperature-hot';
           } else {
-            this.setData({text: '注意天凉'});
+            tempClass = 'temperature-normal';
           }
+          this.setData({
+            tempClass: tempClass
+          });
         },
         fail: (err) => {
           console.log(err);
