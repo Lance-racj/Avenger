@@ -13,12 +13,14 @@ export const publishLost = (publishLostConfig: any) => {
   })
 }
 
+// 注册账号
 export const registerAccount = (userData: any) => {
   return httpRequest.post('http://localhost:3060/register', userData).then((res) => {
     return res;
   })
 }
 
+// 登录账号
 export const loginAccount = (userData: any) => {
   return httpRequest.post('http://localhost:3060/toLogin', userData).then((res) => {
     return res;

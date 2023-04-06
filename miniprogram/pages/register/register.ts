@@ -55,7 +55,7 @@ Page({
     })
   },
   submit: async function() {
-    const {username, password, confirm, openid} = this.data;
+    const {username, password, confirm} = this.data;
     if (!username || !password || !confirm) {
       wx.showToast({
         title: '存在未填项，请检查',
@@ -71,9 +71,10 @@ Page({
       return;
     }
     const params = {
-      openid,
+      openid: wx.getStorageSync('openid'),
       username,
-      password
+      password,
+      date: new Date().getTime()
     }
     const res: any = await registerAccount(params);
     if (res == 'success') {

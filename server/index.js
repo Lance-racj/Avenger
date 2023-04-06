@@ -42,9 +42,9 @@ app.post('/publish/lost', async (req, res) => {
 
 // 用户注册
 app.post('/register', async (req, res) => {
-  const {openid, username, password} = req.body;
+  const {openid, username, password, date} = req.body;
   const result = await User.findOne({
-    openid  // 保证每个人只能注册一个账号
+    username  // 保证每个人只能注册一个账号
   })
   if (result) {
     res.send('fail')
@@ -52,7 +52,8 @@ app.post('/register', async (req, res) => {
     await User.create({
       openid,
       username,
-      password
+      password,
+      date
     });
     res.send('success')
   }
@@ -105,13 +106,22 @@ app.post('/admin/getLose', async (req, res) => {
   }
 })
 
-// 用户管理接口
+// 用户管理 && 模糊检索接口
 app.post('/admin/getUser', async (req, res) => {
-  const { page, size } = req.body;
+  const { page, size, keyWord} = req.body;
   try {
-    const result = await User.find()
-      .skip((page - 1) * size).limit(size);
-    const total = await User.find().countDocuments();
+    let result = [], total = 0;
+    if (keyWord !== '') { // 有关键词检索
+      const userName = new RegExp(keyWord, 'i');
+      result = await User.find({
+        username: userName
+      }).skip((page - 1) * size).limit(size);
+      total = await User.find().countDocuments();
+    } else { // 无关键词返回全部
+      result = await User.find()
+        .skip((page - 1) * size).limit(size);
+      total = await User.find().countDocuments();
+    }
     res.send({
       result,
       total
@@ -132,19 +142,63 @@ app.post('/admin/deleteUser', async (req, res) => {
   }
 })
 
-// 管理员管理接口
+// 管理员管理 && 模糊检索接口
 app.post('/admin/getAdmin', async (req, res) => {
-  const { page, size } = req.body;
+  const { page, size, keyWord} = req.body;
   try {
-    const result = await Admin.find()
-      .skip((page-1) * size).limit(size);
-    const total = await Admin.find().countDocuments();
+    let result = [], total = 0;
+    if (keyWord !== '') { // 有关键词检索
+      const userName = new RegExp(keyWord, 'i');
+      result = await Admin.find({
+        username: userName
+      }).skip((page - 1) * size).limit(size);
+      total = await Admin.find().countDocuments();
+    } else { // 无关键词返回全部
+      result = await Admin.find()
+        .skip((page - 1) * size).limit(size);
+      total = await Admin.find().countDocuments();
+    }
     res.send({
       result,
       total
     });
   } catch(error) {
-    res.send(`error${error}`)
+    res.send('error', error)
+  }
+})
+
+// 新增管理员接口
+app.post('/admin/addAdmin', async (req, res) => {
+  const { username, password, role, nickname, create_time } = req.body;
+  try {
+    await Admin.create({
+      username,
+      password,
+      role,
+      nickName: nickname,
+      createTime: create_time
+    })
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 删除管理员信息接口
+app.post('/admin/deleteAdmin', async (req, res) => {
+  const { _id, username } = req.body;
+  try {
+    const { role } = await Admin.findOne({
+      username
+    });
+    if (role) {
+      res.send("noPower")
+    } else {
+      await Admin.findByIdAndRemove(_id);
+      res.send('success');
+    }
+  } catch(error) {
+    res.send('error');
   }
 })
 

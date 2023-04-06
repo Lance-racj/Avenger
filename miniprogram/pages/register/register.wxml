@@ -25,7 +25,7 @@
 		label-class="input-bg"
 		class="confirm"
 		value="{{ confirm }}"
-		type="confirm"
+		type="password"
 		label="确认密码"
 		placeholder="请再次输入密码"
     input-align="left"

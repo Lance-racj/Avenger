@@ -53,6 +53,9 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String
+  },
+  date: {
+    type: Number
   }
 })
 
@@ -82,11 +85,11 @@ const User = mongoose.model("UserSchema", UserSchema);
 
 // 创建一个该表的超管
 // Admin.create({
-//   username: 'root',
-//   password: '123456',
-//   createTime: 1677039378080,
-//   role: 0,
-//   nickName: 'Wt'
+//   username: 'lizuodong',
+//   password: '123456789',
+//   createTime: 1677039376780,
+//   role: 1,
+//   nickName: 'LZD'
 // })
 
 module.exports = {
