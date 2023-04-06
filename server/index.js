@@ -169,15 +169,24 @@ app.post('/admin/getAdmin', async (req, res) => {
 
 // 新增管理员接口
 app.post('/admin/addAdmin', async (req, res) => {
-  const { username, password, role, nickname, create_time } = req.body;
+  const { username, password, role, nickname, create_time, _id } = req.body;
   try {
-    await Admin.create({
-      username,
-      password,
-      role,
-      nickName: nickname,
-      createTime: create_time
-    })
+    if (_id) {
+      await Admin.findByIdAndUpdate(_id, {
+        username,
+        password,
+        role,
+        nickName: nickname,
+      })
+    } else {
+      await Admin.create({
+        username,
+        password,
+        role,
+        nickName: nickname,
+        createTime: create_time
+      })
+    }
     res.send('success');
   } catch(error) {
     res.send('error');
