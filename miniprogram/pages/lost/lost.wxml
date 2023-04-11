@@ -1,2 +1,41 @@
-<!--pages/lost/los.wxml-->
-<text>pages/lost/los.wxml</text>
+<view class="lost_home">
+  <!-- 搜索框 -->
+  <view class="search">
+    <view class="search_input">
+      <view class="search_input_content">
+        <icon type="search"/>
+        <text>搜索</text>
+      </view>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <view class="swipe">
+    <vswipe swipeList="{{swipeList}}"></vswipe>
+  </view>
+  <!-- Tab区域 -->
+  <view class="tab">
+    <view 
+      wx:for="{{tabList}}" 
+      wx:key="index" 
+      class="tab_item {{ index !== selectID? 'tab_default': ''}}"
+      bindtap="selectTab"
+      data-id="{{index}}"
+    >
+      <text>{{item}}</text>
+      <view wx:if="{{ index === selectID }}" class="tab_item_line"></view>
+    </view>
+  </view>
+  <!-- 物品展示区域 -->
+  <view class="lose"> 
+    <view wx:for="{{[1,2,3]}}" wx:key="index" class="lose_item">
+      <image src="../../assets/images/swipe1.jpg" />
+      <view class="lose_item_content">
+        <text class="name">保温杯</text>
+        <text class="region">成都校区</text>
+        <text class="date">2023年3月20日</text>
+        <text class="desc">瓦伦丁和我互粉的拉拉队</text>
+        <text class="publish_time">2023年3月23日</text>
+      </view>
+    </view>
+  </view>
+</view>

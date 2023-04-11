@@ -1,5 +1,15 @@
 /**index.wxss**/
 .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  .swipe {
+    padding: 30rpx 0;
+  }
   .functionArea {
     width: 710rpx;
     height: 240rpx;

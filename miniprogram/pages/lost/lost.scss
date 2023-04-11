@@ -1,1 +1,104 @@
-/* pages/lost/los.wxss */
+.lost_home {
+  .search {
+    background-color: #ffffff;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_input {
+      width: 90%;
+      height: 75rpx;
+      text-align: center;
+      background-color: #f3f3f3;
+      border-radius: 50rpx;
+      color: black;
+      &_content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 75rpx;
+        text {
+          margin-left: 8rpx;
+        }
+      }
+    }
+  }
+  .swipe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+  }
+  .tab {
+    display: flex;
+    width: 100%;
+    background-color: #ffffff;
+    &_item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 30rpx 0;
+      &_line {
+        position: absolute;
+        bottom: 0;
+        width: 65%;
+        height: 0;
+        border: 3rpx solid #08c5ffa9;
+      }
+    }
+  }
+  .tab_default {
+    background-color: #f3f3f3;
+  }
+  .lose {
+    &_item {
+      width: 100%;
+      display: flex;
+      padding: 20rpx;
+      margin-bottom: 5rpx;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      image {
+        width: 250rpx;
+        min-width: 250rpx;
+        height: 250rpx;
+        border-radius: 20rpx;
+      }
+      &_content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin-left: 10rpx;
+        .name {
+          font-weight: bold;
+        }
+        .region {
+          margin-top: 35rpx;
+          font-size: 26rpx;
+          margin-bottom: 5rpx;
+        }
+        .date,
+        .desc {
+          font-size: 26rpx;
+          margin-bottom: 5rpx;
+        }
+        .desc {
+          // 不规定最大宽度，超出省略无效
+          max-width: 400rpx;
+          color: #666;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        .publish_time {
+          margin-top: 30rpx;
+          margin-left: auto;
+          color: #666;
+          font-size: 26rpx;
+        }
+      }
+    }
+  }
+}

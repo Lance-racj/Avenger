@@ -1,11 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <vswipe swipeList="{{swipeList}}"></vswipe>
-  <weather></weather>
+  <view class="swipe">
+    <vswipe swipeList="{{swipeList}}"></vswipe>
+  </view>
+  <view class="weather">
+    <weather></weather>
+  </view>
   <view class="functionArea">
     <view class="idleTransaction" bindtap="goToShopping">闲置交易</view>
     <view class="lostAndFound" bindtap="goToLost">失物招领</view>
   </view>
-  <!-- <van-button type="primary">按钮</van-button> -->
-  <viewCard></viewCard>
 </view>
