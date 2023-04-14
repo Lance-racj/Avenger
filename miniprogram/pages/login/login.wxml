@@ -1,4 +1,3 @@
-<!--pages/login/login.wxml-->
 <view class="loginContainer">
 	<van-field
 		class="username"

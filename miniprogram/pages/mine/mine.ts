@@ -1,8 +1,4 @@
-// pages/mine/mine.ts
-// index.ts 
-// 获取应用实例 
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
-const app = getApp<IAppOption>() 
  
 Page({ 
   data: { 

@@ -3,12 +3,8 @@
     "pages/index/index",
     "pages/publish/publish",
     "pages/publishLost/publishLost",
-    "pages/shopping/shopping",
     "pages/lost/lost",
     "pages/mine/mine",
-    "pages/myInfo/myInfo",
-    "pages/myCollection/myCollection",
-    "pages/myPublishLost/myPublishLost",
     "pages/login/login",
     "pages/register/register"
   ],
@@ -43,8 +39,8 @@
       {
         "pagePath": "pages/publish/publish",
         "text": "发布",
-        "iconPath": "assets/icons/message_unSelect.png",
-        "selectedIconPath": "assets/icons/message_select.png"
+        "iconPath": "assets/icons/publish_unSelect.png",
+        "selectedIconPath": "assets/icons/publish_select.png"
       },
       {
         "pagePath": "pages/mine/mine",

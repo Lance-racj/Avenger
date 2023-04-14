@@ -1,4 +1,3 @@
-// pages/register/register.ts
 import {registerAccount} from '../../api/index';
 
 Page({

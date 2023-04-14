@@ -24,11 +24,11 @@ Page({
   onLoad: async function() {
   },
   // 事件处理函数
-  goToShopping() {
-    wx.navigateTo({
-      url: '../shopping/shopping',
-    })
-  },
+  // goToShopping() {
+  //   wx.navigateTo({
+  //     url: '../shopping/shopping',
+  //   })
+  // },
   goToLost() {
     wx.navigateTo({
       url: '../lost/lost',

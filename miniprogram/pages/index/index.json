@@ -1,8 +1,6 @@
 {
   "usingComponents": {
     "weather": "../../components/weather/weather",
-    "vswipe": "../../components/vswipe/vswipe",
-    "van-button": "@vant/weapp/button/index",
-    "viewCard": "../../components/viewCard/viewCard"
+    "vswipe": "../../components/vswipe/vswipe"
   }
 }

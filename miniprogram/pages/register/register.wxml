@@ -1,4 +1,3 @@
-<!--pages/register/register.wxml-->
 <view class="registerContainer">
 	<van-field
 		class="username"

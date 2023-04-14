@@ -1,4 +1,3 @@
-// pages/login/login.ts
 import {loginAccount} from '../../api/index';
 
 Page({

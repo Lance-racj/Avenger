@@ -12,6 +12,8 @@
       "typescript",
       "sass"
     ],
+    "ignoreDevUnusedFiles": false,
+    "ignoreUploadUnusedFiles": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],

@@ -18,7 +18,7 @@ Page({
     ],
     selectID: 0
   },
-  onLoad: async function() {
+  onLoad: function() {
     // const lostData = await 
   },
   goToSearch() {

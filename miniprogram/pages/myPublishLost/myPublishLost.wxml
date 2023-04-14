@@ -1,7 +1,0 @@
-<!--pages/myPublishLost/myPublishLost.wxml-->
-<view>
-  <van-tabs active="{{ active }}" bind:change="onChange">
-    <van-tab title="寻主">内容 1</van-tab>
-    <van-tab title="寻物">内容 2</van-tab>
-  </van-tabs>
-</view>

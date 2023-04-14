@@ -1,4 +1,3 @@
-// pages/publishLost/publishLost.ts
 const options = [
   {
     text: '卡片、证件类',

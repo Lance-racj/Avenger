@@ -14,7 +14,7 @@ app.use(express.json())
 
 // test
 app.post('/hello', (req, res) => {
-  res.send('hello world');
+  res.send("height: ");
 })
 
 // publish_lost
