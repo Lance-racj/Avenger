@@ -34,4 +34,9 @@ Page({
       url: '../lost/lost',
     })
   },
+  goToLostClassify() {
+    wx.navigateTo({
+      url: '../lostClassify/lostClassify'
+    })
+  }
 })

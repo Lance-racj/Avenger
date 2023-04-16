@@ -6,7 +6,8 @@
     "pages/lost/lost",
     "pages/mine/mine",
     "pages/login/login",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/lostClassify/lostClassify"
   ],
   "requiredPrivateInfos": [
     "chooseAddress",
@@ -20,7 +21,7 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000",
+    "navigationBarBackgroundColor": "#FF00FF",
     "navigationBarTitleText": "校园信息共享平台",
     "navigationBarTextStyle": "white"
   },

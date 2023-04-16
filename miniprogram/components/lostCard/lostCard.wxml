@@ -1,10 +1,10 @@
 <view class="lose_item">
-  <image src="../../assets/images/swipe1.jpg" />
+  <image src="{{lostItem.image}}" />
   <view class="lose_item_content">
-    <text class="name">保温杯</text>
-    <text class="region">成都校区</text>
-    <text class="date">2023年3月20日</text>
-    <text class="desc">瓦伦丁和我互粉的拉拉队</text>
-    <text class="publish_time">2023年3月23日</text>
+    <text class="name">{{lostItem.name}}</text>
+    <text class="region">{{lostItem.region}}</text>
+    <text class="date">{{lostItem.date}}</text>
+    <text class="desc">{{lostItem.desc}}</text>
+    <text class="publish_time">{{lostItem.time}}</text>
   </view>
 </view>

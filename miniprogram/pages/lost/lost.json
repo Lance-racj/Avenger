@@ -3,7 +3,7 @@
   "usingComponents": {
     "vswipe": "../../components/vswipe/vswipe",
     "Tabs": "../../components/Tabs/Tabs",
-    "searchInput": "../../components/searchIput/searchInput",
+    "searchInput": "../../components/searchInput/searchInput",
     "lostCard": "../../components/lostCard/lostCard"
   }
 }

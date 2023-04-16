@@ -11,7 +11,7 @@
     <view class="lostAndFound" bindtap="goToLost">失物招领</view>
   </view>
   <view class="classify">
-    <view class="lostClassify">失物招领详情分类</view>
+    <view class="lostClassify" bindtap="goToLostClassify">失物招领详情分类</view>
     <view class="idleClassify">闲置交易详情分类</view>
     <view></view>
   </view>
