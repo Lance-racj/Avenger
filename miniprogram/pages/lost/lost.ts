@@ -16,7 +16,6 @@ Page({
       '寻主',
       '寻物'
     ],
-    selectID: 0
   },
   onLoad: function() {
     // const lostData = await 

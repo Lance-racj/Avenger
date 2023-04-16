@@ -1,0 +1,49 @@
+.lose {
+  &_item {
+    width: 100%;
+    display: flex;
+    padding: 20rpx;
+    margin-bottom: 5rpx;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    image {
+      width: 250rpx;
+      min-width: 250rpx;
+      height: 250rpx;
+      border-radius: 20rpx;
+    }
+    &_content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      margin-left: 10rpx;
+      .name {
+        font-weight: bold;
+      }
+      .region {
+        margin-top: 35rpx;
+        font-size: 26rpx;
+        margin-bottom: 5rpx;
+      }
+      .date,
+      .desc {
+        font-size: 26rpx;
+        margin-bottom: 5rpx;
+      }
+      .desc {
+        // 不规定最大宽度，超出省略无效
+        max-width: 400rpx;
+        color: #666;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .publish_time {
+        margin-top: 30rpx;
+        margin-left: auto;
+        color: #666;
+        font-size: 26rpx;
+      }
+    }
+  }
+}

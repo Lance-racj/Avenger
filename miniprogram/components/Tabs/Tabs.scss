@@ -1,0 +1,23 @@
+.tab {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+  &_item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 30rpx 0;
+    &_line {
+      position: absolute;
+      bottom: 0;
+      width: 65%;
+      height: 0;
+      border: 3rpx solid #08c5ffa9;
+    }
+  }
+}
+.tab_default {
+  background-color: #f3f3f3;
+}

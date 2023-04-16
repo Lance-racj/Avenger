@@ -1,11 +1,10 @@
-import { TimeData } from 'miniprogram/miniprogram_npm/@vant/weapp/count-down/utils';
 import httpRequest from '../utils/http';
 
 interface UserData {
   openid: string,
   username: string,
   password: string,
-  date: TimeData
+  date: Number
 }
 
 // export const publishLost = (publishLostConfig: any) => {
@@ -22,7 +21,10 @@ export const registerAccount = (userData: UserData) => {
 }
 
 // 登录账号
-export const loginAccount = (userData: UserData) => {
+export const loginAccount = (userData: {
+  username: string,
+  password: string
+}) => {
   return httpRequest.post('http://localhost:3060/toLogin', userData).then((res) => {
     return res;
   })

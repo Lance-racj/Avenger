@@ -1,6 +1,9 @@
 {
   "component": true,
   "usingComponents": {
-    "vswipe": "../../components/vswipe/vswipe"
+    "vswipe": "../../components/vswipe/vswipe",
+    "Tabs": "../../components/Tabs/Tabs",
+    "searchInput": "../../components/searchIput/searchInput",
+    "lostCard": "../../components/lostCard/lostCard"
   }
 }
