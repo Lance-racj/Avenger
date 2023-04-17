@@ -35,12 +35,16 @@ Page({
       }
     ]
   },
-  onLoad: function() {
-    // const lostData = await 
-  },
+  onLoad: function() {},
   goToSearch() {
     wx.navigateTo({
       url: '',
+    })
+  },
+  // 去详情页
+  goToDetail(event: WechatMiniprogram.TouchEvent) {
+    wx.navigateTo({
+      url: '../lostDetail/lostDetail?data='+JSON.stringify(event.currentTarget.dataset.item)
     })
   },
   selectTab(event: WechatMiniprogram.TouchEvent) {
