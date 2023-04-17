@@ -1,0 +1,6 @@
+<view class="myPublishLost">
+  <Tabs tabList="{{tabList}}"></Tabs>
+  <view class="lose"> 
+    <lostCard wx:for="{{lostList}}" wx:key="index" lostItem="{{item}}" />
+  </view>
+</view>

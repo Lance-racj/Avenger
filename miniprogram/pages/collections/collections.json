@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Tabs": "../../components/Tabs/Tabs",
+    "lostCard": "../../components/lostCard/lostCard"
+  }
+}
