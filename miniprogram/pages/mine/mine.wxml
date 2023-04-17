@@ -11,7 +11,24 @@
         <van-cell 
           title="我的失物发布" 
           value="查看" 
-          icon="location-o" 
+          icon="upgrade" 
+          size="large" 
+          is-link 
+          link-type="navigateTo"
+          url="/pages/myPublishLost/myPublishLost"   
+        />
+        <van-cell 
+          title="我的闲置发布" 
+          value="查看" 
+          icon="upgrade" 
+          size="large" 
+          is-link 
+          link-type="navigateTo"   
+        />
+        <van-cell 
+          title="我的求助发布" 
+          value="查看" 
+          icon="upgrade" 
           size="large" 
           is-link 
           link-type="navigateTo"   
@@ -19,22 +36,23 @@
         <van-cell 
           title="我的收藏" 
           value="查看" 
-          icon="shopping-cart-o" 
+          icon="star-o" 
           size="large" 
           is-link 
           link-type="navigateTo"
+          url="/pages/collections/collections"
         />
         <van-cell 
           title="我的信息" 
           value="编辑"
-          icon="shopping-cart-o" 
+          icon="user-o" 
           size="large" 
           is-link 
           link-type="navigateTo"
         />
         <van-cell 
           title="退出登录" 
-          value="设置" 
+          value="退出" 
           icon="setting-o" 
           size="large" 
           is-link 

@@ -7,7 +7,9 @@
     "pages/mine/mine",
     "pages/login/login",
     "pages/register/register",
-    "pages/lostClassify/lostClassify"
+    "pages/lostClassify/lostClassify",
+    "pages/collections/collections",
+    "pages/myPublishLost/myPublishLost"
   ],
   "requiredPrivateInfos": [
     "chooseAddress",

@@ -6,7 +6,7 @@
     <vswipe swipeList="{{swipeList}}"></vswipe>
   </view>
   <!-- Tab区域 -->
-  <Tabs tabList="{{tabList}}"/>
+  <Tabs tabList="{{tabList}}" />
   <!-- 物品展示区域 -->
   <view class="lose"> 
     <lostCard wx:for="{{lostList}}" wx:key="index" lostItem="{{item}}" />
