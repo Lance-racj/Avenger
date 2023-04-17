@@ -10,7 +10,8 @@
     "pages/lostClassify/lostClassify",
     "pages/collections/collections",
     "pages/myPublishLost/myPublishLost",
-    "pages/lostDetail/lostDetail"
+    "pages/lostDetail/lostDetail",
+    "pages/search/search"
   ],
   "requiredPrivateInfos": [
     "chooseAddress",

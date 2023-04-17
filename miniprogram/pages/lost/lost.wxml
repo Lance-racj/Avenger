@@ -1,6 +1,6 @@
 <view class="lost_home">
   <!-- 搜索框 -->
-  <searchInput />
+  <searchInput bindtap="toSearch" />
   <!-- 轮播图 -->
   <view class="swipe">
     <vswipe swipeList="{{swipeList}}"></vswipe>

@@ -36,9 +36,9 @@ Page({
     ]
   },
   onLoad: function() {},
-  goToSearch() {
+  toSearch() {
     wx.navigateTo({
-      url: '',
+      url: '../search/search',
     })
   },
   // 去详情页
