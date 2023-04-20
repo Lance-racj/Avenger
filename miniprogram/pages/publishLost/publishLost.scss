@@ -1,15 +1,21 @@
-/* pages/publishLost/publishLost.wxss */
 .lostCt {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: 30rpx;
   .publishButtonArea {
-    padding: 20rpx 15rpx;
+    padding: 0rpx 15rpx;
     display: flex;
-    justify-content: space-between;
-    border-bottom: slategray 5rpx solid;
+    justify-content: center;
   }
   .content {
-    margin-top: 30rpx;
+    .van-radio-group, .van-cell-group {
+      box-sizing: border-box;
+      margin-bottom: 30rpx;
+      .upLoadText {
+        margin-bottom: 20rpx;
+        color: #09090950;
+      }
+    }
   }
 }
