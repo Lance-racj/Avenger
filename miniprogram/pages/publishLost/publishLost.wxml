@@ -6,8 +6,8 @@
       bind:change="changeType" 
       direction="horizontal"
     >
-      <van-radio name="1">寻找失主</van-radio>
-      <van-radio name="2">寻找失物</van-radio>
+      <van-radio name="0">寻找失主</van-radio>
+      <van-radio name="1">寻找失物</van-radio>
     </van-radio-group>
     <van-cell-group class="classify">
       <van-field
@@ -59,15 +59,13 @@
         type="number"
         value="{{ phone }}"
         placeholder="请输入手机号"
-        bind:change="changePhoneNumber"
+        bind:change="changePhone"
       />
     </van-cell-group>
     <van-cell-group class="desc">
       <van-field
         label="物品描述"
         value="{{ desc }}"
-        size="large"
-        rows="2"
         placeholder="请输入物品描述"
         bind:change="getDesc"
         autosize
@@ -84,6 +82,14 @@
     </van-cell-group> 
   </view>
   <view class="publishButtonArea">
-    <van-button type="primary" size="normal" round color="#1890ff">发布招领信息</van-button>
+    <van-button
+     type="primary" 
+     size="normal" 
+     round color="#1890ff"
+     bindtap="toPublish"
+    >
+      发布招领信息
+    </van-button>
   </view>
+  <van-notify id="van-notify" />
 </view>

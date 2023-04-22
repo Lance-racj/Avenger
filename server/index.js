@@ -2,26 +2,27 @@ const express = require('express');
 const { Lose, Admin, User } = require('./database');
 const cors = require('cors');
 
-
 const app = express();
 
 app.use(cors());
 app.options('*', cors());
-
 // 使用中间件支持req.body
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
-// test
-app.post('/hello', (req, res) => {
-  res.send("height: ");
-})
+/* C端接口 */
+
+
+
+
+
 
 // publish_lost
 app.post('/publish/lost', async (req, res) => {
   try {
     /* 将前端传过来的数据放入lose数据表中 */
     const {
+      openid,
       type,
       classify_1,
       classify_2,
@@ -33,7 +34,7 @@ app.post('/publish/lost', async (req, res) => {
       imgList,
       time
     } = req.body;
-    await Lose.create({type, classify_1, classify_2, name, date, region, phone, desc, imgList, time});
+    await Lose.create({openid, type, classify_1, classify_2, name, date, region, phone, desc, imgList, time});
     res.send('success');
   } catch(error) {
     res.send('error', error);
@@ -76,6 +77,16 @@ app.post('/toLogin', async (req, res) => {
   }
 })
 
+
+
+
+/* B端接口 */
+
+
+
+
+
+
 // 管理员登录接口
 app.post('/admin/login', async (req, res) => {
   const { username, password } = req.body;
@@ -91,20 +102,25 @@ app.post('/admin/login', async (req, res) => {
 app.post('/admin/getLose', async (req, res) => {
   const { type, page, size } = req.body;
   try {
-    const data = Lose.find({
+    const result = await Lose.find({
       type
     }).skip((page-1)*size).limit(size);
-    const total = Lose.find({
+    const total = await Lose.find({
       type
     }).countDocuments();
     res.send({
-      data,
+      result,
       total
     });
   } catch(error) {
     res.send('error', error);
   }
 })
+
+// 删除寻主寻物信息接口
+
+
+// 模糊检索寻主寻物接口
 
 // 用户管理 && 模糊检索接口
 app.post('/admin/getUser', async (req, res) => {
@@ -210,6 +226,8 @@ app.post('/admin/deleteAdmin', async (req, res) => {
     res.send('error');
   }
 })
+
+
 
 // 在3060端口启动服务
 app.listen('3060', () => {

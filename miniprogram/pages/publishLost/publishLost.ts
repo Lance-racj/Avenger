@@ -1,3 +1,6 @@
+import { publishLost } from '../../api/index';
+import Notify from '@vant/weapp/notify/notify';
+
 interface imgListType {
   url: string,
   name: string,
@@ -21,9 +24,10 @@ const options = [
 
 Page({
   data: {
+    openid: '',
     show: false, // 控制物品类别弹窗显隐
     options, // 物品类别列表
-    type: '1', // 寻主 / 寻物
+    type: '0', // 寻主 / 寻物
     classifyValue: '', // 种类
     classify_1: '', // 类别1
     classify_2: '', // 类别2
@@ -31,7 +35,7 @@ Page({
     name: '', // 物品名称
     region: '', // 丢失/拾取地点
     date: '', // 丢失/拾取日期
-    phoneNumber: Number,
+    phone: '',
     desc: '', // 物品描述
     imgList: [
       {
@@ -83,7 +87,7 @@ Page({
       show: false
     })
   },
-  changePhoneNumber(e: any) {
+  changePhone(e: any) {
     this.setData({
       phone: e.detail
     })
@@ -96,20 +100,58 @@ Page({
   },
   // 读取图片列表
   afterRead(event: any) {
-    // const { file } = event.detail;
-    // console.log(file)
-    // // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
-    // wx.uploadFile({
-    //   url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
-    //   filePath: file.url,
-    //   name: 'file',
-    //   formData: { user: 'test' },
-    //   success: (res) => {
-    //     // 上传完成需要更新 imgList
-    //     let { imgList } = this.data;
-    //     imgList.push({ ...file, url: res.data });
-    //     this.setData({ imgList });
-    //   },
-    // });
+    const { file } = event.detail;
+    wx.uploadFile({
+      url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
+      filePath: file.url,
+      name: 'file',
+      formData: { user: 'test' },
+      success: (res) => {
+        // 上传完成需要更新 imgList
+        let { imgList } = this.data;
+        imgList.push({ ...file, url: res.data });
+        this.setData({ imgList });
+      },
+    });
+  },
+  async toPublish() {
+    const {
+      type,
+      classify_1,
+      classify_2,
+      name,
+      date,
+      region,
+      phone,
+      desc,
+      imgList,
+    } = this.data
+    const openid = wx.getStorageSync('openid');
+    const params = {
+      openid,
+      type: Number(type),
+      classify_1,
+      classify_2,
+      name,
+      date,
+      region,
+      phone,
+      desc,
+      imgList,
+      time: new Date().getTime()
+    }
+    publishLost(params).then(() => {
+      Notify({ 
+        type: 'primary', 
+        message: '发布成功，页面将于2s后跳回首页' 
+      });
+      setTimeout(() => {
+        wx.reLaunch({
+          url: '../index/index'
+        })
+      }, 2000)
+    }).catch(() => {
+      Notify('发布失败，请检查内容后重新发布');
+    });
   }
 })

@@ -11,6 +11,9 @@ mongoose.connect("mongodb://root:123456@localhost:27017/?authMechanism=DEFAULT")
 
 // 失物表
 const LoseSchema = new mongoose.Schema({
+  openid: {
+    type: String
+  },
   type: {
     type: Number
   },
