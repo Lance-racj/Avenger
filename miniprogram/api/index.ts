@@ -6,12 +6,10 @@ interface UserData {
   password: string,
   date: Number
 }
-
 interface pic {
   url: string,
   name: string
 }
-
 interface publishLostType {
   openid: string,
   type: number
@@ -26,6 +24,16 @@ interface publishLostType {
   time: number
 }
 
+// 获取失物招领首页详情信息
+export const getLoseData = (params: {
+  type: number
+}) => {
+  return httpRequest.get('http://localhost:3060/getLose', params).then((res) => {
+    return res;
+  })
+}
+
+// 发布失物(寻物)信息帖
 export const publishLost = (publishLostConfig: publishLostType) => {
   return httpRequest.post('http://localhost:3060/publish/lost', publishLostConfig).then((res) => {
     return res;

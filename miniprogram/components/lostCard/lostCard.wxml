@@ -1,5 +1,5 @@
 <view class="lose_item">
-  <image src="{{lostItem.image}}" />
+  <image src="{{lostItem.imgList[0].url}}" />
   <view class="lose_item_content">
     <text class="name">{{lostItem.name}}</text>
     <text class="region">{{lostItem.region}}</text>

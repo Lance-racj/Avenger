@@ -9,8 +9,9 @@ Component({
   },
   methods: {
     selectTab(event: WechatMiniprogram.TouchEvent) {
-      const {id} = event.currentTarget.dataset;
+      const { id } = event.currentTarget.dataset;
       this.setData({selectID: id});
+      this.triggerEvent('getTab', id);
     }
   }
 })

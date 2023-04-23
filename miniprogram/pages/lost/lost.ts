@@ -1,3 +1,16 @@
+import { getLoseData } from '../../api/index';
+import formatTime from '../../utils/formatTime';
+
+interface loseListType<T> {
+  name: string,
+  desc: string,
+  imgList: Array<{url: string, name: string}>,
+  region: string,
+  date: string,
+  phone: string,
+  time: T
+}
+
 Page({
   data: {
     swipeList: [
@@ -16,26 +29,12 @@ Page({
       '寻主',
       '寻物'
     ],
-    lostList: [
-      {
-        image: '../../assets/images/swipe1.jpg',
-        name: '保温杯',
-        region: '成都校区',
-        date: '2023年3月20日',
-        desc: 'dnawdafkjfnjaknd',
-        time: '2023年3月23日'
-      },
-      {
-        image: '../../assets/images/swipe1.jpg',
-        name: 'res杯',
-        region: '南充校区',
-        date: '2023年3月10日',
-        desc: 'dnawdafkjfn大大的娃大jaknd',
-        time: '2023年3月33日'
-      }
-    ]
+    lostList: [] as loseListType<string>[],
+    selectID: 0
   },
-  onLoad: function() {},
+  onLoad: function() {
+    this.getLose();
+  },
   toSearch() {
     wx.navigateTo({
       url: '../search/search',
@@ -47,8 +46,22 @@ Page({
       url: '../lostDetail/lostDetail?data='+JSON.stringify(event.currentTarget.dataset.item)
     })
   },
-  selectTab(event: WechatMiniprogram.TouchEvent) {
-    const {id} = event.currentTarget.dataset;
-    this.setData({selectID: id});
+  getLose: async function() {
+    const params = { type: this.data.selectID };
+    let loseData = await getLoseData(params) as any;
+    this.setData({
+      lostList: loseData.map((item: loseListType<number>) => {
+        return {
+          ...item,
+          time: formatTime(item.time)
+        }
+      })
+    })
+  },
+  getTab(e: any) {
+    this.setData({
+      selectID: e.detail
+    })
+    this.getLose();
   }
 })

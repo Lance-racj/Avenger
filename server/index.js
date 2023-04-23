@@ -36,6 +36,24 @@ app.post('/publish/lost', async (req, res) => {
   }
 })
 
+// 上传图片接口
+// app.post('/uploadImg', upload.array('file', 6), async (req, res) => {
+//   res.send(req.files);
+// })
+
+// 获取首页的数据
+app.get('/getLose', async (req, res) => {
+  try {
+    const { type } = req.query;
+    const result = await Lose.find({
+      type
+    });
+    res.send(result)
+  } catch(error) {
+    res.send('error');
+  }
+})
+
 // 用户注册
 app.post('/register', async (req, res) => {
   const {openid, username, password, date} = req.body;
