@@ -12,11 +12,6 @@ app.use(express.json())
 
 /* C端接口 */
 
-
-
-
-
-
 // publish_lost
 app.post('/publish/lost', async (req, res) => {
   try {
@@ -78,13 +73,7 @@ app.post('/toLogin', async (req, res) => {
 })
 
 
-
-
 /* B端接口 */
-
-
-
-
 
 
 // 管理员登录接口
@@ -98,16 +87,29 @@ app.post('/admin/login', async (req, res) => {
   }
 })
 
-// 寻主寻物接口
+// 寻主寻物接口 && 模糊检索接口
 app.post('/admin/getLose', async (req, res) => {
-  const { type, page, size } = req.body;
+  const { type, page, size, keyWord } = req.body;
   try {
-    const result = await Lose.find({
-      type
-    }).skip((page-1)*size).limit(size);
-    const total = await Lose.find({
-      type
-    }).countDocuments();
+    let result = [], total = 0;
+    if (keyWord !== '') { // 有关键词返回检索数据
+      const name = new RegExp(keyWord, 'i');
+      result = await Lose.find({
+        type,
+        name
+      }).skip((page - 1) * size).limit(size);
+      total = await Lose.find({
+        type,
+        name
+      }).countDocuments();
+    } else { // 无关键词返回全部数据
+      result = await Lose.find({
+        type
+      }).skip((page - 1) * size).limit(size);
+      total = await Lose.find({
+        type
+      }).countDocuments();
+    }
     res.send({
       result,
       total
@@ -118,9 +120,15 @@ app.post('/admin/getLose', async (req, res) => {
 })
 
 // 删除寻主寻物信息接口
-
-
-// 模糊检索寻主寻物接口
+app.post('/admin/deleteItem', async (req, res) => {
+  const { _id } = req.body;
+  try {
+    await Lose.findByIdAndRemove(_id);
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
 
 // 用户管理 && 模糊检索接口
 app.post('/admin/getUser', async (req, res) => {
@@ -132,7 +140,9 @@ app.post('/admin/getUser', async (req, res) => {
       result = await User.find({
         username: userName
       }).skip((page - 1) * size).limit(size);
-      total = await User.find().countDocuments();
+      total = await User.find({
+        username: userName
+      }).countDocuments();
     } else { // 无关键词返回全部
       result = await User.find()
         .skip((page - 1) * size).limit(size);
@@ -168,7 +178,9 @@ app.post('/admin/getAdmin', async (req, res) => {
       result = await Admin.find({
         username: userName
       }).skip((page - 1) * size).limit(size);
-      total = await Admin.find().countDocuments();
+      total = await Admin.find({
+        username: userName
+      }).countDocuments();
     } else { // 无关键词返回全部
       result = await Admin.find()
         .skip((page - 1) * size).limit(size);
@@ -226,8 +238,6 @@ app.post('/admin/deleteAdmin', async (req, res) => {
     res.send('error');
   }
 })
-
-
 
 // 在3060端口启动服务
 app.listen('3060', () => {
