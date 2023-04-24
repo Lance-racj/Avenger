@@ -17,11 +17,11 @@ interface RequestConfig {
 	noShowMsg?: boolean  // 请求报错时，是否弹出message提示（默认弹出)
 }
 // 业务数据类型
-interface MyAwesomeData<T> {
-	code: number
-	msg: string
-	data: T
-}
+// interface MyAwesomeData<T> {
+// 	code: number
+// 	msg: string
+// 	data: T
+// }
 
 class HttpRequest {
   private static instance: HttpRequest
@@ -58,7 +58,7 @@ class HttpRequest {
 		return msg
 	}
 
-  public request<T>(requestConfig: RequestConfig):  Promise<MyAwesomeData<T>>{
+  public request<T>(requestConfig: RequestConfig): Promise<T>{
     let _this = this;
     return new Promise((resolve, reject) => {
       // 默认header

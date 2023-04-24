@@ -1,6 +1,7 @@
 const express = require('express');
-const { Lose, Admin, User } = require('./database');
+const { Lose, Admin, User, Collection } = require('./database');
 const cors = require('cors');
+const { Col } = require('antd');
 
 const app = express();
 
@@ -49,6 +50,63 @@ app.get('/getLose', async (req, res) => {
       type
     });
     res.send(result)
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 获取单个失物招领收藏信息
+app.get('/getfollow', async (req, res) => {
+  try {
+    const { id, openid } = req.query;
+    const result = await Collection.find({
+      id,
+      openid
+    })
+    if (result.length > 0) {
+      res.send('success');
+    } else {
+      res.send('error');
+    }
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 收藏失物招领帖
+app.post('/follow/add', async (req, res) => {
+  try {
+    /* 将前端传过来的数据放入lose数据表中 */
+    const {
+      openid,
+      type,
+      classify_1,
+      classify_2,
+      name,
+      date,
+      region,
+      phone,
+      desc,
+      imgList,
+      time,
+      _id
+    } = req.body;
+    await Collection.create({openid, type, classify_1, classify_2, name, date, region, phone, desc, imgList, time, id: _id});
+    res.send('success');
+  } catch(error) {
+    res.send('error', error);
+  }
+})
+
+// 取消收藏失物招领帖
+app.post('/follow/del', async (req, res) => {
+  try {
+    const {id, openid} = req.body;
+    await Collection.findOneAndRemove({
+      id,
+      openid
+    })
+    res.send('success');
   } catch(error) {
     res.send('error');
   }

@@ -2,6 +2,7 @@
   "usingComponents": {
     "vswipe": "../../components/vswipe/vswipe",
     "van-button": "@vant/weapp/button/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-notify": "@vant/weapp/notify/index"
   }
 }

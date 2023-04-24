@@ -42,13 +42,12 @@
       已收藏
     </van-button>
   </view>
-
-
+  <van-notify id="van-notify" />
   <van-popup show="{{ show }}" bind:close="onClose" round>
     <view class="getNumber">
       <view class="show">
         <text class="item">联系方式</text>
-        <text class="item">15184436833</text>
+        <text class="item">{{data.phone}}</text>
       </view>
       <view class="handle">
         <view class="cancel item" bindtap="onClose">取消</view>

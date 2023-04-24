@@ -75,7 +75,7 @@ Page({
       password,
       date: new Date().getTime()
     }
-    const res: any = await registerAccount(params);
+    const res = await registerAccount(params);
     if (res == 'success') {
       wx.redirectTo({
         url: '../login/login',

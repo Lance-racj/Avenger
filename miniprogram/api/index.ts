@@ -1,4 +1,5 @@
 import httpRequest from '../utils/http';
+const baseUrl = 'http://localhost:3060';
 
 interface UserData {
   openid: string,
@@ -10,7 +11,8 @@ interface pic {
   url: string,
   name: string
 }
-interface publishLostType {
+interface lostType {
+  id?: string,
   openid: string,
   type: number
   classify_1: string,
@@ -28,21 +30,42 @@ interface publishLostType {
 export const getLoseData = (params: {
   type: number
 }) => {
-  return httpRequest.get('http://localhost:3060/getLose', params).then((res) => {
+  return httpRequest.get<lostType[]>(`${baseUrl}/getLose`, params).then((res) => {
+    return res;
+  })
+}
+
+// 查询是否收藏
+export const checkFollow = (params: {id: string, openid: string}) => {
+  return httpRequest.get<string>(`${baseUrl}/getfollow`, params).then((res) => {
+    return res;
+  })
+}
+
+// 收藏失物招领帖
+export const follow = (params: lostType) => {
+  return httpRequest.post<string>(`${baseUrl}/follow/add`, params).then((res) => {
+    return res;
+  })
+}
+
+// 取消收藏失物招领帖
+export const unfollow = (params: {id: string, openid: string}) => {
+  return httpRequest.post<string>(`${baseUrl}/follow/del`, params).then((res) => {
     return res;
   })
 }
 
 // 发布失物(寻物)信息帖
-export const publishLost = (publishLostConfig: publishLostType) => {
-  return httpRequest.post('http://localhost:3060/publish/lost', publishLostConfig).then((res) => {
+export const publishLost = (publishLostConfig: lostType) => {
+  return httpRequest.post<string>(`${baseUrl}/publish/lost`, publishLostConfig).then((res) => {
     return res;
   })
 }
 
 // 注册账号
 export const registerAccount = (userData: UserData) => {
-  return httpRequest.post('http://localhost:3060/register', userData).then((res) => {
+  return httpRequest.post<string>(`${baseUrl}/register`, userData).then((res) => {
     return res;
   })
 }
@@ -52,7 +75,7 @@ export const loginAccount = (userData: {
   username: string,
   password: string
 }) => {
-  return httpRequest.post('http://localhost:3060/toLogin', userData).then((res) => {
+  return httpRequest.post<string>(`${baseUrl}/toLogin`, userData).then((res) => {
     return res;
   })
 }

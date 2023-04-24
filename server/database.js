@@ -42,7 +42,47 @@ const LoseSchema = new mongoose.Schema({
     type: Array
   },
   time: {
+    type: Number | String
+  }
+})
+
+// 收藏物品表
+const CollectionSchema = new mongoose.Schema({
+  id: {
+    type: String
+  },
+  openid: {
+    type: String
+  },
+  type: {
     type: Number
+  },
+  classify_1: {
+    type: String
+  },
+  classify_2: {
+    type: String
+  },
+  name: {
+    type: String
+  },
+  date: {
+    type: String
+  },
+  region: {
+    type: String
+  },
+  phone: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  imgList: {
+    type: Array
+  },
+  time: {
+    type: Number | String
   }
 })
 
@@ -85,6 +125,7 @@ const AdminSchema = new mongoose.Schema({
 const Lose = mongoose.model("LoseSchema", LoseSchema);
 const Admin = mongoose.model("AdminSchema", AdminSchema);
 const User = mongoose.model("UserSchema", UserSchema);
+const Collection = mongoose.model("CollectionSchema", CollectionSchema);
 
 // 创建一个该表的超管
 // Admin.create({
@@ -98,5 +139,6 @@ const User = mongoose.model("UserSchema", UserSchema);
 module.exports = {
   Lose,
   Admin,
-  User
+  User,
+  Collection
 }

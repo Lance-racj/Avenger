@@ -48,13 +48,14 @@ Page({
   },
   getLose: async function() {
     const params = { type: this.data.selectID };
-    let loseData = await getLoseData(params) as any;
-    this.setData({
-      lostList: loseData.map((item: loseListType<number>) => {
-        return {
-          ...item,
-          time: formatTime(item.time)
-        }
+    getLoseData(params).then((loseData) => {
+      this.setData({
+        lostList: loseData.map((item: loseListType<number>) => {
+          return {
+            ...item,
+            time: formatTime(item.time)
+          }
+        })
       })
     })
   },
