@@ -5,7 +5,7 @@ interface pic {
   url: string,
   name: string
 }
-interface lostType {
+interface lostType<T> {
   _id: string,
   openid: string,
   type: number
@@ -17,7 +17,7 @@ interface lostType {
   phone: string,
   desc: string,
   imgList: Array<pic>,
-  time: number
+  time: T
 }
 
 Page({
@@ -34,7 +34,7 @@ Page({
         target: '1'
       },
     ],
-    data: {} as lostType,
+    data: {} as lostType<string>,
     show: false,
     isCollect: false
   },

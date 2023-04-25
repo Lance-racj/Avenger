@@ -21,8 +21,6 @@ Page({
       },
     ]
   },
-  onLoad: async function() {
-  },
   // 事件处理函数
   // goToShopping() {
   //   wx.navigateTo({

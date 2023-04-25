@@ -82,7 +82,7 @@ const CollectionSchema = new mongoose.Schema({
     type: Array
   },
   time: {
-    type: Number | String
+    type: String
   }
 })
 

@@ -1,13 +1,6 @@
 import { publishLost } from '../../api/index';
 import Notify from '@vant/weapp/notify/notify';
 
-interface imgListType {
-  url: string,
-  name: string,
-  isImage?: boolean,
-  deletable?: boolean
-}
-
 // 物品类别列表
 const options = [
   {

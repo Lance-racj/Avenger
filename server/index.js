@@ -1,7 +1,6 @@
 const express = require('express');
 const { Lose, Admin, User, Collection } = require('./database');
 const cors = require('cors');
-const { Col } = require('antd');
 
 const app = express();
 
@@ -55,6 +54,20 @@ app.get('/getLose', async (req, res) => {
   }
 })
 
+// 获取单人收藏列表
+app.get('/getfollow/list', async (req, res) => {
+  try {
+    const { openid, type } = req.query;
+    const result = await Collection.find({
+      openid,
+      type
+    });
+    res.send(result);
+  } catch(error) {
+    res.send('error');
+  }
+})
+
 // 获取单个失物招领收藏信息
 app.get('/getfollow', async (req, res) => {
   try {
@@ -91,6 +104,7 @@ app.post('/follow/add', async (req, res) => {
       time,
       _id
     } = req.body;
+    console.log(req.body)
     await Collection.create({openid, type, classify_1, classify_2, name, date, region, phone, desc, imgList, time, id: _id});
     res.send('success');
   } catch(error) {

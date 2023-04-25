@@ -17,11 +17,11 @@ interface RequestConfig {
 	noShowMsg?: boolean  // 请求报错时，是否弹出message提示（默认弹出)
 }
 // 业务数据类型
-// interface MyAwesomeData<T> {
-// 	code: number
-// 	msg: string
-// 	data: T
-// }
+interface MyAwesomeData<T> {
+	statusCode: number
+	errMsg: string
+	data: T
+}
 
 class HttpRequest {
   private static instance: HttpRequest
@@ -71,7 +71,7 @@ class HttpRequest {
         url: `${requestConfig.url}`,
         data: requestConfig.data,
         header: Object.assign(header, requestConfig?.header),
-        success: (res) => {
+        success: (res: MyAwesomeData<unknown>) => {
           const code = res.statusCode || -404;
           const data = res.data;
           if (code === 200) {
