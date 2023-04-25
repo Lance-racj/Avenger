@@ -2,7 +2,7 @@ export interface UserData {
   openid: string,
   username: string,
   password: string,
-  date: Number
+  date: number
 }
 
 export interface pic {
