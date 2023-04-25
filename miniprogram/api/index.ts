@@ -4,7 +4,8 @@ import { UserData, lostType } from '../types';
 
 // 获取失物招领首页详情信息
 export const getLoseData = (params: {
-  type: number
+  type: number,
+  openid?: string
 }) => {
   return httpRequest.get<lostType<number>[]>(`${baseUrl}/getLose`, params).then((res) => {
     return res;
@@ -54,10 +55,7 @@ export const registerAccount = (userData: UserData) => {
 }
 
 // 登录账号
-export const loginAccount = (userData: {
-  username: string,
-  password: string
-}) => {
+export const loginAccount = (userData: UserData) => {
   return httpRequest.post<string>(`${baseUrl}/toLogin`, userData).then((res) => {
     return res;
   })

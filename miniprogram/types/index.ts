@@ -1,8 +1,8 @@
 export interface UserData {
-  openid: string,
+  openid?: string,
   username: string,
   password: string,
-  date: number
+  date?: number
 }
 
 export interface pic {

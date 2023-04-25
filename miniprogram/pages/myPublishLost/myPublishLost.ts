@@ -1,29 +1,39 @@
+import { getLoseData } from '../../api/index';
+import { lostType } from '../../types/index';
+import formatTime from '../../utils/formatTime';
+
 Page({
   data: {
     tabList: [
       '寻主',
       '寻物'
     ],
-    lostList: [
-      {
-        image: '../../assets/images/swipe1.jpg',
-        name: '保温杯',
-        region: '成都校区',
-        date: '2023年3月20日',
-        desc: 'dnawdafkjfnjaknd',
-        time: '2023年3月23日'
-      },
-      {
-        image: '../../assets/images/swipe1.jpg',
-        name: 'res杯',
-        region: '南充校区',
-        date: '2023年3月10日',
-        desc: 'dnawdafkjfn大大的娃大jaknd',
-        time: '2023年3月33日'
-      }
-    ]
+    lostList: [] as lostType<string>[],
+    selectID: 0
   },
   onLoad() {
-
+    this.getMyLoseList();
+  },
+  getMyLoseList() {
+    const params = {
+      type: this.data.selectID,
+      openid: wx.getStorageSync('openid')
+    }
+    getLoseData(params).then((res) => {
+      this.setData({
+        lostList: res.map((item: lostType<number>) => {
+          return {
+            ...item,
+            time: formatTime(item.time)
+          }
+        })
+      });
+    })
+  },
+  getTab(e: any) {
+    this.setData({
+      selectID: e.detail
+    })
+    this.getMyLoseList();
   }
 })

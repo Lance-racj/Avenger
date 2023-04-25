@@ -44,10 +44,18 @@ app.post('/publish/lost', async (req, res) => {
 // 获取首页的数据
 app.get('/getLose', async (req, res) => {
   try {
-    const { type } = req.query;
-    const result = await Lose.find({
-      type
-    });
+    const { type, openid } = req.query;
+    let result;
+    if (openid) { // 我的失物招领发布
+      result = await Lose.find({
+        openid,
+        type
+      })
+    } else { // 获取失物招领信息
+      result = await Lose.find({
+        type
+      });
+    }
     res.send(result)
   } catch(error) {
     res.send('error');
