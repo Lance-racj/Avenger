@@ -1,30 +1,6 @@
 import httpRequest from '../utils/http';
 const baseUrl = 'http://localhost:3060';
-
-interface UserData {
-  openid: string,
-  username: string,
-  password: string,
-  date: Number
-}
-interface pic {
-  url: string,
-  name: string
-}
-interface lostType<T> {
-  id?: string,
-  openid: string,
-  type: number
-  classify_1: string,
-  classify_2: string,
-  name: string,
-  date: string,
-  region: string,
-  phone: string,
-  desc: string,
-  imgList: Array<pic>,
-  time: T
-}
+import { UserData, lostType } from '../types';
 
 // 获取失物招领首页详情信息
 export const getLoseData = (params: {

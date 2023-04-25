@@ -104,7 +104,6 @@ app.post('/follow/add', async (req, res) => {
       time,
       _id
     } = req.body;
-    console.log(req.body)
     await Collection.create({openid, type, classify_1, classify_2, name, date, region, phone, desc, imgList, time, id: _id});
     res.send('success');
   } catch(error) {

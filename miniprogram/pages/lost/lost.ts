@@ -1,15 +1,6 @@
 import { getLoseData } from '../../api/index';
 import formatTime from '../../utils/formatTime';
-
-interface loseListType<T> {
-  name: string,
-  desc: string,
-  imgList: Array<{url: string, name: string}>,
-  region: string,
-  date: string,
-  phone: string,
-  time: T
-}
+import { lostType } from '../../types';
 
 Page({
   data: {
@@ -29,7 +20,7 @@ Page({
       '寻主',
       '寻物'
     ],
-    lostList: [] as loseListType<string>[],
+    lostList: [] as lostType<string>[],
     selectID: 0
   },
   onLoad: function() {
@@ -50,7 +41,7 @@ Page({
     const params = { type: this.data.selectID };
     getLoseData(params).then((loseData) => {
       this.setData({
-        lostList: loseData.map((item: loseListType<number>) => {
+        lostList: loseData.map((item: lostType<number>) => {
           return {
             ...item,
             time: formatTime(item.time)
