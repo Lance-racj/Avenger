@@ -1,0 +1,79 @@
+<view class="idleCt">
+  <view class="content">
+    <van-radio-group 
+      class="type" 
+      value="{{ type }}" 
+      bind:change="changeType" 
+      direction="horizontal"
+    >
+      <van-radio name="0">发布闲置</van-radio>
+      <van-radio name="1">求购闲置</van-radio>
+    </van-radio-group>
+    <van-cell-group wx:if="{{type === '0'}}" class="classify">
+      <van-field
+        value="{{ classifyValue }}"
+        is-link
+        readonly
+        label="物品类别"
+        placeholder="请选择物品类别"
+        bind:tap="onClick"
+      />
+      <van-popup show="{{ show }}" round position="bottom" duration="300">
+        <van-cascader
+          wx:if="{{ show }}"
+          value="{{ cascaderValue }}"
+          title="请选择物品类别"
+          options="{{ options }}"
+          bind:close="onClose"
+          bind:finish="onFinish"
+        />
+      </van-popup>
+    </van-cell-group>
+    <van-cell-group class="name">
+      <van-field
+        label="物品名称"
+        value="{{ name }}"
+        placeholder="请输入物品名称"
+        bind:change="changeName"
+      />
+    </van-cell-group>
+    <van-cell-group class="phone">
+      <van-field
+        label="联系方式"
+        type="number"
+        value="{{ phone }}"
+        placeholder="请输入手机号"
+        bind:change="changePhone"
+      />
+    </van-cell-group>
+    <van-cell-group class="desc">
+      <van-field
+        label="物品描述"
+        value="{{ desc }}"
+        placeholder="请输入物品描述"
+        bind:change="getDesc"
+        autosize
+        type="textarea"
+        maxlength="50"
+        show-word-limit
+      />
+    </van-cell-group>
+    <van-cell-group wx:if="{{type === '0'}}" class="imgList">
+      <view class="upLoadText">
+        上传物品图片(最多上传6张)
+      </view>
+      <van-uploader file-list="{{ imgList }}" max-count="6" bind:after-read="afterRead" deletable="{{ true }}" />
+    </van-cell-group> 
+  </view>
+  <view class="publishButtonArea">
+    <van-button
+     type="primary" 
+     size="normal" 
+     round color="#1890ff"
+     bindtap="toPublish"
+    >
+      {{type === '0'? '发布闲置物品': '发布求购信息'}}
+    </van-button>
+  </view>
+  <van-notify id="van-notify" />
+</view>

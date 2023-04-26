@@ -1,0 +1,22 @@
+.idleCt {
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  .publishButtonArea {
+    padding: 0rpx 15rpx;
+    display: flex;
+    justify-content: center;
+  }
+  .content {
+    .van-radio-group, .van-cell-group {
+      box-sizing: border-box;
+      margin-bottom: 30rpx;
+      .upLoadText {
+        margin-bottom: 20rpx;
+        color: #09090950;
+      }
+    }
+  }
+}

@@ -1,5 +1,3 @@
-import { deleteLostItem } from '../../api/index';
-
 Component({
   properties: {
     lostItem: {},

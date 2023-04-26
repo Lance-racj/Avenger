@@ -6,7 +6,7 @@
   <view class="publish_help">
     发布求助信息
   </view>
-  <view class="publish_trans">
+  <view class="publish_trans" bindtap="goToPublishIdle">
     发布闲置物品
   </view>
 </view>

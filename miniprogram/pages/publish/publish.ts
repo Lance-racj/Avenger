@@ -2,7 +2,12 @@
 Page({
   goToPublishLost() {
     wx.navigateTo({
-      url: '../publishLost/publishLost',
+      url: '../publishLost/publishLost'
+    })
+  },
+  goToPublishIdle() {
+    wx.navigateTo({
+      url: '../publishIdle/publishIdle'
     })
   }
 })

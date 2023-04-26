@@ -46,7 +46,7 @@ const LoseSchema = new mongoose.Schema({
   }
 })
 
-// 收藏物品表
+// 失物帖收藏表
 const CollectionSchema = new mongoose.Schema({
   id: {
     type: String
@@ -80,6 +80,56 @@ const CollectionSchema = new mongoose.Schema({
   },
   imgList: {
     type: Array
+  },
+  time: {
+    type: String
+  }
+})
+
+// 闲置物品表
+const IdleSchema = new mongoose.Schema({
+  openid: {
+    type: String
+  },
+  type: {
+    type: Number
+  },
+  classify_1: {
+    type: String
+  },
+  classify_2: {
+    type: String
+  },
+  name: {
+    type: String
+  },
+  phone: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  imgList: {
+    type: Array
+  },
+  time: {
+    type: String
+  }
+})
+
+// 求购物品表
+const NeedSchema = new mongoose.Schema({
+  openid: {
+    type: String
+  },
+  name: {
+    type: String
+  },
+  phone: {
+    type: String
+  },
+  desc: {
+    type: String
   },
   time: {
     type: String
@@ -126,6 +176,8 @@ const Lose = mongoose.model("LoseSchema", LoseSchema);
 const Admin = mongoose.model("AdminSchema", AdminSchema);
 const User = mongoose.model("UserSchema", UserSchema);
 const Collection = mongoose.model("CollectionSchema", CollectionSchema);
+const Idle = mongoose.model("IdleSchema", IdleSchema);
+const Need = mongoose.model("NeedSchema", NeedSchema);
 
 // 创建一个该表的超管
 // Admin.create({
@@ -140,5 +192,7 @@ module.exports = {
   Lose,
   Admin,
   User,
-  Collection
+  Collection,
+  Idle,
+  Need
 }

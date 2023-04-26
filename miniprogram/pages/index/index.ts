@@ -21,31 +21,24 @@ Page({
       },
     ]
   },
-  // onLoad: function() { 
-  //   wx.request({ 
-  //     url: `http://localhost:3000`, 
-  //     success: (res)  => { 
-  //       console.log(res); 
-  //     }, 
-  //     fail: (err) => { 
-  //       console.log(err); 
-  //     } 
-  //   }) 
-  // }, 
-  // 事件处理函数
-  // goToShopping() {
-  //   wx.navigateTo({
-  //     url: '../shopping/shopping',
-  //   })
-  // },
+  goToShopping() {
+    wx.navigateTo({
+      url: '../shopping/shopping',
+    })
+  },
   goToLost() {
     wx.navigateTo({
       url: '../lost/lost',
     })
   },
-  goToLostClassify() {
+  goToHelp() {
     wx.navigateTo({
-      url: '../lostClassify/lostClassify'
+      url: '../help/help'
     })
   }
+  // goToLostClassify() {
+  //   wx.navigateTo({
+  //     url: '../lostClassify/lostClassify'
+  //   })
+  // }
 })

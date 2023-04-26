@@ -1,5 +1,5 @@
 const express = require('express');
-const { Lose, Admin, User, Collection } = require('./database');
+const { Lose, Admin, User, Collection, Idle, Need } = require('./database');
 const cors = require('cors');
 const multer = require('multer');
 const { v4 } = require('uuid');
@@ -28,7 +28,7 @@ const upload = multer({storage});
 
 /* C端接口 */
 
-// publish_lost
+// 发布失物接口
 app.post('/publish/lost', async (req, res) => {
   try {
     /* 将前端传过来的数据放入lose数据表中 */
@@ -49,6 +49,43 @@ app.post('/publish/lost', async (req, res) => {
     res.send('success');
   } catch(error) {
     res.send('error', error);
+  }
+})
+
+// 发布闲置接口
+app.post('/publish/idle', async (req, res) => {
+  try {
+    const {
+      openid,
+      classify_1,
+      classify_2,
+      name,
+      phone,
+      desc,
+      imgList,
+      time
+    } = req.body;
+    await Idle.create({openid, classify_1, classify_2, name, phone, desc, imgList, time});
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 发布求购接口
+app.post('/publish/idle/need', async (req, res) => {
+  try {
+    const {
+      openid,
+      name,
+      phone,
+      desc,
+      time
+    } = req.body;
+    await Need.create({openid, name, phone, desc, time});
+    res.send('success');
+  } catch(error) {
+    res.send('error');
   }
 })
 
@@ -248,6 +285,37 @@ app.post('/admin/deleteItem', async (req, res) => {
   const { _id } = req.body;
   try {
     await Lose.findByIdAndRemove(_id);
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 闲置物品接口 && 模糊检索接口
+app.post('/admin/getIdle', async (req, res) => {
+  const { page, size, keyWord } = req.body;
+  try {
+    let result = [], total = 0;
+    if (keyWord !== '') {
+      const name = new RegExp(keyWord, 'i');
+      result = await Idle.find({name})
+        .skip((page - 1) * size).limit(size);
+      total = await Idle.find({name}).countDocuments();
+    } else {
+      result = await Idle.find({}).skip((page - 1) * size).limit(size);
+      total = await Idle.find({}).countDocuments();
+    }
+    res.send({result, total});
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 删除闲置物品信息接口
+app.post('/admin/delIdle/item', async (req, res) => {
+  const { _id } = req.body;
+  try {
+    await Idle.findByIdAndRemove(_id);
     res.send('success');
   } catch(error) {
     res.send('error');
