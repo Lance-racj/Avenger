@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "Tabs": "../../components/Tabs/Tabs",
-    "lostCard": "../../components/lostCard/lostCard"
+    "lostCard": "../../components/lostCard/lostCard",
+    "van-notify": "@vant/weapp/notify/index"
   }
 }

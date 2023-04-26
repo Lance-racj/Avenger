@@ -1,10 +1,31 @@
 <view class="lose_item">
-  <image src="{{lostItem.imgList[0].url}}" />
-  <view class="lose_item_content">
-    <text class="name">{{lostItem.name}}</text>
-    <text class="region">{{lostItem.region}}</text>
-    <text class="date">{{lostItem.date}}</text>
-    <text class="desc">{{lostItem.desc}}</text>
-    <text class="publish_time">{{lostItem.time}}</text>
+  <view class="lose_item_body">
+    <image src="{{lostItem.imgList[0].url}}" />
+    <view class="lose_item_body_content">
+      <text class="name">{{lostItem.name}}</text>
+      <text class="region">{{lostItem.region}}</text>
+      <text class="date">{{lostItem.date}}</text>
+      <text class="desc">{{lostItem.desc}}</text>
+      <text class="publish_time">{{lostItem.time}}</text>
+    </view>
+  </view>
+  <view wx:if="{{handle}}" class="lose_item_handle">
+    <view>
+      <van-button 
+        size="small" 
+        type="primary" 
+        bind:click="showPopup"
+      >
+        编辑
+      </van-button>
+      <van-button 
+        size="small"
+        type="danger"
+        bind:click="deleteItem"
+        data-id="{{lostItem._id}}"
+      >
+        删除
+      </van-button>
+    </view>
   </view>
 </view>

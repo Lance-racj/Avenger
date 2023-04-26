@@ -47,6 +47,12 @@ export const publishLost = (publishLostConfig: lostType<number>) => {
   })
 }
 
+export const deleteLostItem = (params: {_id: string}) => {
+  return httpRequest.post<string>(`${baseUrl}/lost/delete`, params).then((res) => {
+    return res;
+  })
+}
+
 // 注册账号
 export const registerAccount = (userData: UserData) => {
   return httpRequest.post<string>(`${baseUrl}/register`, userData).then((res) => {

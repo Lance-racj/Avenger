@@ -1,6 +1,13 @@
 <view class="myPublishLost">
   <Tabs tabList="{{tabList}}" bindgetTab="getTab"></Tabs>
   <view class="lose"> 
-    <lostCard wx:for="{{lostList}}" wx:key="index" lostItem="{{item}}" />
+    <lostCard 
+      wx:for="{{lostList}}" 
+      wx:key="index" 
+      lostItem="{{item}}" 
+      handle="{{true}}"
+      bindgetDeleteID="deleteItem"
+    />
   </view>
+  <van-notify id="van-notify" />
 </view>

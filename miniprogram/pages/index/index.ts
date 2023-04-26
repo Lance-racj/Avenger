@@ -21,6 +21,17 @@ Page({
       },
     ]
   },
+  // onLoad: function() { 
+  //   wx.request({ 
+  //     url: `http://localhost:3000`, 
+  //     success: (res)  => { 
+  //       console.log(res); 
+  //     }, 
+  //     fail: (err) => { 
+  //       console.log(err); 
+  //     } 
+  //   }) 
+  // }, 
   // 事件处理函数
   // goToShopping() {
   //   wx.navigateTo({

@@ -1,10 +1,10 @@
-.lose {
-  &_item {
+.lose_item {
+  margin-bottom: 5rpx;
+  background-color: #ffffff;
+  &_body {
     width: 100%;
     display: flex;
     padding: 20rpx;
-    margin-bottom: 5rpx;
-    background-color: #ffffff;
     box-sizing: border-box;
     image {
       width: 250rpx;
@@ -44,6 +44,13 @@
         color: #666;
         font-size: 26rpx;
       }
+    }
+  }
+  &_handle {
+    display: flex;
+    justify-content: flex-end;
+    van-button {
+      margin-right: 8rpx;
     }
   }
 }

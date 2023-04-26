@@ -1,6 +1,8 @@
 const express = require('express');
 const { Lose, Admin, User, Collection } = require('./database');
 const cors = require('cors');
+const multer = require('multer');
+const { v4 } = require('uuid');
 
 const app = express();
 
@@ -8,7 +10,21 @@ app.use(cors());
 app.options('*', cors());
 // 使用中间件支持req.body
 app.use(express.urlencoded({extended: true}));
-app.use(express.json())
+app.use(express.json());
+app.use(express.static(__dirname));
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./file")
+  },
+  filename: (req, file, cb) => {
+    let type = file.originalname.replace(/.+\./, ".");
+    cb(null, `${v4()}${type}`);
+  }
+})
+const upload = multer({storage});
+
 
 /* C端接口 */
 
@@ -37,9 +53,9 @@ app.post('/publish/lost', async (req, res) => {
 })
 
 // 上传图片接口
-// app.post('/uploadImg', upload.array('file', 6), async (req, res) => {
-//   res.send(req.files);
-// })
+app.post('/uploadImg', upload.array('file', 6), async (req, res) => {
+  res.send(req.files);
+})
 
 // 获取首页的数据
 app.get('/getLose', async (req, res) => {
@@ -127,6 +143,17 @@ app.post('/follow/del', async (req, res) => {
       id,
       openid
     })
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 删除失物招领帖子
+app.post('/lost/delete', async (req, res) => {
+  const { _id } = req.body;
+  try {
+    await Lose.findByIdAndRemove(_id);
     res.send('success');
   } catch(error) {
     res.send('error');

@@ -30,12 +30,7 @@ Page({
     date: '', // 丢失/拾取日期
     phone: '',
     desc: '', // 物品描述
-    imgList: [
-      {
-        url: 'https://img.yzcdn.cn/vant/leaf.jpg',
-        name: '图片1',
-      },
-    ] // 图片列表
+    imgList: [] as any // 图片列表
   },
   // 1. 找失主 2. 找失物
   changeType(e: any) {
@@ -95,16 +90,20 @@ Page({
   afterRead(event: any) {
     const { file } = event.detail;
     wx.uploadFile({
-      url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
+      url: 'http://localhost:3060/uploadImg',
       filePath: file.url,
       name: 'file',
-      formData: { user: 'test' },
       success: (res) => {
-        // 上传完成需要更新 imgList
-        let { imgList } = this.data;
-        imgList.push({ ...file, url: res.data });
+        let { imgList = [] } = this.data;
+        let path = JSON.parse(res.data)[0].path;
+        path = `http://localhost:3060/${path}`;
+        const name = JSON.parse(res.data)[0].filename;
+        imgList.push({ name: name, url: path });
         this.setData({ imgList });
       },
+      fail: (err) => {
+        console.log(err);
+      }
     });
   },
   async toPublish() {
@@ -119,6 +118,13 @@ Page({
       desc,
       imgList,
     } = this.data
+    if (!type || !classify_1 || !classify_2 || !name || !date || !region || !phone || !desc || !imgList) {
+      Notify({ 
+        type: 'warning', 
+        message: '请检查必填项是否完整' 
+      });
+      return;
+    }
     const openid = wx.getStorageSync('openid');
     const params = {
       openid,

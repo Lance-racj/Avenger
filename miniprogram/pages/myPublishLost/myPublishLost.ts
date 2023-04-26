@@ -1,6 +1,7 @@
-import { getLoseData } from '../../api/index';
+import { getLoseData, deleteLostItem } from '../../api/index';
 import { lostType } from '../../types/index';
 import formatTime from '../../utils/formatTime';
+import Notify from '@vant/weapp/notify/notify';
 
 Page({
   data: {
@@ -35,5 +36,22 @@ Page({
       selectID: e.detail
     })
     this.getMyLoseList();
+  },
+  deleteItem(e: any) {
+    const params = {_id: e.detail}
+    deleteLostItem(params).then((res) => {
+      if(res === 'success') {
+        Notify({
+          type: 'primary',
+          message: '删除成功'
+        })
+        this.getMyLoseList();
+      } else {
+        Notify({
+          type: 'danger',
+          message: '删除失败'
+        })
+      }
+    })
   }
 })
