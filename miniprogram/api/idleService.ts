@@ -1,5 +1,5 @@
 import httpRequest from '../utils/http';
-const baseUrl = 'http://localhost:3060';
+const baseUrl = 'http://localhost:3060/api';
 import { needItem, idleItem } from '../types/idleInterface';
 
 class IdleService {
@@ -9,7 +9,7 @@ class IdleService {
    */
   async publishIdle(params: idleItem): Promise<string> {
     console.log(params);
-    const data = await httpRequest.post<string>(`${baseUrl}/publish/idle`, params);
+    const data = await httpRequest.post<string>(`${baseUrl}/idle/publish`, params);
     return data;
   }
   /**
@@ -17,7 +17,7 @@ class IdleService {
    * @param params ....
    */
   async publishNeed(params: needItem): Promise<string> {
-    const data = await httpRequest.post<string>(`${baseUrl}/publish/idle/need`, params);
+    const data = await httpRequest.post<string>(`${baseUrl}/idle/need/publish`, params);
     return data;
   }
 }

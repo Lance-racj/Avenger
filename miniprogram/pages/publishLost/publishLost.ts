@@ -90,7 +90,7 @@ Page({
   afterRead(event: any) {
     const { file } = event.detail;
     wx.uploadFile({
-      url: 'http://localhost:3060/uploadImg',
+      url: 'http://localhost:3060/api/uploadImg',
       filePath: file.url,
       name: 'file',
       success: (res) => {

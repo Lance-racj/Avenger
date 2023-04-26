@@ -89,7 +89,7 @@ Page({
   afterRead(event: any) {
     const { file } = event.detail;
     wx.uploadFile({
-      url: 'http://localhost:3060/uploadImg',
+      url: 'http://localhost:3060/api/uploadImg',
       filePath: file.url,
       name: 'file',
       success: (res) => {
@@ -106,16 +106,17 @@ Page({
     });
   },
   async toPublish() {
+    const {
+      type,
+      classify_1,
+      classify_2,
+      name,
+      phone,
+      desc,
+      imgList,
+    } = this.data
+    const openid = wx.getStorageSync('openid');
     if (this.data.type === '0') {
-      const {
-        type,
-        classify_1,
-        classify_2,
-        name,
-        phone,
-        desc,
-        imgList,
-      } = this.data
       if (!type || !classify_1 || !classify_2 || !name || !phone || !desc || !imgList) {
         Notify({ 
           type: 'warning', 
@@ -123,7 +124,6 @@ Page({
         });
         return;
       }
-      const openid = wx.getStorageSync('openid');
       const params = {
         openid,
         classify_1,
@@ -147,7 +147,34 @@ Page({
       }).catch(() => {
         Notify('发布失败，请检查内容后重新发布');
       });
+    } else {
+      if (!type || !name || !phone || !desc) {
+        Notify({ 
+          type: 'warning', 
+          message: '请检查必填项是否完整' 
+        });
+        return;
+      }
+      const params = {
+        openid,
+        name,
+        phone,
+        desc,
+        time: formatTime(new Date().getTime())
+      }
+      idleService.publishNeed(params).then(() => {
+        Notify({ 
+          type: 'primary', 
+          message: '发布成功，页面将于2s后跳回首页' 
+        });
+        setTimeout(() => {
+          wx.reLaunch({
+            url: '../index/index'
+          })
+        }, 2000)
+      }).catch(() => {
+        Notify('发布失败，请检查内容后重新发布');
+      });
     }
-
   }
 })
