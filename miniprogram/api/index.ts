@@ -14,7 +14,7 @@ export const getLoseData = (params: {
 
 // 获取个人失物收藏信息
 export const getFollowList = (params: {openid: string, type: number}) => {
-  return httpRequest.get<lostType<string>[]>(`${baseUrl}/getfollow/list`, params).then((res) => {
+  return httpRequest.get<lostType<string>[]>(`${baseUrl}/lost/follow/list`, params).then((res) => {
     return res;
   })
 }

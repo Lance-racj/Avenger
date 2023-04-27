@@ -1,0 +1,31 @@
+<view class="idle_item">
+  <view class="tag">出售</view>
+  <view class="idle_item_body">
+    <image src="{{idleItem.imgList[0].url}}" />
+    <view class="idle_item_body_content">
+      <text class="name">物品名称：{{idleItem.name}}</text>
+      <text class="desc">物品描述：{{idleItem.desc}}</text>
+      <text class="phone">联系方式：{{idleItem.phone}}</text>
+      <text class="publish_time">发布时间：{{idleItem.time}}</text>
+    </view>
+  </view>
+  <view wx:if="{{handle}}" class="idle_item_handle">
+    <view>
+      <van-button 
+        size="small" 
+        type="primary" 
+        bind:click="showPopup"
+      >
+        编辑
+      </van-button>
+      <van-button 
+        size="small"
+        type="danger"
+        bind:click="deleteItem"
+        data-id="{{lostItem._id}}"
+      >
+        删除
+      </van-button>
+    </view>
+  </view>
+</view>

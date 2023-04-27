@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "vswipe": "../../components/vswipe/vswipe",
+    "idleCard": "../../components/idleCard/idleCard",
+    "Tabs": "../../components/Tabs/Tabs",
+    "searchInput": "../../components/searchInput/searchInput"
+  }
+}

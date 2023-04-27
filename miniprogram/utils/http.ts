@@ -99,22 +99,22 @@ class HttpRequest {
   }
 
   // get方法
-  public get<T>(url: string, data: object, otherConfig?: RequestConfig) {
+  public get<T>(url: string, data?: object, otherConfig?: RequestConfig) {
     return this.request<T>({method: HttpMethod.GET, url, data, ...otherConfig});
   }
 
   // put方法
-  public put<T>(url: string, data: object, otherConfig?: RequestConfig) {
+  public put<T>(url: string, data?: object, otherConfig?: RequestConfig) {
     return this.request<T>({method: HttpMethod.PUT, url, data, ...otherConfig});
   }
 
   // delete方法
-  public delete<T>(url: string, data: object, otherConfig?: RequestConfig) {
+  public delete<T>(url: string, data?: object, otherConfig?: RequestConfig) {
     return this.request<T>({method: HttpMethod.DELETE, url, data, ...otherConfig});
   }
 
   // post方法
-  public post<T>(url: string, data: object, otherConfig?: RequestConfig) {
+  public post<T>(url: string, data?: object, otherConfig?: RequestConfig) {
     return this.request<T>({method: HttpMethod.POST, url, data, ...otherConfig});
   }
 }

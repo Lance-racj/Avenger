@@ -23,7 +23,7 @@ Page({
   },
   goToShopping() {
     wx.navigateTo({
-      url: '../shopping/shopping',
+      url: '../idle/idle',
     })
   },
   goToLost() {

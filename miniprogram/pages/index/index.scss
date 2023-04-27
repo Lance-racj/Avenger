@@ -8,42 +8,35 @@
   background-color: #f3f3f3;
   .swipe {
     padding: 30rpx 0;
-  }
-  .functionArea {
+  } 
+  .idleTransaction {
     width: 710rpx;
-    height: 240rpx;
+    height: 220rpx;
     border-radius: 20rpx;
-    background-color: gray;
-    margin-top: 20rpx;
     display: flex;
     justify-content: center;
     align-items: center;
-    .idleTransaction {
-      width: 230rpx;
-      height: 220rpx;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: green;
-    }
-    .lostAndFound {
-      width: 230rpx;
-      height: 220rpx;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 20rpx;
-      background-color: honeydew;
-    }
-    .campusHelp {
-      width: 230rpx;
-      height: 220rpx;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 20rpx;
-      background-color: red;
-    }
+    background-color: green;
+  }
+  .lostAndFound {
+    width: 710rpx;
+    height: 220rpx;
+    border-radius: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20rpx;
+    background-color: honeydew;
+  }
+  .campusHelp {
+    width: 710rpx;
+    height: 220rpx;
+    border-radius: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20rpx;
+    background-color: red;
   }
   .classify {
     .idleClassify {

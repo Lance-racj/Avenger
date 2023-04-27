@@ -1,4 +1,5 @@
 <view class="lose_item">
+  <view class="tag">{{lostItem.type === 0? '寻主': '寻物'}}</view>
   <view class="lose_item_body">
     <image src="{{lostItem.imgList[0].url}}" />
     <view class="lose_item_body_content">

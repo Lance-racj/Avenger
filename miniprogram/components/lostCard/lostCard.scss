@@ -1,6 +1,7 @@
 .lose_item {
   margin-bottom: 5rpx;
   background-color: #ffffff;
+  position: relative;
   &_body {
     width: 100%;
     display: flex;
@@ -52,5 +53,17 @@
     van-button {
       margin-right: 8rpx;
     }
+  }
+  .tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: green;
+    color: white;
   }
 }

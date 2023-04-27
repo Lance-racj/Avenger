@@ -13,8 +13,8 @@
     "pages/lostDetail/lostDetail",
     "pages/search/search",
     "pages/help/help",
-    "pages/shopping/shopping",
-    "pages/publishIdle/publishIdle"
+    "pages/publishIdle/publishIdle",
+    "pages/idle/idle"
   ],
   "requiredPrivateInfos": [
     "chooseAddress",

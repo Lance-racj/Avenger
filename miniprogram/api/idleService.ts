@@ -8,17 +8,28 @@ class IdleService {
    * @param params ....
    */
   async publishIdle(params: idleItem): Promise<string> {
-    console.log(params);
-    const data = await httpRequest.post<string>(`${baseUrl}/idle/publish`, params);
-    return data;
+    return await httpRequest.post<string>(`${baseUrl}/idle/publish`, params);
   }
   /**
    * need unused thing
    * @param params ....
    */
   async publishNeed(params: needItem): Promise<string> {
-    const data = await httpRequest.post<string>(`${baseUrl}/idle/need/publish`, params);
-    return data;
+    return await httpRequest.post<string>(`${baseUrl}/idle/need/publish`, params);
+  }
+  /**
+   * get idle list
+   * @param params ....
+   */
+  async getIdleList(params?: {openid: string}): Promise<idleItem[]> {
+    return await httpRequest.get<idleItem[]>(`${baseUrl}/idle/list`, params);
+  }
+  /**
+   * get need list
+   * @param params ....
+   */
+  async getNeedList(params?: {openid: string}): Promise<needItem[]> {
+    return await httpRequest.get<needItem[]>(`${baseUrl}/idle/need/list`, params);
   }
 }
 

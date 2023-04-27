@@ -1,0 +1,72 @@
+.idle_item {
+  margin-bottom: 10rpx;
+  background-color: #ffffff;
+  position: relative;
+  &_body {
+    width: 100%;
+    display: flex;
+    padding: 20rpx;
+    box-sizing: border-box;
+    image {
+      width: 250rpx;
+      min-width: 250rpx;
+      height: 250rpx;
+      border-radius: 20rpx;
+    }
+    &_content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      margin-left: 15rpx;
+      .name {
+        font-weight: bold;
+        margin-bottom: 25rpx;
+      }
+      .desc {
+        font-size: 26rpx;
+        margin-bottom: 20rpx;
+      }
+      .phone {
+        font-size: 26rpx;
+        margin-bottom: 20rpx;
+        color: #666;
+      }
+      .desc {
+        // 不规定最大宽度，超出省略无效
+        max-width: 400rpx;
+        color: #666;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .publish_time {
+        position: absolute;
+        bottom: 10rpx;
+        right: 10rpx;
+        margin-top: 30rpx;
+        margin-left: auto;
+        color: #666;
+        font-size: 26rpx;
+      }
+    }
+  }
+  &_handle {
+    display: flex;
+    justify-content: flex-end;
+    van-button {
+      margin-right: 8rpx;
+    }
+  }
+  .tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: brown;
+    color: white;
+  }
+}
