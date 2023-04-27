@@ -118,6 +118,37 @@ router.post('/delNeed/item', async (req, res) => {
   }
 })
 
+// 获取校园互助信息
+router.post('/getHelp', async (req, res) => {
+  const { page, size, keyWord } = req.body;
+  try {
+    let result = [], total = 0;
+    if (keyWord !== '') {
+      const name = new RegExp(keyWord, 'i');
+      result = await Help.find({name})
+        .skip((page - 1) * size).limit(size);
+      total = await Help.find({name}).countDocuments();
+    } else {
+      result = await Help.find({}).skip((page - 1) * size).limit(size);
+      total = await Help.find({}).countDocuments();
+    }
+    res.send({result, total});
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 删除单个校园互助信息接口
+router.post('/delHelp/item', async (req, res) => {
+  const { _id } = req.body;
+  try {
+    await Help.findByIdAndRemove(_id);
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
+
 // 用户管理 && 模糊检索接口
 router.post('/getUser', async (req, res) => {
   const { page, size, keyWord} = req.body;

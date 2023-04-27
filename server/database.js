@@ -136,6 +136,31 @@ const NeedSchema = new mongoose.Schema({
   }
 })
 
+// 求助贴表
+const HelpSchema = new mongoose.Schema({
+  openid: {
+    type: String
+  },
+  title: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  status: {
+    type: Number  // 0: 正在寻找中  1: 已结束
+  },
+  phone: {
+    type: String
+  },
+  money: {
+    type: String
+  },
+  time: {
+    type: String
+  }
+})
+
 // 用户账号表
 const UserSchema = new mongoose.Schema({
   openid: {
@@ -178,6 +203,7 @@ const User = mongoose.model("UserSchema", UserSchema);
 const Collection = mongoose.model("CollectionSchema", CollectionSchema);
 const Idle = mongoose.model("IdleSchema", IdleSchema);
 const Need = mongoose.model("NeedSchema", NeedSchema);
+const Help = mongoose.model("HelpSchema", HelpSchema);
 
 // 创建一个该表的超管
 // Admin.create({
@@ -194,5 +220,6 @@ module.exports = {
   User,
   Collection,
   Idle,
-  Need
+  Need,
+  Help
 }
