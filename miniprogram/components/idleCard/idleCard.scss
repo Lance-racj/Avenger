@@ -1,12 +1,12 @@
 .idle_item {
   margin-bottom: 10rpx;
   background-color: #ffffff;
-  position: relative;
   &_body {
     width: 100%;
     display: flex;
     padding: 20rpx;
     box-sizing: border-box;
+    position: relative;
     image {
       width: 250rpx;
       min-width: 250rpx;
@@ -49,24 +49,24 @@
         font-size: 26rpx;
       }
     }
+    .tag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100rpx;
+      height: 50rpx;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: brown;
+      color: white;
+    }
   }
   &_handle {
     display: flex;
     justify-content: flex-end;
-    van-button {
+    van-button:first-child {
       margin-right: 8rpx;
     }
-  }
-  .tag {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100rpx;
-    height: 50rpx;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: brown;
-    color: white;
   }
 }

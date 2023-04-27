@@ -1,5 +1,4 @@
 <view class="idle_item">
-  <view class="tag">出售</view>
   <view class="idle_item_body">
     <image src="{{idleItem.imgList[0].url}}" />
     <view class="idle_item_body_content">
@@ -8,6 +7,7 @@
       <text class="phone">联系方式：{{idleItem.phone}}</text>
       <text class="publish_time">发布时间：{{idleItem.time}}</text>
     </view>
+    <view class="tag">出售</view>
   </view>
   <view wx:if="{{handle}}" class="idle_item_handle">
     <view>

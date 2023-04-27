@@ -15,7 +15,7 @@
           size="large" 
           is-link 
           link-type="navigateTo"
-          url="/pages/myPublishLost/myPublishLost"   
+          url="/pages/myPublishLost/myPublishLost"
         />
         <van-cell 
           title="我的闲置发布" 
@@ -23,7 +23,8 @@
           icon="upgrade" 
           size="large" 
           is-link 
-          link-type="navigateTo"   
+          link-type="navigateTo"
+          url="/pages/myPublishIdle/myPublishIdle"  
         />
         <van-cell 
           title="我的求助发布" 

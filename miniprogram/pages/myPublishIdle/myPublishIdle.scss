@@ -1,0 +1,38 @@
+.need {
+  &_item {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 250rpx;
+    padding: 15rpx;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20rpx;
+    position: relative;
+    .name {
+      font-weight: bold;
+      margin-bottom: 22rpx;
+    }
+    .desc, .phone {
+      margin-bottom: 15rpx;
+    }
+    .time {
+      margin-top: 15rpx;
+      margin-left: auto;
+      color: #666;
+      font-size: 28rpx;
+    }
+    .tag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100rpx;
+      height: 50rpx;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: green;
+      color: white;
+    }
+  }
+}

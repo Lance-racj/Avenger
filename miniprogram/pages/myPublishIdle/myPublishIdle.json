@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Tabs": "../../components/Tabs/Tabs",
+    "idleCard": "../../components/idleCard/idleCard",
+    "van-notify": "@vant/weapp/notify/index"
+  }
+}
