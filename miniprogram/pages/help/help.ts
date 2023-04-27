@@ -1,66 +1,56 @@
-// pages/help/help.ts
+import { needItem, idleItem } from '../../types/idleInterface';
+import idleService from '../../api/idleService';
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    swipeList: [
+      {
+        imageUrl: '../../assets/images/help.png',
+        type: 'url',
+        target: 'www.baidu.com'
+      },
+      {
+        imageUrl: '../../assets/images/help2.png',
+        type: 'product',
+        target: '1'
+      },
+    ],
+    tabList: [
+      '闲置出售',
+      '求购闲置'
+    ],
+    idleList: [] as idleItem[],
+    needList: [] as needItem[],
+    selectID: 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad() {
-
+    this.getIdleList();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  getList(id: number) {
+    if (id === 0) {
+      this.getIdleList();
+    } else {
+      this.getNeedList();
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  getIdleList() {
+    idleService.getIdleList().then((res) => {
+      this.setData({
+        idleList: res
+      })
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  getNeedList() {
+    idleService.getNeedList().then((res) => {
+      this.setData({
+        needList: res
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  getTab(e: any) {
+    this.setData({
+      selectID: e.detail
+    })
+    this.getList(e.detail);
   }
 })

@@ -5,38 +5,71 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  background-color: #f3f3f3;
   .swipe {
     padding: 30rpx 0;
   } 
-  .idleTransaction {
-    width: 710rpx;
-    height: 220rpx;
-    border-radius: 20rpx;
+  .business {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: green;
-  }
-  .lostAndFound {
     width: 710rpx;
-    height: 220rpx;
-    border-radius: 20rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 20rpx;
-    background-color: honeydew;
-  }
-  .campusHelp {
-    width: 710rpx;
-    height: 220rpx;
-    border-radius: 20rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 20rpx;
-    background-color: red;
+    height: 520rpx;
+    .idleTransaction {
+      position: relative;
+      width: 310rpx;
+      height: 470rpx;
+      border-radius: 20rpx;
+      background: url(https://img.js.design/assets/img/61a85706eca407605ae2acff.png) no-repeat rgba(255, 194, 77, 1);
+      background-size: 90%;
+      background-position: 90% 90%;
+      text {
+        color: rgba(51, 51, 51, 1);
+        position: absolute;
+        top: 80rpx;
+        left: 87rpx;
+      }
+    }
+    .right_side {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 470rpx;
+      margin-left: 20rpx;
+      .lostAndFound {
+        width: 380rpx;
+        height: 220rpx;
+        border-radius: 20rpx;
+        background-color: yellowgreen;
+        color: #ffffff;
+        background: url(https://img.js.design/assets/img/61a857068c44b85077615ffa.png) no-repeat yellowgreen;
+        background-size: 70%;
+        background-position: right bottom;
+        position: relative;
+        text {
+          color: rgba(51, 51, 51, 1);
+          position: absolute;
+          top: 25rpx;
+          left: 20rpx;
+        }
+      }
+      .campusHelp {
+        width: 380rpx;
+        height: 220rpx;
+        border-radius: 20rpx;
+        background-color: skyblue;
+        color: #ffffff;
+        background: url(https://img.js.design/assets/img/61a857068c44b85077615ffa.png) no-repeat skyblue;
+        background-size: 70%;
+        background-position: right bottom;
+        position: relative;
+        text {
+          color: rgba(51, 51, 51, 1);
+          position: absolute;
+          top: 25rpx;
+          left: 20rpx;
+        }
+      }
+    }
   }
   .classify {
     .idleClassify {

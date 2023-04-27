@@ -6,9 +6,19 @@
   <view class="weather">
     <weather></weather>
   </view>
-  <view class="idleTransaction" bindtap="goToShopping">闲置交易</view>
-    <view class="lostAndFound" bindtap="goToLost">失物招领</view>
-    <view class="campusHelp" bindtap="goToHelp">校园互助</view>
+  <view class="business">
+    <view class="idleTransaction" bindtap="goToShopping">
+      <text>闲置交易</text>
+    </view>
+    <view class="right_side">
+      <view class="lostAndFound" bindtap="goToLost">
+        <text>失物招领</text>
+      </view>
+      <view class="campusHelp" bindtap="goToHelp">
+        <text>校园互助</text>
+      </view>
+    </view>
+  </view>
   <view class="classify">
     <!-- <view class="lostClassify" bindtap="goToLostClassify">失物招领详情分类</view>
     <view class="idleClassify" bindtap="goToLost">闲置交易详情分类</view>
