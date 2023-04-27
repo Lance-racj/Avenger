@@ -5,6 +5,7 @@ const { v4 } = require('uuid');
 const { User } = require('../database');
 const lost = require('./lost/index');
 const idle = require('./idle/index');
+const help = require('./help/index');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -60,6 +61,7 @@ router.post('/toLogin', async (req, res) => {
 
 router.use('/lost', lost);
 router.use('/idle', idle);
+router.use('/help', help);
 
 // 导出路由器
 module.exports = router;

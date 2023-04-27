@@ -1,0 +1,52 @@
+<view class="idleCt">
+  <view class="content">
+    <van-cell-group class="title">
+      <van-field
+        label="求助标题"
+        value="{{ title }}"
+        placeholder="请输入物品名称"
+        bind:change="changeTitle"
+      />
+    </van-cell-group>
+    <van-cell-group class="phone">
+      <van-field
+        label="联系方式"
+        type="phone"
+        value="{{ phone }}"
+        placeholder="请输入手机号"
+        bind:change="changePhone"
+      />
+    </van-cell-group>
+    <van-cell-group class="money">
+      <van-field
+        label="报酬"
+        value="{{ money }}"
+        placeholder="请输入报酬金额"
+        bind:change="changeMoney"
+      />
+    </van-cell-group>
+    <van-cell-group class="desc">
+      <van-field
+        label="描述求助信息"
+        value="{{ desc }}"
+        placeholder="请输入描述详细情况"
+        bind:change="getDesc"
+        autosize
+        type="textarea"
+        maxlength="50"
+        show-word-limit
+      />
+    </van-cell-group>
+  </view>
+  <view class="publishButtonArea">
+    <van-button
+     type="warning"
+     size="normal" 
+     round
+     bindtap="toPublish"
+    >
+      发布求助帖
+    </van-button>
+  </view>
+  <van-notify id="van-notify" />
+</view>

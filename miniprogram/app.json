@@ -3,7 +3,11 @@
     "pages/index/index",
     "pages/publish/publish",
     "pages/publishLost/publishLost",
+    "pages/publishIdle/publishIdle",
+    "pages/publishHelp/publishHelp",
     "pages/lost/lost",
+    "pages/help/help",
+    "pages/idle/idle",
     "pages/mine/mine",
     "pages/login/login",
     "pages/register/register",
@@ -12,10 +16,7 @@
     "pages/myPublishLost/myPublishLost",
     "pages/myPublishIdle/myPublishIdle",
     "pages/lostDetail/lostDetail",
-    "pages/search/search",
-    "pages/help/help",
-    "pages/publishIdle/publishIdle",
-    "pages/idle/idle"
+    "pages/search/search"
   ],
   "requiredPrivateInfos": [
     "chooseAddress",

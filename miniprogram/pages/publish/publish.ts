@@ -9,5 +9,10 @@ Page({
     wx.navigateTo({
       url: '../publishIdle/publishIdle'
     })
+  },
+  goToPublishHelp() {
+    wx.navigateTo({
+      url: '../publishHelp/publishHelp'
+    })
   }
 })

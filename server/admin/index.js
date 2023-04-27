@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Lose, Admin, User, Idle, Need } = require('../database');
+const { Lose, Admin, User, Idle, Need, Help } = require('../database');
 
 // 管理员登录接口
 router.post('/login', async (req, res) => {
