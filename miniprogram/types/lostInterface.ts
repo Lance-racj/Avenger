@@ -1,16 +1,9 @@
-export interface UserData {
-  openid?: string,
-  username: string,
-  password: string,
-  date?: number
-}
-
 export interface pic {
   url: string,
   name: string
 }
 
-export interface lostType<T> {
+export interface lostItem<T> {
   id?: string,
   openid: string,
   type: number

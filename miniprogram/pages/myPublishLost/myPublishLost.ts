@@ -1,5 +1,5 @@
-import { getLoseData, deleteLostItem } from '../../api/index';
-import { lostType } from '../../types/index';
+import lostService from '../../api/lostService';
+import { lostItem } from '../../types/lostInterface';
 import formatTime from '../../utils/formatTime';
 import Notify from '@vant/weapp/notify/notify';
 
@@ -9,7 +9,7 @@ Page({
       '寻主',
       '寻物'
     ],
-    lostList: [] as lostType<string>[],
+    lostList: [] as lostItem<string>[],
     selectID: 0
   },
   onLoad() {
@@ -20,9 +20,9 @@ Page({
       type: this.data.selectID,
       openid: wx.getStorageSync('openid')
     }
-    getLoseData(params).then((res) => {
+    lostService.getLoseData(params).then((res) => {
       this.setData({
-        lostList: res.map((item: lostType<number>) => {
+        lostList: res.map((item: lostItem<number>) => {
           return {
             ...item,
             time: formatTime(item.time)
@@ -39,7 +39,7 @@ Page({
   },
   deleteItem(e: any) {
     const params = {_id: e.detail}
-    deleteLostItem(params).then((res) => {
+    lostService.deleteLostItem(params).then((res) => {
       if(res === 'success') {
         Notify({
           type: 'primary',

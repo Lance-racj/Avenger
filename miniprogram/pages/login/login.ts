@@ -1,4 +1,4 @@
-import {loginAccount} from '../../api/index';
+import appService from '../../api/appService';
 
 Page({
   data: {
@@ -33,7 +33,7 @@ Page({
       username,
       password
     }
-    const res: any = await loginAccount(params);
+    const res: string = await appService.loginAccount(params);
     if (res == '用户名或密码错误') {
       wx.showToast({
         title: `${res}`,

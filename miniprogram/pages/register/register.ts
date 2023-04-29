@@ -1,4 +1,4 @@
-import {registerAccount} from '../../api/index';
+import appService from '../../api/appService';
 
 Page({
   data: {
@@ -75,7 +75,7 @@ Page({
       password,
       date: new Date().getTime()
     }
-    const res = await registerAccount(params);
+    const res = await appService.registerAccount(params);
     if (res == 'success') {
       wx.redirectTo({
         url: '../login/login',

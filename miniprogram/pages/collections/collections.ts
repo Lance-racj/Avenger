@@ -1,4 +1,4 @@
-import { getFollowList } from '../../api/index';
+import lostService from '../../api/lostService';
 
 Page({
   data: {
@@ -17,7 +17,7 @@ Page({
       openid: wx.getStorageSync('openid'),
       type: this.data.selectID
     }
-    getFollowList(params).then((res) => {
+    lostService.getFollowList(params).then((res) => {
       this.setData({
         collectionList: res
       });

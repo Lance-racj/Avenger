@@ -1,4 +1,4 @@
-import { publishLost } from '../../api/index';
+import lostService from '../../api/lostService';
 import Notify from '@vant/weapp/notify/notify';
 
 // 物品类别列表
@@ -139,7 +139,7 @@ Page({
       imgList,
       time: new Date().getTime()
     }
-    publishLost(params).then(() => {
+    lostService.publishLost(params).then(() => {
       Notify({ 
         type: 'primary', 
         message: '发布成功，页面将于2s后跳回首页' 

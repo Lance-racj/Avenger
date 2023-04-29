@@ -1,6 +1,6 @@
-import { getLoseData } from '../../api/index';
+import lostService from '../../api/lostService';
 import formatTime from '../../utils/formatTime';
-import { lostType } from '../../types';
+import { lostItem } from '../../types/lostInterface';
 
 Page({
   data: {
@@ -20,7 +20,7 @@ Page({
       '寻主',
       '寻物'
     ],
-    lostList: [] as lostType<string>[],
+    lostList: [] as lostItem<string>[],
     selectID: 0
   },
   onLoad: function() {
@@ -39,9 +39,9 @@ Page({
   },
   getLose: async function() {
     const params = { type: this.data.selectID };
-    getLoseData(params).then((loseData) => {
+    lostService.getLoseData(params).then((loseData) => {
       this.setData({
-        lostList: loseData.map((item: lostType<number>) => {
+        lostList: loseData.map((item: lostItem<number>) => {
           return {
             ...item,
             time: formatTime(item.time)

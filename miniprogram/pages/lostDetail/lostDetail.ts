@@ -1,9 +1,9 @@
-import { follow, unfollow, checkFollow } from '../../api/index';
+import lostService from '../../api/lostService';
 import Notify from '@vant/weapp/notify/notify';
-import { lostType } from '../../types';
+import { lostItem } from '../../types/lostInterface';
 
 
-interface lostTypeDetail<T> extends lostType<T> {
+interface lostItemDetail<T> extends lostItem<T> {
   _id: string,
 }
 
@@ -21,7 +21,7 @@ Page({
         target: '1'
       },
     ],
-    data: {} as lostTypeDetail<string>,
+    data: {} as lostItemDetail<string>,
     show: false,
     isCollect: false
   },
@@ -31,7 +31,7 @@ Page({
     this.checkFollow();
   },
   async checkFollow(){
-    const res = await checkFollow({id: this.data.data._id, openid: this.data.data.openid});
+    const res = await lostService.checkFollow({id: this.data.data._id, openid: this.data.data.openid});
     if (res === 'success') this.setData({isCollect: true});
     else this.setData({isCollect: false})
   },
@@ -57,14 +57,14 @@ Page({
   // 收藏
   async toCollection() {
     if (this.data.isCollect) { // 取消收藏
-      unfollow({id: this.data.data._id, openid: this.data.data.openid});
+      lostService.unfollow({id: this.data.data._id, openid: this.data.data.openid});
       this.checkFollow();
       Notify({
         type: 'primary',
         message: '取消收藏成功'
       })
     } else { // 收藏
-      follow(this.data.data);
+      lostService.follow(this.data.data);
       this.checkFollow();
       Notify({ 
         type: 'primary', 
