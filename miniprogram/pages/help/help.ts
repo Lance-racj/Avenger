@@ -1,5 +1,5 @@
-import { needItem, idleItem } from '../../types/idleInterface';
-import idleService from '../../api/idleService';
+import { helpItem } from '../../types/helpInterface';
+import helpService from '../../api/helpService';
 
 Page({
   data: {
@@ -15,42 +15,16 @@ Page({
         target: '1'
       },
     ],
-    tabList: [
-      '闲置出售',
-      '求购闲置'
-    ],
-    idleList: [] as idleItem[],
-    needList: [] as needItem[],
-    selectID: 0
+    list: [] as helpItem[],
   },
   onLoad() {
-    this.getIdleList();
+    this.getList();
   },
-  getList(id: number) {
-    if (id === 0) {
-      this.getIdleList();
-    } else {
-      this.getNeedList();
-    }
-  },
-  getIdleList() {
-    idleService.getIdleList().then((res) => {
+  getList() {
+    helpService.getHelpList().then((res) => {
       this.setData({
-        idleList: res
-      })
-    });
-  },
-  getNeedList() {
-    idleService.getNeedList().then((res) => {
-      this.setData({
-        needList: res
+        list: res
       })
     })
-  },
-  getTab(e: any) {
-    this.setData({
-      selectID: e.detail
-    })
-    this.getList(e.detail);
   }
 })

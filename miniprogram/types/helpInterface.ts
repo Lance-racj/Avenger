@@ -1,7 +1,7 @@
 export interface helpItem {
   openid: string,
   title: string,
-  money: string,
+  money: number,
   desc: string,
   phone: string,
   status: number,

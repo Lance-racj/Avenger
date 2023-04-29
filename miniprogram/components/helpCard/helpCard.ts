@@ -1,6 +1,6 @@
 Component({
   properties: {
-    idleItem: {},
+    helpItem: {},
     handle: Boolean
   },
   methods: {

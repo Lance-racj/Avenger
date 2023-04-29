@@ -8,7 +8,7 @@ Page({
     title: '',
     phone: '',
     desc: '',
-    money: ''
+    money: 1
   },
   changeTitle(e: any) {
     this.setData({

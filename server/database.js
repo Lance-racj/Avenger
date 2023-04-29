@@ -157,7 +157,7 @@ const HelpSchema = new mongoose.Schema({
     type: String
   },
   money: {
-    type: String
+    type: Number
   },
   time: {
     type: String

@@ -18,12 +18,9 @@
       />
     </van-cell-group>
     <van-cell-group class="money">
-      <van-field
-        label="报酬"
-        value="{{ money }}"
-        placeholder="请输入报酬金额"
-        bind:change="changeMoney"
-      />
+      <van-cell title="报酬金额">
+        <van-stepper value="{{ money }}" integer bind:change="changeMoney" />
+      </van-cell>
     </van-cell-group>
     <van-cell-group class="desc">
       <van-field

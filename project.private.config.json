@@ -10,57 +10,8 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/login/login",
+          "pathName": "pages/help/help",
           "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/collections/collections",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/publishLost/publishLost",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/idle/idle",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/myPublishIdle/myPublishIdle",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/publishHelp/publishHelp",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/publishIdle/publishIdle",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/idleDetail/idleDetail",
-          "query": "data=%7B%22_id%22%3A%22644cc10a5cf607f65b14bef7%22%2C%22openid%22%3A%22olkhE45scwWqahBp3MpiSe7um4k4%22%2C%22classify_1%22%3A%22%E5%8D%A1%E7%89%87%E3%80%81%E8%AF%81%E4%BB%B6%E7%B1%BB%22%2C%22classify_2%22%3A%22%E8%BA%AB%E4%BB%BD%E8%AF%81%22%2C%22name%22%3A%22%E8%83%A1%E9%A3%9E%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AF%81%22%2C%22phone%22%3A%221617479219%22%2C%22desc%22%3A%22%E4%B8%80%E6%8A%8A%E7%A0%B4%E7%83%82%EF%BC%8C%E8%B0%81%E4%B9%B0%E8%B0%81%E5%82%BB%E9%80%BC%22%2C%22imgList%22%3A%5B%7B%22name%22%3A%2215c090f4-5ca6-4e64-be98-1c44c695fdb6.png%22%2C%22url%22%3A%22http%3A%2F%2Flocalhost%3A3060%2Ffile%2F15c090f4-5ca6-4e64-be98-1c44c695fdb6.png%22%7D%5D%2C%22money%22%3A0%2C%22time%22%3A%222023%E5%B9%B44%E6%9C%8829%E6%97%A5%22%2C%22__v%22%3A0%7D",
           "launchMode": "default",
           "scene": null
         }

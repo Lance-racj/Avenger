@@ -1,1 +1,35 @@
-bindtap="goToIdleDetail"
+<view class="help_item">
+  <view class="help_item_body">
+    <view class="money">
+      ¥{{helpItem.money}}
+    </view>
+    <view class="help_item_body_content">
+      <text class="title">求助标题：{{helpItem.title}}</text>
+      <text class="desc">求助描述：{{helpItem.desc}}</text>
+      <text class="phone">联系方式：{{helpItem.phone}}</text>
+      <text class="publish_time">发布时间：{{helpItem.time}}</text>
+    </view>
+    <view class="{{helpItem.status === 0? 'tag': 'tag_end'}}">
+      {{helpItem.status === 0? '进行中': '已结束'}}
+    </view>
+  </view>
+  <view wx:if="{{handle}}" class="help_item_handle">
+    <view>
+      <van-button 
+        size="small" 
+        type="primary" 
+        bind:click="showPopup"
+      >
+        编辑
+      </van-button>
+      <van-button 
+        size="small"
+        type="danger"
+        bind:click="deleteItem"
+        data-id="{{helpItem._id}}"
+      >
+        删除
+      </van-button>
+    </view>
+  </view>
+</view>

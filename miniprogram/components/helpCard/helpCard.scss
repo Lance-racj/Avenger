@@ -1,4 +1,4 @@
-.idle_item {
+.help_item {
   margin-bottom: 10rpx;
   background-color: #ffffff;
   &_body {
@@ -7,28 +7,33 @@
     padding: 20rpx;
     box-sizing: border-box;
     position: relative;
-    image {
-      width: 250rpx;
-      min-width: 250rpx;
-      height: 250rpx;
-      border-radius: 20rpx;
+    .money {
+      width: 190rpx;
+      min-width: 190rpx;
+      height: 190rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: orange;
+      font-weight: bold;
+      font-size: 70rpx;
     }
     &_content {
       display: flex;
       flex-direction: column;
       flex: 1;
       margin-left: 15rpx;
-      .name {
+      .title {
         font-weight: bold;
-        margin-bottom: 25rpx;
+        margin-bottom: 20rpx;
       }
       .desc {
         font-size: 26rpx;
-        margin-bottom: 20rpx;
+        margin-bottom: 15rpx;
       }
       .phone {
         font-size: 26rpx;
-        margin-bottom: 20rpx;
+        margin-bottom: 15rpx;
         color: #666;
       }
       .desc {
@@ -59,6 +64,18 @@
       top: 0;
       right: 0;
       background-color: brown;
+      color: white;
+    }
+    .tag_end {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100rpx;
+      height: 50rpx;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: green;
       color: white;
     }
   }
