@@ -13,9 +13,10 @@ router.post('/publish', async (req, res) => {
       phone,
       desc,
       imgList,
+      money,
       time
     } = req.body;
-    await Idle.create({openid, classify_1, classify_2, name, phone, desc, imgList, time});
+    await Idle.create({openid, classify_1, classify_2, name, phone, money, desc, imgList, time});
     res.send('success');
   } catch(error) {
     res.send('error');

@@ -1,31 +1,14 @@
 <view class="idleCt">
   <!-- 搜索框 -->
   <searchInput bindtap="toSearch" />
-  <!-- 轮播图 -->
-  <view class="swipe">
-    <vswipe swipeList="{{swipeList}}"></vswipe>
-  </view>
-  <!-- Tab区域 -->
-  <Tabs tabList="{{tabList}}" bindgetTab="getTab" />
   <!-- 物品展示区域 -->
-  <view>
-    <view wx:if="{{selectID === 0}}" class="idle"> 
-      <idleCard 
-        wx:for="{{idleList}}" 
-        wx:key="index" 
-        idleItem="{{item}}" 
-        bindtap="goToDetail"
-        data-item="{{item}}"
-      />
-    </view>
-    <view wx:else="{{selectID === 1}}" class="need"> 
-      <view wx:for="{{needList}}" wx:key="index" class="need_item">
-        <view class="tag">求购</view>
-        <text class="name">求购物品：{{item.name}}</text>
-        <text class="desc">描述：{{item.desc}}</text>
-        <text class="phone">联系方式：{{item.phone}}</text>
-        <text class="time">发布时间：{{item.time}}</text>
-      </view>
-    </view>
+  <view class="idle"> 
+    <idleCard 
+      wx:for="{{idleList}}" 
+      wx:key="index" 
+      idleItem="{{item}}" 
+      bindtap="goToDetail"
+      data-item="{{item}}"
+    />
   </view>
 </view>

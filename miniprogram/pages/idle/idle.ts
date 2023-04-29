@@ -5,17 +5,17 @@ Page({
   data: {
     swipeList: [
       {
-        imageUrl: '../../assets/images/idle.png',
+        url: '../../assets/images/idle.png',
         type: 'url',
         target: 'www.baidu.com'
       },
       {
-        imageUrl: '../../assets/images/idle1.png',
+        url: '../../assets/images/idle1.png',
         type: 'product',
         target: '1'
       },
       {
-        imageUrl: '../../assets/images/idle2.png',
+        url: '../../assets/images/idle2.png',
         type: 'product',
         target: '1'
       },
@@ -57,5 +57,17 @@ Page({
       selectID: e.detail
     })
     this.getList(e.detail);
+  },
+  // 去出售详情页
+  goToIdleDetail(event: WechatMiniprogram.TouchEvent) {
+    wx.navigateTo({
+      url: '../idleDetail/idleDetail?data='+JSON.stringify(event.currentTarget.dataset.item)
+    })
+  },
+  // 去求购详情页
+  goToNeedDetail(event: WechatMiniprogram.TouchEvent) {
+    wx.navigateTo({
+      url: '../needDetail/needDetail?data='+JSON.stringify(event.currentTarget.dataset.item)
+    })
   }
 })

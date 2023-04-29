@@ -29,6 +29,7 @@ Page({
     name: '', // 物品名称
     phone: '',
     desc: '', // 物品描述
+    money: 1,
     imgList: [] as any // 图片列表
   },
   // 1. 找失主 2. 找失物
@@ -85,6 +86,11 @@ Page({
       desc: event.detail
     })
   },
+  getMoney(event: any) {
+    this.setData({
+      money: event.detail
+    })
+  },
   // 读取图片列表
   afterRead(event: any) {
     const { file } = event.detail;
@@ -113,6 +119,7 @@ Page({
       name,
       phone,
       desc,
+      money,
       imgList,
     } = this.data
     const openid = wx.getStorageSync('openid');
@@ -131,6 +138,7 @@ Page({
         name,
         phone,
         desc,
+        money: Number(money),
         imgList,
         time: formatTime(new Date().getTime())
       }

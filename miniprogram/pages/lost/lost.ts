@@ -6,12 +6,12 @@ Page({
   data: {
     swipeList: [
       {
-        imageUrl: '../../assets/images/lost.png',
+        url: '../../assets/images/lost.png',
         type: 'url',
         target: 'www.baidu.com'
       },
       {
-        imageUrl: '../../assets/images/lost1.png',
+        url: '../../assets/images/lost1.png',
         type: 'product',
         target: '1'
       },

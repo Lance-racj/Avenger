@@ -112,6 +112,9 @@ const IdleSchema = new mongoose.Schema({
   imgList: {
     type: Array
   },
+  money: {
+    type: Number
+  },
   time: {
     type: String
   }
@@ -207,11 +210,11 @@ const Help = mongoose.model("HelpSchema", HelpSchema);
 
 // 创建一个该表的超管
 // Admin.create({
-//   username: 'lizuodong',
+//   username: 'liuzhanchen',
 //   password: '123456789',
 //   createTime: 1677039376780,
-//   role: 1,
-//   nickName: 'LZD'
+//   role: 0,
+//   nickName: 'LZC'
 // })
 
 module.exports = {

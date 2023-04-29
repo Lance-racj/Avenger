@@ -5,17 +5,17 @@ Page({
   data: {
     swipeList: [
       {
-        imageUrl: '../../assets/images/swipe1.jpg',
+        url: '../../assets/images/swipe1.jpg',
         type: 'url',
         target: 'www.baidu.com'
       },
       {
-        imageUrl: '../../assets/images/swipe2.jpg',
+        url: '../../assets/images/swipe2.jpg',
         type: 'product',
         target: '1'
       },
       {
-        imageUrl: '../../assets/images/swipe3.jpg',
+        url: '../../assets/images/swipe3.jpg',
         type: 'url',
         target: 'www.baidu.com'
       },

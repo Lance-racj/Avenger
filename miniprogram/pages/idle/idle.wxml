@@ -14,12 +14,12 @@
         wx:for="{{idleList}}" 
         wx:key="index" 
         idleItem="{{item}}" 
-        bindtap="goToDetail"
+        bindtap="goToIdleDetail"
         data-item="{{item}}"
       />
     </view>
     <view wx:else="{{selectID === 1}}" class="need"> 
-      <view wx:for="{{needList}}" wx:key="index" class="need_item">
+      <view wx:for="{{needList}}" wx:key="index" class="need_item" bindtap="goToNeedDetail">
         <view class="tag">求购</view>
         <text class="name">求购物品：{{item.name}}</text>
         <text class="desc">描述：{{item.desc}}</text>

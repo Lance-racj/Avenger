@@ -16,7 +16,10 @@
     "pages/myPublishLost/myPublishLost",
     "pages/myPublishIdle/myPublishIdle",
     "pages/lostDetail/lostDetail",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/idleDetail/idleDetail",
+    "pages/helpDetail/helpDetail",
+    "pages/needDetail/needDetail"
   ],
   "requiredPrivateInfos": [
     "chooseAddress",

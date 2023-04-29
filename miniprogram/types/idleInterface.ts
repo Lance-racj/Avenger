@@ -9,6 +9,7 @@ export interface idleItem {
   name: string,
   desc: string,
   phone: string,
+  money: number,
   imgList: imgItem[],
   time: string
 }

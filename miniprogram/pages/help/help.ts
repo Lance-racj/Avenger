@@ -5,12 +5,12 @@ Page({
   data: {
     swipeList: [
       {
-        imageUrl: '../../assets/images/help.png',
+        url: '../../assets/images/help.png',
         type: 'url',
         target: 'www.baidu.com'
       },
       {
-        imageUrl: '../../assets/images/help2.png',
+        url: '../../assets/images/help2.png',
         type: 'product',
         target: '1'
       },

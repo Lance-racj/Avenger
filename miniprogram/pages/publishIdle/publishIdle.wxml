@@ -46,6 +46,11 @@
         bind:change="changePhone"
       />
     </van-cell-group>
+    <van-cell-group class="money">
+      <van-cell title="出售价格">
+        <van-stepper value="{{ money }}" integer bind:change="getMoney" />
+      </van-cell>
+    </van-cell-group>
     <van-cell-group class="desc">
       <van-field
         label="物品描述"
