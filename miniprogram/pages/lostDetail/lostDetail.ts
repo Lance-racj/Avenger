@@ -1,26 +1,9 @@
 import lostService from '../../api/lostService';
 import Notify from '@vant/weapp/notify/notify';
-import { lostItem } from '../../types/lostInterface';
-
-
-interface lostItemDetail<T> extends lostItem<T> {
-  _id: string,
-}
+import { lostItemDetail } from '../../types/lostInterface';
 
 Page({
   data: {
-    swipeList: [
-      {
-        imageUrl: '../../assets/images/swipe1.jpg',
-        type: 'url',
-        target: 'www.baidu.com'
-      },
-      {
-        imageUrl: '../../assets/images/swipe2.jpg',
-        type: 'product',
-        target: '1'
-      },
-    ],
     data: {} as lostItemDetail<string>,
     show: false,
     isCollect: false

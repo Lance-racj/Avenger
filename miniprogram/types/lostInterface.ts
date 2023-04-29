@@ -4,7 +4,6 @@ export interface pic {
 }
 
 export interface lostItem<T> {
-  id?: string,
   openid: string,
   type: number
   classify_1: string,
@@ -16,4 +15,8 @@ export interface lostItem<T> {
   desc: string,
   imgList: Array<pic>,
   time: T
+}
+
+export interface lostItemDetail<T> extends lostItem<T> {
+  _id: string
 }

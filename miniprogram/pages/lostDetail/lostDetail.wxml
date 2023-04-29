@@ -1,6 +1,6 @@
 <view class="lostDetail">
   <view class="swipe">
-    <vswipe swipeList="{{swipeList}}"></vswipe>
+    <vswipe swipeList="{{data.imgList}}"></vswipe>
   </view>
   <view class="name">{{data.name}}</view>
   <view class="content">
