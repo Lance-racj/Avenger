@@ -10,7 +10,7 @@ class LostService {
    * @param params {type: number, openid?: string}
    */
   async getLoseData(params: {type: number, openid?: string}): Promise<lostItem<number>[]> {
-    return await httpRequest.get<lostItem<number>[]>(`${baseUrl}/lost/list`, params);
+    return httpRequest.get<lostItem<number>[]>(`${baseUrl}/lost/list`, params);
   }
   /**
    * 发布失物(寻物)信息帖

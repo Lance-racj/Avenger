@@ -8,14 +8,14 @@ class HelpService {
    * @param params ....
    */
   async publishHelp(params: helpItem): Promise<string> {
-    return await httpRequest.post<string>(`${baseUrl}/help/publish`, params);
+    return httpRequest.post<string>(`${baseUrl}/help/publish`, params);
   }
   /**
    * get help list
    * @param params ....
    */
   async getHelpList(params?: {openid: string}): Promise<helpItem[]> {
-    return await httpRequest.get<helpItem[]>(`${baseUrl}/help/list`, params);
+    return httpRequest.get<helpItem[]>(`${baseUrl}/help/list`, params);
   }
 }
 
