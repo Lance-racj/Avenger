@@ -36,7 +36,7 @@
           url="/pages/myPublishHelp/myPublishHelp" 
         />
         <van-cell 
-          title="我的收藏" 
+          title="我的失物收藏" 
           value="查看" 
           icon="star-o" 
           size="large" 
@@ -45,12 +45,31 @@
           url="/pages/collections/collections"
         />
         <van-cell 
-          title="我的信息" 
-          value="编辑"
-          icon="user-o" 
+          title="我的闲置收藏" 
+          value="查看" 
+          icon="star-o" 
           size="large" 
           is-link 
           link-type="navigateTo"
+          url="/pages/idleCollections/idleCollections"
+        />
+        <van-cell 
+          title="我的求购收藏" 
+          value="查看" 
+          icon="star-o" 
+          size="large" 
+          is-link 
+          link-type="navigateTo"
+          url="/pages/needCollections/needCollections"
+        />
+        <van-cell 
+          title="我的互助收藏" 
+          value="查看" 
+          icon="star-o" 
+          size="large" 
+          is-link 
+          link-type="navigateTo"
+          url="/pages/helpCollections/helpCollections"
         />
         <van-cell 
           title="退出登录" 

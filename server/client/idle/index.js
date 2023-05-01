@@ -109,7 +109,8 @@ router.post('/follow/add', async (req, res) => {
       time,
       _id
     } = req.body;
-    await IdleCollection.create({openid, type, classify_1, classify_2, name, phone, desc, imgList, money, time, id: _id});
+    console.log('xxxxx')
+    await IdleCollection.create({openid, classify_1, classify_2, name, phone, desc, imgList, money, time, id: _id});
     res.send('success');
   } catch(error) {
     res.send('error', error);
