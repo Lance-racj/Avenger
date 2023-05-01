@@ -20,3 +20,9 @@ export interface needItem {
   phone: string,
   time: string
 }
+export interface idleItemDetail extends idleItem {
+  _id: string
+}
+export interface needItemDetail extends needItem {
+  _id: string
+}

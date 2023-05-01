@@ -1,0 +1,15 @@
+<view class="myHelp">
+  <view class="tabBar">
+    <text>我的互助发布</text>
+    <van-tag type="primary">标签</van-tag>
+  </view>
+  <view class="content">
+    <helpCard 
+      wx:for="{{myHelpList}}" 
+      wx:key="index" 
+      helpItem="{{item}}" 
+      bindtap="goToDetail"
+      data-item="{{item}}"
+    />
+  </view>
+</view>

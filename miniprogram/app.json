@@ -15,6 +15,7 @@
     "pages/collections/collections",
     "pages/myPublishLost/myPublishLost",
     "pages/myPublishIdle/myPublishIdle",
+    "pages/myPublishHelp/myPublishHelp",
     "pages/lostDetail/lostDetail",
     "pages/search/search",
     "pages/idleDetail/idleDetail",

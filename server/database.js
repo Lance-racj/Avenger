@@ -86,13 +86,94 @@ const CollectionSchema = new mongoose.Schema({
   }
 })
 
+// 闲置收藏表
+const IdleCollectionSchema = new mongoose.Schema({
+  id: {
+    type: String
+  },
+  openid: {
+    type: String
+  },
+  classify_1: {
+    type: String
+  },
+  classify_2: {
+    type: String
+  },
+  name: {
+    type: String
+  },
+  phone: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  imgList: {
+    type: Array
+  },
+  money: {
+    type: Number
+  },
+  time: {
+    type: String
+  }
+})
+
+// 求购收藏表
+const NeedCollectionSchema = new mongoose.Schema({
+  id: {
+    type: String
+  },
+  openid: {
+    type: String
+  },
+  name: {
+    type: String
+  },
+  phone: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  time: {
+    type: String
+  }
+})
+
+// 互助收藏表
+const HelpCollectionSchema = new mongoose.Schema({
+  id: {
+    type: String
+  },
+  openid: {
+    type: String
+  },
+  title: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  status: {
+    type: Number  // 0: 正在寻找中  1: 已结束
+  },
+  phone: {
+    type: String
+  },
+  money: {
+    type: Number
+  },
+  time: {
+    type: String
+  }
+})
+
 // 闲置物品表
 const IdleSchema = new mongoose.Schema({
   openid: {
     type: String
-  },
-  type: {
-    type: Number
   },
   classify_1: {
     type: String
@@ -207,6 +288,9 @@ const Collection = mongoose.model("CollectionSchema", CollectionSchema);
 const Idle = mongoose.model("IdleSchema", IdleSchema);
 const Need = mongoose.model("NeedSchema", NeedSchema);
 const Help = mongoose.model("HelpSchema", HelpSchema);
+const IdleCollection = mongoose.model("IdleCollectionSchema", IdleCollectionSchema);
+const NeedCollection = mongoose.model("NeedCollectionSchema", NeedCollectionSchema);
+const HelpCollection = mongoose.model("HelpCollectionSchema", HelpCollectionSchema);
 
 // 创建一个该表的超管
 // Admin.create({
@@ -222,6 +306,9 @@ module.exports = {
   Admin,
   User,
   Collection,
+  IdleCollection,
+  NeedCollection,
+  HelpCollection,
   Idle,
   Need,
   Help

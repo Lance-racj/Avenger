@@ -7,3 +7,7 @@ export interface helpItem {
   status: number,
   time: string
 }
+
+export interface helpItemDetail extends helpItem {
+  _id: string
+}

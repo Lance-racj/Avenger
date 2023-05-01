@@ -32,7 +32,8 @@
           icon="upgrade" 
           size="large" 
           is-link 
-          link-type="navigateTo"   
+          link-type="navigateTo"
+          url="/pages/myPublishHelp/myPublishHelp" 
         />
         <van-cell 
           title="我的收藏" 
