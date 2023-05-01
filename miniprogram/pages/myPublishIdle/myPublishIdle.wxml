@@ -13,11 +13,30 @@
     </view>
     <view wx:else="{{selectID === 1}}" class="need"> 
       <view wx:for="{{needList}}" wx:key="index" class="need_item">
-        <view class="tag">求购</view>
-        <text class="name">求购物品：{{item.name}}</text>
-        <text class="desc">描述：{{item.desc}}</text>
-        <text class="phone">联系方式：{{item.phone}}</text>
-        <text class="time">发布时间：{{item.time}}</text>
+        <view class="content">
+          <view class="tag">求购</view>
+          <text class="name">求购物品：{{item.name}}</text>
+          <text class="desc">描述：{{item.desc}}</text>
+          <text class="phone">联系方式：{{item.phone}}</text>
+          <text class="time">发布时间：{{item.time}}</text>
+        </view>
+        <view class="need_item_handle">
+          <van-button 
+            size="small" 
+            type="primary" 
+            bind:click="showPopup"
+          >
+            编辑
+          </van-button>
+          <van-button 
+            size="small"
+            type="danger"
+            bind:click="deleteItem"
+            data-id="{{item._id}}"
+          >
+            删除
+          </van-button>
+        </view>
       </view>
     </view>
   </view>

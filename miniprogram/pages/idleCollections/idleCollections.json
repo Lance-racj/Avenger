@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Tabs": "../../components/Tabs/Tabs",
+    "idleCard": "../../components/idleCard/idleCard"
+  }
 }

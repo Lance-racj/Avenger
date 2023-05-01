@@ -41,5 +41,22 @@ Page({
       selectID: e.detail
     })
     this.getList(e.detail);
+  },
+  deleteItem(e: any) {
+    // const params = {_id: e.detail}
+    // idleService.deleteNeItem(params).then((res) => {
+    //   if(res === 'success') {
+    //     Notify({
+    //       type: 'primary',
+    //       message: '删除成功'
+    //     })
+    //     this.getMyLoseList();
+    //   } else {
+    //     Notify({
+    //       type: 'danger',
+    //       message: '删除失败'
+    //     })
+    //   }
+    // })
   }
 })

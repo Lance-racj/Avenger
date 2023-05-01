@@ -54,15 +54,6 @@
           url="/pages/idleCollections/idleCollections"
         />
         <van-cell 
-          title="我的求购收藏" 
-          value="查看" 
-          icon="star-o" 
-          size="large" 
-          is-link 
-          link-type="navigateTo"
-          url="/pages/needCollections/needCollections"
-        />
-        <van-cell 
           title="我的互助收藏" 
           value="查看" 
           icon="star-o" 

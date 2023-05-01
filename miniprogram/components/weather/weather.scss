@@ -1,37 +1,51 @@
 .weather_card {
   box-sizing: border-box;
   width: 710rpx;
-  height: 114px;
+  height: 200px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   background: linear-gradient(to bottom, #d0d6e0, #2e7bd8);;
   background-size: cover;
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  .title {
+    color: gray;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      .location {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 4px;
+      }
+    }
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .temperature {
+        margin-top: 20rpx;
+        font-size: 32px;
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+  }
 }
 
-.left {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  transform: translateX(6px);
-}
 
-.location {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 4px;
-}
-
-.temperature {
-  font-size: 32px;
-  font-weight: bold;
-  color: #333;
-}
 
 .weather_text::before {
   content: '温度适宜，适合出行';
@@ -43,20 +57,4 @@
 
 .temperature-hot + .weather_text::before {
   content: '天气炎热，注意避暑';
-}
-
-
-.right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.weather_img {
-  width: 64px;
-  height: 64px;
-  background-image: url('../../assets//images/weather.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
 }

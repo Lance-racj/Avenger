@@ -13,7 +13,7 @@
     justify-content: space-between;
     align-items: center;
     width: 710rpx;
-    height: 520rpx;
+    height: 550rpx;
     .idleTransaction {
       position: relative;
       width: 310rpx;
@@ -69,16 +69,6 @@
           left: 20rpx;
         }
       }
-    }
-  }
-  .classify {
-    .idleClassify {
-      width: 710rpx;
-      height: 100rpx;
-      background-color: slateblue;
-      text-align: center;
-      line-height: 100rpx;
-      color: #fff;
     }
   }
 }

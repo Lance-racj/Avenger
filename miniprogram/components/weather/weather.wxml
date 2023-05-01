@@ -1,10 +1,15 @@
 <!--pages/index/components/weather/weather.wxml-->
 <view class="weather_card">
-  <view class="left">
-    <view class="location">{{city}}</view>
-    <view class="weather_text {{tempClass}}"></view>
+  <view class="title">
+    本程序天气数据有和风天气api提供
   </view>
-  <view class="right">
-    <view class="temperature">{{temp}}度</view>
+  <view class="content">
+    <view class="left">
+      <view class="location">当前位置: {{city}}</view>
+      <view class="weather_text {{tempClass}}"></view>
+    </view>
+    <view class="right">
+      <view class="temperature">{{temp}}度</view>
+    </view>
   </view>
 </view>

@@ -208,10 +208,9 @@ router.get('/need/follow/item', async (req, res) => {
 // 获取求购收藏列表
 router.get('/need/follow/list', async (req, res) => {
   try {
-    const { openid, type } = req.query;
+    const { openid } = req.query;
     const result = await NeedCollection.find({
-      openid,
-      type
+      openid
     });
     res.send(result);
   } catch(error) {

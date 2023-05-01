@@ -1,66 +1,57 @@
-// pages/needDetail/needDetail.ts
+import idleService from '../../api/idleService';
+import Notify from '@vant/weapp/notify/notify';
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    data: {} as any,
+    show: false,
+    isCollect: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  onLoad(options: Record<string, string>) {
+    const data = JSON.parse(options.data);
+    this.setData({data})
+    this.checkFollow();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  async checkFollow(){
+    const res = await idleService.checkNeedItemFollow({id: this.data.data._id, openid: this.data.data.openid});
+    if (res === 'success') this.setData({isCollect: true});
+    else this.setData({isCollect: false})
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  showPopup() {
+    this.setData({ show: true });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  onClose() {
+    this.setData({ show: false });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  // 复制手机号
+  copyNumber() {
+    wx.setClipboardData({
+      data: this.data.data.phone,
+      success: () => {
+        wx.showToast({
+          icon: "none",
+          title: "内容已复制"
+        })
+        this.onClose();
+      }
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 收藏
+  async toCollection() {
+    if (this.data.isCollect) { // 取消收藏
+      idleService.needUnFollow({id: this.data.data._id, openid: this.data.data.openid});
+      this.checkFollow();
+      Notify({
+        type: 'primary',
+        message: '取消收藏成功'
+      })
+    } else { // 收藏
+      idleService.needFollow(this.data.data);
+      this.checkFollow();
+      Notify({ 
+        type: 'primary', 
+        message: '收藏成功' 
+      });
+    }
   }
 })

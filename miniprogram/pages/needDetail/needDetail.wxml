@@ -1,2 +1,55 @@
-<!--pages/needDetail/needDetail.wxml-->
-<text>pages/needDetail/needDetail.wxml</text>
+<view class="needDetail"> 
+  <view class="content">
+    <view class="name item">
+      <text class="label">物品名称</text>
+      <text>{{data.name}}</text>
+    </view>
+    <view class="desc item">
+      <text class="label">物品描述</text>
+      <text>{{data.desc}}</text>
+    </view>
+    <view class="desc item">
+      <text class="label">联系方式</text>
+      <text>{{data.phone}}</text>
+    </view>
+  </view>
+
+  <view class="footer">
+    <van-button 
+      icon="coupon-o" 
+      type="primary" 
+      bind:click="showPopup"
+    >
+      获取联系方式
+    </van-button>
+    <van-button 
+      wx:if="{{!isCollect}}"
+      icon="star-o" 
+      type="warning"
+      bind:click="toCollection"
+    >
+      收藏
+    </van-button>
+    <van-button 
+      wx:else
+      icon="star" 
+      type="warning"
+      bind:click="toCollection"
+    >
+      已收藏
+    </van-button>
+  </view>
+  <van-notify id="van-notify" />
+  <van-popup show="{{ show }}" bind:close="onClose" round>
+    <view class="getNumber">
+      <view class="show">
+        <text class="item">联系方式</text>
+        <text class="item">{{data.phone}}</text>
+      </view>
+      <view class="handle">
+        <view class="cancel item" bindtap="onClose">取消</view>
+        <view class="copy item" bindtap="copyNumber">复制</view>
+      </view>
+    </view>
+  </van-popup>
+</view>

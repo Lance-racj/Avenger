@@ -1,66 +1,45 @@
-// pages/idleCollections/idleCollections.ts
+import idleService from '../../api/idleService';
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    tabList: [
+      '闲置出售',
+      '求购闲置'
+    ],
+    idleCollectionList: [] as any,
+    needCollectionList: [] as any,
+    selectID: 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad() {
-
+    this.getList(this.data.selectID);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  async getList(id: number) {
+    if (id === 0) {
+      this.getIdleList();
+    } else {
+      this.getNeedList();
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  getIdleList() {
+    const openid = wx.getStorageSync('openid');
+    idleService.getIdleFollowList({openid: openid}).then((res) => {
+      this.setData({
+        idleCollectionList: res
+      })
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  getNeedList() {
+    const openid = wx.getStorageSync('openid');
+    idleService.getNeedFollowList({openid: openid}).then((res) => {
+      this.setData({
+        needCollectionList: res
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  getTab(e: any) {
+    this.setData({
+      selectID: e.detail
+    })
+    this.getList(this.data.selectID);
   }
 })

@@ -33,13 +33,21 @@ class IdleService {
     return httpRequest.get<needItem[]>(`${baseUrl}/idle/need/list`, params);
   }
 
+  async deleteIdleItem(params: { _id: string }): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/idle/del`, params);
+  }
+
+  async deleteNeedItem(params: { _id: string }): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/idle/need/del`, params);
+  }
+
 
   async getIdleFollowList(params: {openid: string}): Promise<idleItemDetail[]> {
     return httpRequest.get<idleItemDetail[]>(`${baseUrl}/idle/follow/list`, params);
   }
 
   async getNeedFollowList(params: {openid: string}): Promise<needItemDetail[]> {
-    return httpRequest.get<needItemDetail[]>(`${baseUrl}/need/follow/list`, params);
+    return httpRequest.get<needItemDetail[]>(`${baseUrl}/idle/need/follow/list`, params);
   }
 
   async idleFollow(params: idleItem): Promise<string> {
@@ -47,7 +55,7 @@ class IdleService {
   }
 
   async needFollow(params: needItem) {
-    return httpRequest.post<string>(`${baseUrl}/need/follow/add`, params);
+    return httpRequest.post<string>(`${baseUrl}/idle/need/follow/add`, params);
   }
 
   async idleUnFollow(params: {id: string, openid: string}): Promise<string> {
@@ -55,7 +63,7 @@ class IdleService {
   }
 
   async needUnFollow(params: {id: string, openid: string}): Promise<string> {
-    return httpRequest.post<string>(`${baseUrl}/need/follow/del`, params);
+    return httpRequest.post<string>(`${baseUrl}/idle/need/follow/del`, params);
   }
 
   async checkIdleItemFollow(params: {id: string, openid: string}): Promise<string> {
@@ -63,7 +71,7 @@ class IdleService {
   }
 
   async checkNeedItemFollow(params: {id: string, openid: string}): Promise<string> {
-    return httpRequest.get<string>(`${baseUrl}/need/follow/item`, params);
+    return httpRequest.get<string>(`${baseUrl}/idle/need/follow/item`, params);
   }
 
 
