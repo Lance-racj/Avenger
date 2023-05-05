@@ -1,5 +1,6 @@
 import { helpItem } from '../../types/helpInterface';
 import helpService from '../../api/helpService';
+import Notify from '@vant/weapp/notify/notify';
 
 Page({
   data: {
@@ -12,6 +13,23 @@ Page({
     const openid = wx.getStorageSync('openid');
     helpService.getHelpList({openid: openid}).then((res) => {
       this.setData({myHelpList: res});
+    })
+  },
+  deleteItem(e: any) {
+    const params = {_id: e.detail}
+    helpService.deleteHelpItem(params).then((res) => {
+      if(res === 'success') {
+        Notify({
+          type: 'primary',
+          message: '删除成功'
+        })
+        this.getMyHelpList();
+      } else {
+        Notify({
+          type: 'danger',
+          message: '删除失败'
+        })
+      }
     })
   }
 })

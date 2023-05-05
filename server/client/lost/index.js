@@ -123,6 +123,9 @@ router.post('/delete', async (req, res) => {
   const { _id } = req.body;
   try {
     await Lose.findByIdAndRemove(_id);
+    await Collection.findOneAndRemove({
+      id: _id
+    });
     res.send('success');
   } catch(error) {
     res.send('error');

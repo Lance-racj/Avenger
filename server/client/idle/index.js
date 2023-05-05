@@ -75,6 +75,9 @@ router.post('/del', async (req, res) => {
   const { _id } = req.body;
   try {
     await Idle.findByIdAndRemove(_id);
+    await IdleCollection.findOneAndRemove({
+      id: _id
+    });
     res.send('success');
   } catch(error) {
     res.send('error');
@@ -85,6 +88,9 @@ router.post('/need/del', async (req, res) => {
   const { _id } = req.body;
   try {
     await Need.findByIdAndRemove(_id);
+    await NeedCollection.findOneAndRemove({
+      id: _id
+    });
     res.send('success');
   } catch(error) {
     res.send('error');

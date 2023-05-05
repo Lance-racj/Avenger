@@ -45,7 +45,13 @@ class HelpService {
   async checkHelpItemFollow(params: {id: string, openid: string}): Promise<string> {
     return httpRequest.get<string>(`${baseUrl}/help/follow/item`, params);
   }
-
+  /**
+   * check 删除单个求助帖
+   * @param params ....
+   */
+  async deleteHelpItem(params: {_id: string}): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/help/delete`, params);
+  }
 }
 
 export default new HelpService();

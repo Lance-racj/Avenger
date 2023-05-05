@@ -20,7 +20,6 @@ router.post('/publish', async (req, res) => {
     res.send('error');
   }
 })
-
 // 获取互助首页数据接口
 router.get('/list', async (req, res) => {
   try {
@@ -30,7 +29,6 @@ router.get('/list', async (req, res) => {
     res.send('error');
   }
 })
-
 // 将进行中状态改为结束
 router.post('/edit', async (req, res) => {  // 将status由0修改为1
   try {
@@ -49,9 +47,6 @@ router.post('/edit', async (req, res) => {  // 将status由0修改为1
     res.send('error');
   }
 })
-
-
-
 // 收藏求助
 router.post('/follow/add', async (req, res) => {
   try {
@@ -113,6 +108,18 @@ router.get('/follow/list', async (req, res) => {
     res.send('error');
   }
 })
-
+// 删除求助帖子
+router.post('/delete', async (req, res) => {
+  const { _id } = req.body;
+  try {
+    await Help.findByIdAndRemove(_id);
+    await HelpCollection.findOneAndRemove({
+      id: _id
+    });   // 同时删掉收藏里的帖子
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
 
 module.exports = router;

@@ -22,7 +22,7 @@
         size="small"
         type="danger"
         bind:click="deleteItem"
-        data-id="{{lostItem._id}}"
+        data-id="{{idleItem._id}}"
       >
         删除
       </van-button>

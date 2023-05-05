@@ -1,16 +1,18 @@
 <view class="myPublishIdle">
   <Tabs tabList="{{tabList}}" bindgetTab="getTab"></Tabs>
   <view>
+    <!-- 出售 -->
     <view wx:if="{{selectID === 0}}" class="idle"> 
       <idleCard 
         wx:for="{{idleList}}" 
         wx:key="index" 
-        idleItem="{{item}}" 
-        bindtap="goToDetail"
+        idleItem="{{item}}"
         data-item="{{item}}"
         handle="{{true}}"
+        bindgetDeleteID="deleteItem"
       />
     </view>
+    <!-- 求购 -->
     <view wx:else="{{selectID === 1}}" class="need"> 
       <view wx:for="{{needList}}" wx:key="index" class="need_item">
         <view class="content">
@@ -31,8 +33,8 @@
           <van-button 
             size="small"
             type="danger"
-            bind:click="deleteItem"
             data-id="{{item._id}}"
+            bind:click="deleteNeedItem"
           >
             删除
           </van-button>

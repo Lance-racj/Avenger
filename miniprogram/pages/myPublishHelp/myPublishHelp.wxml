@@ -8,9 +8,9 @@
       wx:for="{{myHelpList}}" 
       wx:key="index" 
       helpItem="{{item}}" 
-      bindtap="goToDetail"
       data-item="{{item}}"
       handle="true"
+      bindgetDeleteID="deleteItem"
     />
   </view>
 </view>

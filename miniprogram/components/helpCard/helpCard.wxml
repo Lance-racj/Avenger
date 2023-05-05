@@ -19,6 +19,7 @@
         size="small" 
         type="primary" 
         bind:click="showPopup"
+        disabled="{{helpItem.status === 1}}"
       >
         修改状态
       </van-button>

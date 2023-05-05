@@ -42,21 +42,39 @@ Page({
     })
     this.getList(e.detail);
   },
-  deleteItem(e: any) {
-    // const params = {_id: e.detail}
-    // idleService.deleteNeItem(params).then((res) => {
-    //   if(res === 'success') {
-    //     Notify({
-    //       type: 'primary',
-    //       message: '删除成功'
-    //     })
-    //     this.getMyLoseList();
-    //   } else {
-    //     Notify({
-    //       type: 'danger',
-    //       message: '删除失败'
-    //     })
-    //   }
-    // })
+  deleteIdleItem(e: any) {
+    const params = {_id: e.detail};
+    idleService.deleteIdleItem(params).then((res) => {
+      if(res === 'success') {
+        Notify({
+          type: 'primary',
+          message: '删除成功'
+        })
+        this.getList(this.data.selectID);
+      } else {
+        Notify({
+          type: 'danger',
+          message: '删除失败'
+        })
+      }
+    })
+  },
+  deleteNeedItem(e: any) {
+    const { id } = e.currentTarget.dataset;
+    const params = {_id: id};
+    idleService.deleteNeedItem(params).then((res) => {
+      if(res === 'success') {
+        Notify({
+          type: 'primary',
+          message: '删除成功'
+        })
+        this.getList(this.data.selectID);
+      } else {
+        Notify({
+          type: 'danger',
+          message: '删除失败'
+        })
+      }
+    })
   }
 })
