@@ -31,5 +31,22 @@ Page({
         })
       }
     })
+  },
+  updateItem(e: any) {
+    const params = {_id: e.detail}
+    helpService.upDateHelpItem(params).then((res) => {
+      if(res === 'success') {
+        Notify({
+          type: 'primary',
+          message: '更新成功'
+        })
+        this.getMyHelpList();
+      } else {
+        Notify({
+          type: 'danger',
+          message: '更新失败'
+        })
+      }
+    })
   }
 })

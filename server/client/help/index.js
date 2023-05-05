@@ -32,15 +32,13 @@ router.get('/list', async (req, res) => {
 // 将进行中状态改为结束
 router.post('/edit', async (req, res) => {  // 将status由0修改为1
   try {
-    const { openid, id } = req.body;
-    const item = await Help.find({
-      id,
-      openid
-    });
+    const { _id } = req.body;
+    const item = await Help.findById(_id);
     if (!item) {
       res.status(404).json({ message: 'Item not found' });
     }
     item.status = 1;
+    console.log(item)
     await item.save();
     res.send('success');
   } catch(error) {

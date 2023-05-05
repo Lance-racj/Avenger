@@ -52,6 +52,13 @@ class HelpService {
   async deleteHelpItem(params: {_id: string}): Promise<string> {
     return httpRequest.post<string>(`${baseUrl}/help/delete`, params);
   }
+  /**
+   * update 更新状态
+   * @param params ....
+   */
+  async upDateHelpItem(params: {_id: string}): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/help/edit`, params);
+  }
 }
 
 export default new HelpService();

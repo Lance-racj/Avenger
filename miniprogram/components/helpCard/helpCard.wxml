@@ -18,10 +18,11 @@
       <van-button 
         size="small" 
         type="primary" 
-        bind:click="showPopup"
+        bind:click="updateItem"
+        data-id="{{helpItem._id}}"
         disabled="{{helpItem.status === 1}}"
       >
-        修改状态
+        结束求助状态
       </van-button>
       <van-button 
         size="small"
