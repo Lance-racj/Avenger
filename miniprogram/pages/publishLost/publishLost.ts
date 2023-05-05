@@ -137,6 +137,7 @@ Page({
       phone,
       desc,
       imgList,
+      status: 0,
       time: new Date().getTime()
     }
     lostService.publishLost(params).then(() => {

@@ -150,6 +150,7 @@ Page({
         desc,
         money: Number(money),
         imgList,
+        status: 0,
         time: formatTime(new Date().getTime())
       }
       idleService.publishIdle(params).then(() => {
@@ -178,6 +179,7 @@ Page({
         name,
         phone,
         desc,
+        status: 0,
         time: formatTime(new Date().getTime())
       }
       idleService.publishNeed(params).then(() => {

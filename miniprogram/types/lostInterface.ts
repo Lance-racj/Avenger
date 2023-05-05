@@ -14,6 +14,7 @@ export interface lostItem<T> {
   phone: string,
   desc: string,
   imgList: Array<pic>,
+  status: number,
   time: T
 }
 

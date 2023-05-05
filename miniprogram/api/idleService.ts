@@ -102,6 +102,20 @@ class IdleService {
   async checkNeedItemFollow(params: {id: string, openid: string}): Promise<string> {
     return httpRequest.get<string>(`${baseUrl}/idle/need/follow/item`, params);
   }
+  /**
+   * update update status
+   * @param params ...
+   */
+  async updateIdleItemStatus(params: {_id: string}): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/idle/edit`, params);
+  }
+  /**
+   * update update status
+   * @param params ...
+   */
+  async updateNeedItemStatus(params: {_id: string}): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/idle/need/edit`, params);
+  }
 }
 
 export default new IdleService();

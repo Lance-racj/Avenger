@@ -11,6 +11,7 @@ export interface idleItem {
   phone: string,
   money: number,
   imgList: imgItem[],
+  status: number,
   time: string
 }
 export interface needItem {
@@ -18,6 +19,7 @@ export interface needItem {
   name: string,
   desc: string,
   phone: string,
+  status: number,
   time: string
 }
 export interface idleItemDetail extends idleItem {

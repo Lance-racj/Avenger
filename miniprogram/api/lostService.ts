@@ -54,6 +54,13 @@ class LostService {
   async unfollow(params: {id: string, openid: string}): Promise<string> {
     return httpRequest.post<string>(`${baseUrl}/lost/follow/del`, params)
   }
+  /**
+   * update update status
+   * @param params ...
+   */
+  async updateStatus(params: {_id: string}): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/lost/edit`, params);
+  }
 }
 
 export default new LostService();
