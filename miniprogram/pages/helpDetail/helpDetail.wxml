@@ -1,2 +1,64 @@
-<!--pages/helpDetail/helpDetail.wxml-->
-<text>pages/helpDetail/helpDetail.wxml</text>
+<view class="helpDetail">
+  
+  <view class="content">
+    <view class="title item">
+      <text class="label">求助标题</text>
+      <text>{{data.title}}</text>
+    </view>
+    <view class="desc item">
+      <text class="label">物品描述</text>
+      <text>{{data.desc}}</text>
+    </view>
+    <view class="money item">
+      <text class="label">悬赏金额</text>
+      <text>{{data.money}}元</text>
+    </view>
+    <view class="phone item">
+      <text class="label">联系方式</text>
+      <text>{{data.phone}}</text>
+    </view>
+    <view class="status item">
+      <text class="label">当前求助帖状态</text>
+      <text>{{data.status === 1? '已结束': '进行中'}}</text>
+    </view>
+  </view>
+
+  <view class="footer">
+    <van-button 
+      icon="coupon-o" 
+      type="primary" 
+      bind:click="showPopup"
+    >
+      获取联系方式
+    </van-button>
+    <van-button 
+      wx:if="{{!isCollect}}"
+      icon="star-o" 
+      type="warning"
+      bind:click="toCollection"
+    >
+      收藏
+    </van-button>
+    <van-button 
+      wx:else
+      icon="star" 
+      type="warning"
+      bind:click="toCollection"
+    >
+      已收藏
+    </van-button>
+  </view>
+  <van-notify id="van-notify" />
+  <van-popup show="{{ show }}" bind:close="onClose" round>
+    <view class="getNumber">
+      <view class="show">
+        <text class="item">联系方式</text>
+        <text class="item">{{data.phone}}</text>
+      </view>
+      <view class="handle">
+        <view class="cancel item" bindtap="onClose">取消</view>
+        <view class="copy item" bindtap="copyNumber">复制</view>
+      </view>
+    </view>
+  </van-popup>
+</view>

@@ -20,7 +20,7 @@
         type="primary" 
         bind:click="showPopup"
       >
-        编辑
+        修改状态
       </van-button>
       <van-button 
         size="small"

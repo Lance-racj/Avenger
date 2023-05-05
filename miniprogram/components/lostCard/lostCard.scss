@@ -50,7 +50,7 @@
   &_handle {
     display: flex;
     justify-content: flex-end;
-    van-button {
+    van-button:first-child {
       margin-right: 8rpx;
     }
   }

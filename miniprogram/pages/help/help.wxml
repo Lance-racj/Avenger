@@ -1,4 +1,4 @@
-<view class="idleCt">
+<view class="helpCt">
   <!-- 搜索框 -->
   <searchInput bindtap="toSearch" />
   <!-- 物品展示区域 -->
@@ -7,7 +7,7 @@
       wx:for="{{list}}" 
       wx:key="index" 
       helpItem="{{item}}" 
-      bindtap="goToDetail"
+      bindtap="goToHelpDetail"
       data-item="{{item}}"
     />
   </view>

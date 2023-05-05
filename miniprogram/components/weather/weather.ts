@@ -60,7 +60,7 @@ Component({
         fail: (err) => {
           console.log(err);
         }
-      })
-    }
+      });
+    },
   }
 })

@@ -80,7 +80,6 @@ router.post('/del', async (req, res) => {
     res.send('error');
   }
 })
-
 // 删除我发布的求购
 router.post('/need/del', async (req, res) => {
   const { _id } = req.body;
@@ -91,9 +90,6 @@ router.post('/need/del', async (req, res) => {
     res.send('error');
   }
 })
-
-
-
 // 收藏闲置
 router.post('/follow/add', async (req, res) => {
   try {
@@ -109,7 +105,6 @@ router.post('/follow/add', async (req, res) => {
       time,
       _id
     } = req.body;
-    console.log('xxxxx')
     await IdleCollection.create({openid, classify_1, classify_2, name, phone, desc, imgList, money, time, id: _id});
     res.send('success');
   } catch(error) {

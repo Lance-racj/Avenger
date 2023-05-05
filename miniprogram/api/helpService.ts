@@ -21,29 +21,29 @@ class HelpService {
    * get 获取求助收藏列表
    * @param params ....
    */
-  async getIdleFollowList(params: {openid: string}): Promise<helpItemDetail[]> {
-    return httpRequest.get<helpItemDetail[]>(`${baseUrl}/idle/follow/list`, params);
+  async getHelpFollowList(params: {openid: string}): Promise<helpItemDetail[]> {
+    return httpRequest.get<helpItemDetail[]>(`${baseUrl}/help/follow/list`, params);
   }
   /**
    * post 收藏求助贴
    * @param params ....
    */
-  async idleFollow(params: helpItem): Promise<string> {
-    return httpRequest.post<string>(`${baseUrl}/idle/follow/add`, params);
+  async helpFollow(params: helpItem): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/help/follow/add`, params);
   }
   /**
    * post 取消求助收藏
    * @param params ....
    */
-  async idleUnFollow(params: {id: string, openid: string}): Promise<string> {
-    return httpRequest.post<string>(`${baseUrl}/idle/follow/del`, params);
+  async helpUnFollow(params: {id: string, openid: string}): Promise<string> {
+    return httpRequest.post<string>(`${baseUrl}/help/follow/del`, params);
   }
   /**
    * check 检查单个求助收藏状态
    * @param params ....
    */
-  async checkIdleItemFollow(params: {id: string, openid: string}): Promise<string> {
-    return httpRequest.get<string>(`${baseUrl}/idle/follow/item`, params);
+  async checkHelpItemFollow(params: {id: string, openid: string}): Promise<string> {
+    return httpRequest.get<string>(`${baseUrl}/help/follow/item`, params);
   }
 
 }

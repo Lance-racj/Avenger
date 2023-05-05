@@ -10,6 +10,7 @@
       helpItem="{{item}}" 
       bindtap="goToDetail"
       data-item="{{item}}"
+      handle="true"
     />
   </view>
 </view>

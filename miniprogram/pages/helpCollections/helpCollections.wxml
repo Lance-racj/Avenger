@@ -1,2 +1,5 @@
-<!--pages/helpCollections/helpCollections.wxml-->
-<text>pages/helpCollections/helpCollections.wxml</text>
+<view class="myHelpCollections">
+  <view class="help"> 
+    <helpCard wx:for="{{collectionList}}" wx:key="index" helpItem="{{item}}" />
+  </view>
+</view>
