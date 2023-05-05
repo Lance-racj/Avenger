@@ -17,9 +17,10 @@ router.post('/publish', async (req, res) => {
       phone,
       desc,
       imgList,
+      status,
       time
     } = req.body;
-    await Lose.create({openid, type, classify_1, classify_2, name, date, region, phone, desc, imgList, time});
+    await Lose.create({openid, type, classify_1, classify_2, name, date, region, phone, desc, imgList, status, time});
     res.send('success');
   } catch(error) {
     res.send('error', error);
@@ -95,9 +96,10 @@ router.post('/follow/add', async (req, res) => {
       desc,
       imgList,
       time,
+      status,
       _id
     } = req.body;
-    await Collection.create({openid, type, classify_1, classify_2, name, date, region, phone, desc, imgList, time, id: _id});
+    await Collection.create({openid, type, classify_1, classify_2, name, date, region, phone, desc, imgList, status, time, id: _id});
     res.send('success');
   } catch(error) {
     res.send('error', error);
@@ -126,6 +128,21 @@ router.post('/delete', async (req, res) => {
     await Collection.findOneAndRemove({
       id: _id
     });
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+router.post('/edit', async (req, res) => {  // 将status由0修改为1
+  try {
+    const { _id } = req.body;
+    const item = await Lost.findById(_id);
+    if (!item) {
+      res.status(404).json({ message: 'Item not found' });
+    }
+    item.status = 1;
+    await item.save();
     res.send('success');
   } catch(error) {
     res.send('error');

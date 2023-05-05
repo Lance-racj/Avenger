@@ -41,6 +41,9 @@ const LoseSchema = new mongoose.Schema({
   imgList: {
     type: Array
   },
+  status: {
+    type: Number
+  },
   time: {
     type: Number | String
   }
@@ -81,6 +84,9 @@ const CollectionSchema = new mongoose.Schema({
   imgList: {
     type: Array
   },
+  status: {
+    type: Number
+  },
   time: {
     type: String
   }
@@ -112,6 +118,9 @@ const IdleCollectionSchema = new mongoose.Schema({
   imgList: {
     type: Array
   },
+  status: {
+    type: Number
+  },
   money: {
     type: Number
   },
@@ -136,6 +145,9 @@ const NeedCollectionSchema = new mongoose.Schema({
   },
   desc: {
     type: String
+  },
+  status: {
+    type: Number
   },
   time: {
     type: String
@@ -163,6 +175,9 @@ const HelpCollectionSchema = new mongoose.Schema({
     type: String
   },
   money: {
+    type: Number
+  },
+  status: {
     type: Number
   },
   time: {
@@ -196,6 +211,9 @@ const IdleSchema = new mongoose.Schema({
   money: {
     type: Number
   },
+  status: {
+    type: Number
+  },
   time: {
     type: String
   }
@@ -214,6 +232,9 @@ const NeedSchema = new mongoose.Schema({
   },
   desc: {
     type: String
+  },
+  status: {
+    type: Number
   },
   time: {
     type: String
@@ -238,6 +259,9 @@ const HelpSchema = new mongoose.Schema({
     type: String
   },
   money: {
+    type: Number
+  },
+  status: {
     type: Number
   },
   time: {

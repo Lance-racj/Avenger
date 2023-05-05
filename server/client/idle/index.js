@@ -14,9 +14,10 @@ router.post('/publish', async (req, res) => {
       desc,
       imgList,
       money,
+      status,
       time
     } = req.body;
-    await Idle.create({openid, classify_1, classify_2, name, phone, money, desc, imgList, time});
+    await Idle.create({openid, classify_1, classify_2, name, phone, money, status, desc, imgList, time});
     res.send('success');
   } catch(error) {
     res.send('error');
@@ -31,9 +32,10 @@ router.post('/need/publish', async (req, res) => {
       name,
       phone,
       desc,
+      status,
       time
     } = req.body;
-    await Need.create({openid, name, phone, desc, time});
+    await Need.create({openid, name, phone, desc, time, status});
     res.send('success');
   } catch(error) {
     res.send('error');
@@ -109,9 +111,10 @@ router.post('/follow/add', async (req, res) => {
       imgList,
       money,
       time,
+      status,
       _id
     } = req.body;
-    await IdleCollection.create({openid, classify_1, classify_2, name, phone, desc, imgList, money, time, id: _id});
+    await IdleCollection.create({openid, classify_1, classify_2, name, phone, desc, imgList, money, time, status, id: _id});
     res.send('success');
   } catch(error) {
     res.send('error', error);
@@ -168,9 +171,10 @@ router.post('/need/follow/add', async (req, res) => {
       phone,
       desc,
       time,
+      status,
       _id
     } = req.body;
-    await NeedCollection.create({openid, name, phone, desc, time, id: _id});
+    await NeedCollection.create({openid, name, phone, desc, time, status, id: _id});
     res.send('success');
   } catch(error) {
     res.send('error', error);
@@ -214,6 +218,36 @@ router.get('/need/follow/list', async (req, res) => {
       openid
     });
     res.send(result);
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+router.post('/edit', async (req, res) => {  // 将status由0修改为1
+  try {
+    const { _id } = req.body;
+    const item = await Idle.findById(_id);
+    if (!item) {
+      res.status(404).json({ message: 'Item not found' });
+    }
+    item.status = 1;
+    await item.save();
+    res.send('success');
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+router.post('/need/edit', async (req, res) => {  // 将status由0修改为1
+  try {
+    const { _id } = req.body;
+    const item = await Need.findById(_id);
+    if (!item) {
+      res.status(404).json({ message: 'Item not found' });
+    }
+    item.status = 1;
+    await item.save();
+    res.send('success');
   } catch(error) {
     res.send('error');
   }
