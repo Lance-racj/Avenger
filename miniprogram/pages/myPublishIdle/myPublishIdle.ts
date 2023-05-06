@@ -59,6 +59,23 @@ Page({
       }
     })
   },
+  updateIdleItem(e: any) {
+    const params = {_id: e.detail}
+    idleService.updateIdleItemStatus(params).then((res) => {
+      if(res === 'success') {
+        Notify({
+          type: 'primary',
+          message: '更新成功'
+        })
+        this.getList(this.data.selectID);
+      } else {
+        Notify({
+          type: 'danger',
+          message: '更新失败'
+        })
+      }
+    })
+  },
   deleteNeedItem(e: any) {
     const { id } = e.currentTarget.dataset;
     const params = {_id: id};

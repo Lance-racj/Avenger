@@ -9,7 +9,8 @@
         idleItem="{{item}}"
         data-item="{{item}}"
         handle="{{true}}"
-        bindgetDeleteID="deleteItem"
+        bindgetDeleteID="deleteIdleItem"
+        bindgetUpdateID="updateIdleItem"
       />
     </view>
     <!-- 求购 -->
