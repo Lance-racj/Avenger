@@ -34,5 +34,17 @@
       background-color: green;
       color: white;
     }
+    .tag_end {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100rpx;
+      height: 50rpx;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: brown;
+      color: white;
+    }
   }
 }

@@ -7,7 +7,9 @@
       <text class="phone">联系方式：{{idleItem.phone}}</text>
       <text class="publish_time">发布时间：{{idleItem.time}}</text>
     </view>
-    <view class="tag">出售</view>
+    <view class="{{idleItem.status === 0? 'tag': 'tag_end'}}">
+      {{idleItem.status === 0? '进行中': '已结束'}}
+    </view>
   </view>
   <view wx:if="{{handle}}" class="idle_item_handle">
     <view>

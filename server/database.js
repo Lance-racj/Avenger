@@ -45,7 +45,7 @@ const LoseSchema = new mongoose.Schema({
     type: Number
   },
   time: {
-    type: Number | String
+    type: Number
   }
 })
 

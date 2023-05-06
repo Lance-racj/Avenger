@@ -137,7 +137,7 @@ router.post('/delete', async (req, res) => {
 router.post('/edit', async (req, res) => {  // 将status由0修改为1
   try {
     const { _id } = req.body;
-    const item = await Lost.findById(_id);
+    const item = await Lose.findById(_id);
     if (!item) {
       res.status(404).json({ message: 'Item not found' });
     }

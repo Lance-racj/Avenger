@@ -76,5 +76,23 @@ Page({
         })
       }
     })
+  },
+  updateNeedItem(e: any) {
+    const { id } = e.currentTarget.dataset;
+    const params = {_id: id}
+    idleService.updateNeedItemStatus(params).then((res) => {
+      if(res === 'success') {
+        Notify({
+          type: 'primary',
+          message: '更新成功'
+        })
+        this.getList(this.data.selectID);
+      } else {
+        Notify({
+          type: 'danger',
+          message: '更新失败'
+        })
+      }
+    })
   }
 })

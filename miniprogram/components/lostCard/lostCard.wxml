@@ -1,5 +1,7 @@
 <view class="lose_item">
-  <view class="tag">{{lostItem.type === 0? '寻主': '寻物'}}</view>
+  <view class="{{lostItem.status === 0? 'tag': 'tag_end'}}">
+    {{lostItem.status === 0? '进行中': '已结束'}}
+  </view>
   <view class="lose_item_body">
     <image src="{{lostItem.imgList[0].url}}" />
     <view class="lose_item_body_content">
@@ -14,10 +16,12 @@
     <view>
       <van-button 
         size="small" 
-        type="primary" 
-        bind:click="showPopup"
+        type="warning" 
+        bind:click="updateItem"
+        data-id="{{lostItem._id}}"
+        disabled="{{lostItem.status === 1}}"
       >
-        编辑
+        修改为结束
       </van-button>
       <van-button 
         size="small"

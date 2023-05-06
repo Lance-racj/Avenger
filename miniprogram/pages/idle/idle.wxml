@@ -26,7 +26,9 @@
         bindtap="goToNeedDetail" 
         data-item="{{item}}"
       >
-        <view class="tag">求购</view>
+      <view class="{{item.status === 0? 'tag': 'tag_end'}}">
+        {{item.status === 0? '进行中': '已结束'}}
+      </view>
         <text class="name">求购物品：{{item.name}}</text>
         <text class="desc">描述：{{item.desc}}</text>
         <text class="phone">联系方式：{{item.phone}}</text>

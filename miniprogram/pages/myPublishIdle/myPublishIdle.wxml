@@ -16,7 +16,9 @@
     <view wx:else="{{selectID === 1}}" class="need"> 
       <view wx:for="{{needList}}" wx:key="index" class="need_item">
         <view class="content">
-          <view class="tag">求购</view>
+          <view class="{{item.status === 0? 'tag': 'tag_end'}}">
+            {{item.status === 0? '进行中': '已结束'}}
+          </view>
           <text class="name">求购物品：{{item.name}}</text>
           <text class="desc">描述：{{item.desc}}</text>
           <text class="phone">联系方式：{{item.phone}}</text>
@@ -26,9 +28,11 @@
           <van-button 
             size="small" 
             type="primary" 
-            bind:click="showPopup"
+            bind:click="updateNeedItem"
+            data-id="{{item._id}}"
+            disabled="{{item.status === 1}}"
           >
-            编辑
+            修改为结束
           </van-button>
           <van-button 
             size="small"

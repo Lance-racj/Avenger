@@ -53,5 +53,22 @@ Page({
         })
       }
     })
+  },
+  updateItem(e: any) {
+    const params = {_id: e.detail}
+    lostService.updateStatus(params).then((res) => {
+      if(res === 'success') {
+        Notify({
+          type: 'primary',
+          message: '更新成功'
+        })
+        this.getMyLoseList();
+      } else {
+        Notify({
+          type: 'danger',
+          message: '更新失败'
+        })
+      }
+    })
   }
 })
