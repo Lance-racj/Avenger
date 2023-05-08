@@ -17,52 +17,28 @@
   <view class="comment">
     <view class="comment_title">评论区</view>
     <view class="comment_list">
-      <view class="comment_item">
+      <view class="comment_item" wx:for="{{data.commentList}}" wx:key="index">
         <view class="comment_item_left">
           <image src="../../assets/icons/me_select.png"></image>
           <view class="comment_item_left_content">
-            <text>createRay</text>
-            <text>hellohello</text>
+            <text>{{item.nickname}}</text>
+            <text>{{item.content}}</text>
           </view>
         </view>
         <view class="comment_item_right">
-          2023-10-2 13:23:45
-        </view>
-      </view>
-      <view class="comment_item">
-        <view class="comment_item_left">
-          <image src="../../assets/icons/me_select.png"></image>
-          <view class="comment_item_left_content">
-            <text>createRay</text>
-            <text>hellohello</text>
-          </view>
-        </view>
-        <view class="comment_item_right">
-          2023-10-2 13:23:45
-        </view>
-      </view>
-      <view class="comment_item">
-        <view class="comment_item_left">
-          <image src="../../assets/icons/me_select.png"></image>
-          <view class="comment_item_left_content">
-            <text>createRay</text>
-            <text>hellohello</text>
-          </view>
-        </view>
-        <view class="comment_item_right">
-          2023-10-2 13:23:45
+          {{item.time}}
         </view>
       </view>
     </view>
     <view class="comment_handle">
-      <textarea class="comment_handle_input" value="" placeholder="请输入您的评论内容"/>
+      <textarea class="comment_handle_input" value="{{comment}}" placeholder="请输入您的评论内容" bindinput="getComment"></textarea>
       <view class="comment_handle_btn">
         <view class="notice">点击提交你想评论的内容吧</view>
         <van-button 
           type="info"
           size="small"
           round
-          bind:click=""
+          bind:click="submitComment"
         >
           提交
         </van-button>

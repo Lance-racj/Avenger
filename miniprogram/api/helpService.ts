@@ -1,6 +1,6 @@
 import httpRequest from '../utils/http';
 const baseUrl = 'http://localhost:3060/api';
-import { helpItem, helpItemDetail } from '../types/helpInterface';
+import { helpItem, helpItemDetail, commentType } from '../types/helpInterface';
 
 class HelpService {
   /**
@@ -58,6 +58,13 @@ class HelpService {
    */
   async upDateHelpItem(params: {_id: string}): Promise<string> {
     return httpRequest.post<string>(`${baseUrl}/help/edit`, params);
+  }
+  /**
+   * publish 发布评论
+   * @param params ....
+   */
+  async publishComment(params: commentType): Promise<commentType[]> {
+    return httpRequest.post<commentType[]>(`${baseUrl}/help/comment/add`, params);
   }
 }
 

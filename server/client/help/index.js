@@ -119,4 +119,24 @@ router.post('/delete', async (req, res) => {
   }
 })
 
+// 提交评论
+router.post('/comment/add', async (req, res) => {
+  const { content, nickname, time, _id } = req.body;
+  try {
+    const { commentList } = await Help.findById(_id);
+    commentList.push({
+      nickname,
+      content,
+      time
+    });
+    await Help.findByIdAndUpdate(_id, {
+      commentList
+    })
+    const result = await Help.findById(_id);
+    res.send(result);
+  } catch(error) {
+    res.send('error');
+  }
+})
+
 module.exports = router;

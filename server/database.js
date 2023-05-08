@@ -46,6 +46,10 @@ const LoseSchema = new mongoose.Schema({
   },
   time: {
     type: Number
+  },
+  commentList: {
+    type: Array,
+    default: []
   }
 })
 
@@ -216,6 +220,10 @@ const IdleSchema = new mongoose.Schema({
   },
   time: {
     type: String
+  },
+  commentList: {
+    type: Array,
+    default: []
   }
 })
 
@@ -238,6 +246,10 @@ const NeedSchema = new mongoose.Schema({
   },
   time: {
     type: String
+  },
+  commentList: {
+    type: Array,
+    default: []
   }
 })
 
@@ -266,6 +278,10 @@ const HelpSchema = new mongoose.Schema({
   },
   time: {
     type: String
+  },
+  commentList: {
+    type: Array,
+    default: []
   }
 })
 

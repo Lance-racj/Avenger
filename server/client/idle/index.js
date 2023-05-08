@@ -253,6 +253,46 @@ router.post('/need/edit', async (req, res) => {  // 将status由0修改为1
   }
 })
 
+// 提交评论
+router.post('/comment/add', async (req, res) => {
+  const { content, nickname, time, _id } = req.body;
+  try {
+    const { commentList } = await Idle.findById(_id);
+    commentList.push({
+      nickname,
+      content,
+      time
+    });
+    await Idle.findByIdAndUpdate(_id, {
+      commentList
+    })
+    const result = await Idle.findById(_id);
+    res.send(result);
+  } catch(error) {
+    res.send('error');
+  }
+})
+
+// 提交评论
+router.post('/need/comment/add', async (req, res) => {
+  const { content, nickname, time, _id } = req.body;
+  try {
+    const { commentList } = await Need.findById(_id);
+    commentList.push({
+      nickname,
+      content,
+      time
+    });
+    await Need.findByIdAndUpdate(_id, {
+      commentList
+    })
+    const result = await Need.findById(_id);
+    res.send(result);
+  } catch(error) {
+    res.send('error');
+  }
+})
+
 
 
 module.exports = router;

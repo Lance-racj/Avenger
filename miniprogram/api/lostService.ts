@@ -1,7 +1,7 @@
 /* eslint-disable  */
 import httpRequest from '../utils/http';
 const baseUrl = 'http://localhost:3060/api';
-import { lostItem } from '../types/lostInterface';
+import { lostItem, commentType } from '../types/lostInterface';
 
 
 class LostService {
@@ -60,6 +60,13 @@ class LostService {
    */
   async updateStatus(params: {_id: string}): Promise<string> {
     return httpRequest.post<string>(`${baseUrl}/lost/edit`, params);
+  }
+  /**
+   * publish 发布评论
+   * @param params ....
+   */
+  async publishComment(params: commentType): Promise<commentType[]> {
+    return httpRequest.post<commentType[]>(`${baseUrl}/lost/comment/add`, params);
   }
 }
 

@@ -28,3 +28,9 @@ export interface idleItemDetail extends idleItem {
 export interface needItemDetail extends needItem {
   _id: string
 }
+export interface commentType {
+  _id?: string,
+  nickname: string,
+  content: string,
+  time: number
+}

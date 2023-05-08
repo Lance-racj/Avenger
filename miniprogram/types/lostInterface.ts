@@ -21,3 +21,10 @@ export interface lostItem<T> {
 export interface lostItemDetail<T> extends lostItem<T> {
   _id: string
 }
+
+export interface commentType {
+  _id?: string,
+  nickname: string,
+  content: string,
+  time: number
+}

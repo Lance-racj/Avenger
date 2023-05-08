@@ -1,6 +1,6 @@
 import httpRequest from '../utils/http';
 const baseUrl = 'http://localhost:3060/api';
-import { needItem, idleItem, needItemDetail, idleItemDetail } from '../types/idleInterface';
+import { needItem, idleItem, needItemDetail, idleItemDetail, commentType } from '../types/idleInterface';
 
 // 轻量级后端，返回data即所需，无需处理
 class IdleService {
@@ -115,6 +115,20 @@ class IdleService {
    */
   async updateNeedItemStatus(params: {_id: string}): Promise<string> {
     return httpRequest.post<string>(`${baseUrl}/idle/need/edit`, params);
+  }
+  /**
+   * publish 发布闲置评论
+   * @param params ....
+   */
+  async publishIdleComment(params: commentType): Promise<commentType[]> {
+    return httpRequest.post<commentType[]>(`${baseUrl}/idle/comment/add`, params);
+  }
+  /**
+   * publish 发布求购评论
+   * @param params ....
+   */
+  async publishNeedComment(params: commentType): Promise<commentType[]> {
+    return httpRequest.post<commentType[]>(`${baseUrl}/idle/need/comment/add`, params);
   }
 }
 

@@ -11,3 +11,10 @@ export interface helpItem {
 export interface helpItemDetail extends helpItem {
   _id: string
 }
+
+export interface commentType {
+  _id?: string,
+  nickname: string,
+  content: string,
+  time: number
+}
