@@ -68,6 +68,13 @@ class LostService {
   async publishComment(params: commentType): Promise<commentType[]> {
     return httpRequest.post<commentType[]>(`${baseUrl}/lost/comment/add`, params);
   }
+  /**
+   * publish 发布评论
+   * @param params ....
+   */
+  async searchByName(params: {name: string, type?: string}): Promise<any> {
+    return httpRequest.get<any>(`${baseUrl}/lost/search/name`, params);
+  }
 }
 
 export default new LostService();

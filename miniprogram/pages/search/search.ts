@@ -1,9 +1,11 @@
 import debounce from '../../utils/debounce';
+import lostService from '../../api/lostService';
 
 Page({
   data: {
     keyWord: '',
-    searchLogs: []
+    searchLogs: [],
+    searchRes: []
   },
   onLoad() {
     const searchLogs = wx.getStorageSync('searchLogs');
@@ -13,6 +15,14 @@ Page({
   },
   getKeyWord: debounce(function (this: any, event: WechatMiniprogram.Input) {
     this.setData({keyWord: event.detail.value});
+    const params = {
+      name: event.detail.value
+    }
+    lostService.searchByName(params).then((res) => {
+      this.setData({
+        searchRes: res
+      })
+    })
     // 输入的内容在数据库中能查到，切换视图,并获取数据库数据，wx:for展示,上下文无关
     let searchLogs = wx.getStorageSync('searchLogs');
     // 去重校验
@@ -27,12 +37,16 @@ Page({
     })
   }, 1000),
   clearKeyWord() {
-    this.setData({keyWord: ''});
+    this.setData({
+      keyWord: '',
+      searchRes: []
+    });
   },
   clearLogs() {
     wx.removeStorageSync('searchLogs');
     this.setData({
-      searchLogs: []
+      searchLogs: [],
+      searchRes: []
     })
   },
   quickSearch(event: WechatMiniprogram.TouchEvent) {
@@ -40,7 +54,14 @@ Page({
     this.setData({
       keyWord: data
     })
-    /* 如果后续发送网络请求可以写在这里 */
+    const params = {
+      name: this.data.keyWord
+    }
+    lostService.searchByName(params).then((res) => {
+      this.setData({
+        searchRes: res
+      })
+    })
     // 删除元素重新插入顶部
     let searchLogs = wx.getStorageSync('searchLogs');
     searchLogs = searchLogs.filter((item: string) => {
@@ -53,6 +74,11 @@ Page({
     // 重新设置data且刷新页面
     this.setData({
       searchLogs
+    })
+  },
+  toDetail(event: any) {
+    wx.navigateTo({
+      url: '../lostDetail/lostDetail?data='+JSON.stringify(event.currentTarget.dataset.item)
     })
   }
 })
