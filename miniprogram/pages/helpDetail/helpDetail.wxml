@@ -18,8 +18,64 @@
       <text>{{data.phone}}</text>
     </view>
     <view class="status item">
-      <text class="label">当前求助帖状态</text>
+      <text class="label">当前状态</text>
       <text>{{data.status === 1? '已结束': '进行中'}}</text>
+    </view>
+  </view>
+
+  <view class="comment">
+    <view class="comment_title">评论区</view>
+    <view class="comment_list">
+      <view class="comment_item">
+        <view class="comment_item_left">
+          <image src="../../assets/icons/me_select.png"></image>
+          <view class="comment_item_left_content">
+            <text>createRay</text>
+            <text>hellohello</text>
+          </view>
+        </view>
+        <view class="comment_item_right">
+          2023-10-2 13:23:45
+        </view>
+      </view>
+      <view class="comment_item">
+        <view class="comment_item_left">
+          <image src="../../assets/icons/me_select.png"></image>
+          <view class="comment_item_left_content">
+            <text>createRay</text>
+            <text>hellohello</text>
+          </view>
+        </view>
+        <view class="comment_item_right">
+          2023-10-2 13:23:45
+        </view>
+      </view>
+      <view class="comment_item">
+        <view class="comment_item_left">
+          <image src="../../assets/icons/me_select.png"></image>
+          <view class="comment_item_left_content">
+            <text>createRay</text>
+            <text>hellohello</text>
+          </view>
+        </view>
+        <view class="comment_item_right">
+          2023-10-2 13:23:45
+        </view>
+      </view>
+    </view>
+    <view class="comment_handle">
+      <textarea class="comment_handle_input" value="" placeholder="请输入您的评论内容"/>
+      <view class="comment_handle_btn">
+        <view class="notice">点击提交你想评论的内容吧</view>
+        <van-button 
+          type="info"
+          size="small"
+          round
+          bind:click=""
+        >
+          提交
+        </van-button>
+      </view>
     </view>
   </view>
 
