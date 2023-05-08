@@ -72,7 +72,7 @@ Page({
     const params = {
       nickname: wx.getStorageSync('account').username,
       content: this.data.comment,
-      time: new Date().getTime(),
+      time: formatTime(new Date().getTime()),
       _id: this.data.data._id
     }
     helpService.publishComment(params).then((res) => {

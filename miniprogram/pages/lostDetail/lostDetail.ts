@@ -1,6 +1,7 @@
 import lostService from '../../api/lostService';
 import Notify from '@vant/weapp/notify/notify';
 import { lostItemDetail } from '../../types/lostInterface';
+import formatTime from '../../utils/formatTime';
 
 Page({
   data: {
@@ -72,7 +73,7 @@ Page({
     const params = {
       nickname: wx.getStorageSync('account').username,
       content: this.data.comment,
-      time: new Date().getTime(),
+      time: formatTime(new Date().getTime()),
       _id: this.data.data._id
     }
     lostService.publishComment(params).then((res) => {

@@ -1,5 +1,6 @@
 import idleService from '../../api/idleService';
 import Notify from '@vant/weapp/notify/notify';
+import formatTime from '../../utils/formatTime';
 
 Page({
   data: {
@@ -71,7 +72,7 @@ Page({
     const params = {
       nickname: wx.getStorageSync('account').username,
       content: this.data.comment,
-      time: new Date().getTime(),
+      time: formatTime(new Date().getTime()),
       _id: this.data.data._id
     }
     idleService.publishNeedComment(params).then((res) => {

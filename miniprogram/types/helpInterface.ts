@@ -16,5 +16,5 @@ export interface commentType {
   _id?: string,
   nickname: string,
   content: string,
-  time: number
+  time: string
 }
