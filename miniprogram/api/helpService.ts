@@ -66,6 +66,13 @@ class HelpService {
   async publishComment(params: commentType): Promise<commentType[]> {
     return httpRequest.post<commentType[]>(`${baseUrl}/help/comment/add`, params);
   }
+  /**
+   * search 搜索
+   * @param params ....
+   */
+  async searchByName(params: {name: string, type?: string}): Promise<any> {
+    return httpRequest.get<any>(`${baseUrl}/help/search/name`, params);
+  }
 }
 
 export default new HelpService();

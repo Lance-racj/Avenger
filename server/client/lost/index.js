@@ -177,7 +177,6 @@ router.get('/search/name', async (req, res) => {
     const result = await Lose.find({
       name: _name
     });
-    console.log(res);
     res.send(result);
   } catch(error) {
     res.send('error');

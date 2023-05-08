@@ -27,6 +27,11 @@ Page({
       })
     })
   },
+  toSearch() {
+    wx.navigateTo({
+      url: '../helpSearch/helpSearch',
+    })
+  },
   goToHelpDetail(event: WechatMiniprogram.TouchEvent) {
     wx.navigateTo({
       url: '../helpDetail/helpDetail?data='+JSON.stringify(event.currentTarget.dataset.item)

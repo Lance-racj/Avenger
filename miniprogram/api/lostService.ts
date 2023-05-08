@@ -69,7 +69,7 @@ class LostService {
     return httpRequest.post<commentType[]>(`${baseUrl}/lost/comment/add`, params);
   }
   /**
-   * publish 发布评论
+   * search 搜索
    * @param params ....
    */
   async searchByName(params: {name: string, type?: string}): Promise<any> {

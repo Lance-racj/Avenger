@@ -20,6 +20,7 @@
     "pages/myPublishHelp/myPublishHelp",
     "pages/lostDetail/lostDetail",
     "pages/search/search",
+    "pages/helpSearch/helpSearch",
     "pages/idleDetail/idleDetail",
     "pages/helpDetail/helpDetail",
     "pages/needDetail/needDetail"

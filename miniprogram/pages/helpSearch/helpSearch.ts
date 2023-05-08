@@ -1,5 +1,5 @@
 import debounce from '../../utils/debounce';
-import lostService from '../../api/lostService';
+import helpService from '../../api/helpService';
 
 Page({
   data: {
@@ -8,7 +8,7 @@ Page({
     searchRes: []
   },
   onLoad() {
-    const searchLogs = wx.getStorageSync('searchLogs');
+    const searchLogs = wx.getStorageSync('helpSearchLogs');
     this.setData({
       searchLogs
     })
@@ -22,20 +22,20 @@ Page({
     const params = {
       name: event.detail.value
     }
-    lostService.searchByName(params).then((res) => {
+    helpService.searchByName(params).then((res) => {
       this.setData({
         searchRes: res
       })
     })
     // 输入的内容在数据库中能查到，切换视图,并获取数据库数据，wx:for展示,上下文无关
-    let searchLogs = wx.getStorageSync('searchLogs');
+    let searchLogs = wx.getStorageSync('helpSearchLogs');
     // 去重校验
     if (searchLogs && !searchLogs.includes(event.detail.value)) {
       searchLogs.unshift(event.detail.value);
     } else {
       searchLogs = [event.detail.value];
     }
-    wx.setStorageSync('searchLogs', searchLogs);
+    wx.setStorageSync('helpSearchLogs', searchLogs);
     this.setData({
       searchLogs
     })
@@ -47,7 +47,7 @@ Page({
     });
   },
   clearLogs() {
-    wx.removeStorageSync('searchLogs');
+    wx.removeStorageSync('helpSearchLogs');
     this.setData({
       searchLogs: [],
       searchRes: []
@@ -61,20 +61,20 @@ Page({
     const params = {
       name: this.data.keyWord
     }
-    lostService.searchByName(params).then((res) => {
+    helpService.searchByName(params).then((res) => {
       this.setData({
         searchRes: res
       })
     })
     // 删除元素重新插入顶部
-    let searchLogs = wx.getStorageSync('searchLogs');
+    let searchLogs = wx.getStorageSync('helpSearchLogs');
     searchLogs = searchLogs.filter((item: string) => {
       if (item !== data) return true;
       else return false;
     });
     searchLogs.unshift(data);
     // 重新设置缓存
-    wx.setStorageSync('searchLogs', searchLogs);
+    wx.setStorageSync('helpSearchLogs', searchLogs);
     // 重新设置data且刷新页面
     this.setData({
       searchLogs
@@ -82,7 +82,7 @@ Page({
   },
   toDetail(event: any) {
     wx.navigateTo({
-      url: '../lostDetail/lostDetail?data='+JSON.stringify(event.currentTarget.dataset.item)
+      url: '../helpDetail/helpDetail?data='+JSON.stringify(event.currentTarget.dataset.item)
     })
   }
 })
