@@ -15,14 +15,18 @@ class HelpService {
    * @param params ....
    */
   async getHelpList(params?: {openid: string}): Promise<helpItem[]> {
-    return httpRequest.get<helpItem[]>(`${baseUrl}/help/list`, params);
+    return httpRequest.get<helpItem[]>(`${baseUrl}/help/list`, params).then((res) => {
+      return res.reverse();
+    });
   }
   /**
    * get 获取求助收藏列表
    * @param params ....
    */
   async getHelpFollowList(params: {openid: string}): Promise<helpItemDetail[]> {
-    return httpRequest.get<helpItemDetail[]>(`${baseUrl}/help/follow/list`, params);
+    return httpRequest.get<helpItemDetail[]>(`${baseUrl}/help/follow/list`, params).then((res) => {
+      return res.reverse();
+    });
   }
   /**
    * post 收藏求助贴

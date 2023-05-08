@@ -10,7 +10,9 @@ class LostService {
    * @param params {type: number, openid?: string}
    */
   async getLoseData(params: {type: number, openid?: string}): Promise<lostItem<number>[]> {
-    return httpRequest.get<lostItem<number>[]>(`${baseUrl}/lost/list`, params);
+    return httpRequest.get<lostItem<number>[]>(`${baseUrl}/lost/list`, params).then((res) => {
+      return res.reverse();
+    });
   }
   /**
    * 发布失物(寻物)信息帖
@@ -31,7 +33,9 @@ class LostService {
    * @param params {openid: string, type: number}
    */
   async getFollowList(params: {openid: string, type: number}): Promise<lostItem<string>[]> {
-    return httpRequest.get<lostItem<string>[]>(`${baseUrl}/lost/follow/list`, params)
+    return httpRequest.get<lostItem<string>[]>(`${baseUrl}/lost/follow/list`, params).then((res) => {
+      return res.reverse();
+    });
   }
   /**
    * 查询是否收藏

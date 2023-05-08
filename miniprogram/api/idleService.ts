@@ -23,14 +23,18 @@ class IdleService {
    * @param params { openid: string }
    */
   async getIdleList(params?: { openid: string }): Promise<idleItem[]> {
-    return httpRequest.get<idleItem[]>(`${baseUrl}/idle/list`, params);
+    return httpRequest.get<idleItem[]>(`${baseUrl}/idle/list`, params).then((res) => {
+      return res.reverse();
+    });
   }
   /**
    * get need list
    * @param params { openid: string }
    */
   async getNeedList(params?: { openid: string }): Promise<needItem[]> {
-    return httpRequest.get<needItem[]>(`${baseUrl}/idle/need/list`, params);
+    return httpRequest.get<needItem[]>(`${baseUrl}/idle/need/list`, params).then((res) => {
+      return res.reverse();
+    });
   }
   /**
    * delete 删除闲置发布
@@ -51,14 +55,18 @@ class IdleService {
    * @param params ...
    */
   async getIdleFollowList(params: {openid: string}): Promise<idleItemDetail[]> {
-    return httpRequest.get<idleItemDetail[]>(`${baseUrl}/idle/follow/list`, params);
+    return httpRequest.get<idleItemDetail[]>(`${baseUrl}/idle/follow/list`, params).then((res) => {
+      return res.reverse();
+    });
   }
   /**
    * get 获取求购收藏列表
    * @param params ...
    */
   async getNeedFollowList(params: {openid: string}): Promise<needItemDetail[]> {
-    return httpRequest.get<needItemDetail[]>(`${baseUrl}/idle/need/follow/list`, params);
+    return httpRequest.get<needItemDetail[]>(`${baseUrl}/idle/need/follow/list`, params).then((res) => {
+      return res.reverse();
+    });
   }
   /**
    * post 收藏闲置发布帖
