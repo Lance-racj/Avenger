@@ -21,6 +21,8 @@
     "pages/lostDetail/lostDetail",
     "pages/search/search",
     "pages/helpSearch/helpSearch",
+    "pages/idleSearch/idleSearch",
+    "pages/needSearch/needSearch",
     "pages/idleDetail/idleDetail",
     "pages/helpDetail/helpDetail",
     "pages/needDetail/needDetail"

@@ -293,6 +293,32 @@ router.post('/need/comment/add', async (req, res) => {
   }
 })
 
+// 模糊检索物品名字
+router.get('/search/name', async (req, res) => {
+  try {
+    const { name } = req.query;
+    const _name = new RegExp(name, 'i');
+    const result = await Idle.find({
+      name: _name
+    });
+    res.send(result);
+  } catch(error) {
+    res.send('error');
+  }
+})
 
+// 模糊检索物品名字
+router.get('/need/search/name', async (req, res) => {
+  try {
+    const { name } = req.query;
+    const _name = new RegExp(name, 'i');
+    const result = await Need.find({
+      name: _name
+    });
+    res.send(result);
+  } catch(error) {
+    res.send('error');
+  }
+})
 
 module.exports = router;

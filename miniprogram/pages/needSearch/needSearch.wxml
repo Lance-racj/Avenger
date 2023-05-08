@@ -1,0 +1,46 @@
+<view class="searchCt">
+  <!-- 搜索框 -->
+  <view class="search">
+    <view class="search-mainer">
+      <van-icon name="search" size="40rpx" />
+      <input 
+        value="{{keyWord}}"
+        placeholder="搜索" 
+        bindinput="getKeyWord" 
+        type="text"
+      />
+    </view>
+    <van-icon 
+      wx:if="{{keyWord.length !== 0}}" 
+      name="clear" 
+      size="40rpx" 
+      color="#999" 
+      bindtap="clearKeyWord"
+    />
+  </view>
+  <!-- 无结果情况 -->
+  <view wx:if="{{searchRes.length === 0}}" class="empty-search">
+    <view class="history">
+      <view>搜索记录</view>
+      <van-icon name="delete-o" size="40rpx" bindtap="clearLogs"/>
+    </view>
+    <view class="logList">
+      <view 
+        wx:for="{{searchLogs}}" 
+        wx:key="index"
+        bindtap="quickSearch"
+        data-item="{{item}}"
+        class="item"
+      >
+        {{item}}
+      </view>
+    </view>
+  </view>
+  <!-- 搜索结果 -->
+  <view wx:else class="result-search">
+    <view class="search-item" wx:for="{{searchRes}}" wx:key="index" bindtap="toDetail" data-item="{{item}}">
+      <text>{{item.name}}</text>
+      <van-icon name="arrow" size="30rpx" />
+    </view>
+  </view>
+</view>

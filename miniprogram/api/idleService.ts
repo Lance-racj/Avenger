@@ -130,6 +130,20 @@ class IdleService {
   async publishNeedComment(params: commentType): Promise<commentType[]> {
     return httpRequest.post<commentType[]>(`${baseUrl}/idle/need/comment/add`, params);
   }
+  /**
+   * search 搜索
+   * @param params ....
+   */
+  async searchIdleByName(params: {name: string, type?: string}): Promise<any> {
+    return httpRequest.get<any>(`${baseUrl}/idle/search/name`, params);
+  }
+  /**
+   * search 搜索
+   * @param params ....
+   */
+  async searchNeedByName(params: {name: string, type?: string}): Promise<any> {
+    return httpRequest.get<any>(`${baseUrl}/idle/need/search/name`, params);
+  }
 }
 
 export default new IdleService();

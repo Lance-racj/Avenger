@@ -69,5 +69,16 @@ Page({
     wx.navigateTo({
       url: '../needDetail/needDetail?data='+JSON.stringify(event.currentTarget.dataset.item)
     })
-  }
+  },
+  toSearch() {
+    if (this.data.selectID === 0) {
+      wx.navigateTo({
+        url: '../idleSearch/idleSearch',
+      })
+    } else {
+      wx.navigateTo({
+        url: '../needSearch/needSearch',
+      })
+    }
+  },
 })
