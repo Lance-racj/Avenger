@@ -13,6 +13,16 @@ const options = [
     value: '32002',
     children: [{ text: '水杯', value: '320021' }, { text: '雨伞', value: '320022' }],
   },
+  {
+    text: '电子产品',
+    value: '32003',
+    children: [{ text: '游戏机', value: '320031' }, { text: '电脑', value: '320032' }, { text: '手机', value: '320033' }],
+  },
+  {
+    text: '衣服',
+    value: '32004',
+    children: [{ text: '衬衫', value: '320041' }, { text: '外套', value: '320042' }],
+  }
 ]
 
 Page({

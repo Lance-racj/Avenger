@@ -15,7 +15,6 @@ Page({
       this.setData({
         collectionList: res
       });
-      console.log(this.data.collectionList)
     })
   }
 })
