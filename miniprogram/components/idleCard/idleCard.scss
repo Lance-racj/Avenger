@@ -21,6 +21,10 @@
       .name {
         font-weight: bold;
         margin-bottom: 25rpx;
+        width: 350rpx;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
       }
       .desc {
         font-size: 26rpx;

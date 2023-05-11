@@ -4,7 +4,7 @@
       <van-field
         label="求助标题"
         value="{{ title }}"
-        placeholder="请输入物品名称"
+        placeholder="请输入求助标题"
         bind:change="changeTitle"
       />
     </van-cell-group>

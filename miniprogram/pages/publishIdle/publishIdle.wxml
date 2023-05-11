@@ -53,9 +53,9 @@
     </van-cell-group>
     <van-cell-group class="desc">
       <van-field
-        label="物品描述"
+        label="{{type === '0'? '物品描述': '求购描述'}}"
         value="{{ desc }}"
-        placeholder="请输入物品描述"
+        placeholder="{{type === '0'? '请输入物品描述': '请输入求购描述'}}"
         bind:change="getDesc"
         autosize
         type="textarea"
@@ -67,7 +67,7 @@
       <view class="upLoadText">
         上传物品图片(最多上传6张)
       </view>
-      <van-uploader file-list="{{ imgList }}" max-count="6" bind:after-read="afterRead" deletable="{{ true }}" />
+      <van-uploader file-list="{{ imgList }}" max-count="6" bind:after-read="afterRead" deletable="{{ true }}" catch:delete="onDelete"/>
     </van-cell-group> 
   </view>
   <view class="publishButtonArea">

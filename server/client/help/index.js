@@ -142,10 +142,10 @@ router.post('/comment/add', async (req, res) => {
 // 模糊检索物品名字
 router.get('/search/name', async (req, res) => {
   try {
-    const { name } = req.query;
-    const _name = new RegExp(name, 'i');
+    const { title } = req.query;
+    const _title = new RegExp(title, 'i');
     const result = await Help.find({
-      name: _name
+      title: _title
     });
     res.send(result);
   } catch(error) {

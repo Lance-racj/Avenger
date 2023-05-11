@@ -20,6 +20,10 @@
       margin-left: 10rpx;
       .name {
         font-weight: bold;
+        width: 350rpx;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
       }
       .region {
         margin-top: 35rpx;

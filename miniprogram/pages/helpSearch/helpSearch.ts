@@ -59,7 +59,7 @@ Page({
       keyWord: data
     })
     const params = {
-      name: this.data.keyWord
+      title: this.data.keyWord
     }
     helpService.searchByName(params).then((res) => {
       this.setData({

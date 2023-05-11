@@ -39,7 +39,7 @@
     </van-cell-group>
     <van-cell-group class="date">
       <van-field
-        label="{{ type === '1'? '拾取时间': '丢失时间' }}"
+        label="{{ type === '0'? '拾取时间': '丢失时间' }}"
         value="{{ date }}"
         placeholder="请输入丢失/拾取时间"
         bind:change="changeDate"
@@ -47,7 +47,7 @@
     </van-cell-group>
     <van-cell-group class="region">
       <van-field
-        label="{{ type === '1'? '拾取地点': '丢失地点' }}"
+        label="{{ type === '0'? '拾取地点': '丢失地点' }}"
         value="{{ region }}"
         placeholder="请输入丢失/拾取地点"
         bind:change="changeRegion"
@@ -78,7 +78,7 @@
       <view class="upLoadText">
         上传物品图片(最多上传6张)
       </view>
-      <van-uploader file-list="{{ imgList }}" max-count="6" bind:after-read="afterRead" deletable="{{ true }}" />
+      <van-uploader catch:delete="onDelete" file-list="{{ imgList }}" max-count="6" bind:after-read="afterRead" deletable="{{ true }}" />
     </van-cell-group> 
   </view>
   <view class="publishButtonArea">

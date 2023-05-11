@@ -74,7 +74,7 @@ class HelpService {
    * search 搜索
    * @param params ....
    */
-  async searchByName(params: {name: string, type?: string}): Promise<any> {
+  async searchByName(params: { title: string }): Promise<any> {
     return httpRequest.get<any>(`${baseUrl}/help/search/name`, params);
   }
 }

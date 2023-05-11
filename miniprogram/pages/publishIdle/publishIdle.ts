@@ -17,12 +17,17 @@ const options = [
   {
     text: '电子产品',
     value: '32003',
-    children: [{ text: '游戏机', value: '320031' }, { text: '电脑', value: '320032' }, { text: '手机', value: '320033' }],
+    children: [{ text: '游戏机', value: '320031' }, { text: '电脑', value: '320032' }, { text: '手机', value: '320033' }, { text: '耳机', value: '320034' }],
   },
   {
     text: '衣服',
     value: '32004',
     children: [{ text: '衬衫', value: '320041' }, { text: '外套', value: '320042' }],
+  },
+  {
+    text: '其他',
+    value: '32005',
+    children: [{ text: '其他1', value: '320051' }, { text: '其他2', value: '320052' }],
   }
 ]
 
@@ -196,5 +201,13 @@ Page({
         Notify('发布失败，请检查内容后重新发布');
       });
     }
+  },
+  onDelete(event: any) {
+    const index = event.detail.index;
+    const imgList = this.data.imgList;
+    imgList.splice(index, 1);
+    this.setData({
+      imgList
+    })
   }
 })
