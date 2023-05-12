@@ -273,9 +273,6 @@ const HelpSchema = new mongoose.Schema({
   money: {
     type: Number
   },
-  status: {
-    type: Number
-  },
   time: {
     type: String
   },
